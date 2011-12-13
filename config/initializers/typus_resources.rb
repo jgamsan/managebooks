@@ -10,13 +10,13 @@ Typus::Resources.setup do |config|
   # config.form_rows = 15
 
   # Defines minute_step.
-  # config.minute_step = 5
+  config.minute_step = 5
 
   # Defines only_user_items.
   # config.only_user_items = false
 
   # Defines per_page.
-  # config.per_page = 25
+  config.per_page = 10
 
   # Defines start_year.
   # config.start_year = nil

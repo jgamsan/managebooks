@@ -9,29 +9,30 @@
       </ul>
     </div>
   <% end %>
-  <div class="clearfix">
-    <%= label_tag :name %>
-    <div class="input">
-      <%= text_field_tag :name, @identity.try(:name), :class => 'xlarge', :size => 20 %>
-    </div>
+  <div class="formbody">
+    <label for="name">
+      Name
+      <br/>
+      <%= text_field_tag :name, @identity.try(:name), :style => "width: 21em;", :class => "text" %>
+    </label>
+    <label for="email">
+      Email
+      <br/>
+      <%= email_field_tag :email, @identity.try(:email), :style => "width: 21em;", :class => "text" %>
+    </label>
+    <label for="password">
+      Password
+      <br/>
+      <%= password_field_tag :password, nil, :style => "width: 21em;", :class => "text" %>
+    </label>
+    <label for="password_confirmation">
+      Password Confirmation
+      <br/>
+      <%= password_field_tag :password_confirmation, nil, :style => "width: 21em;", :class => "text" %>
+    </label>
+    <label class="submit_btn">
+      <%= submit_tag "Register" %>
+    </label>
+
   </div>
-  <div class="clearfix">
-    <%= label_tag :email %>
-    <div class="input">
-      <%= email_field_tag :email, @identity.try(:email), :class => 'xlarge', :size => 20 %>
-    </div>
-  </div>
-  <div class="clearfix">
-    <%= label_tag :password %>
-    <div class="input">
-      <%= password_field_tag :password, :class => 'xlarge', :size => 20 %>
-    </div>
-  </div>
-  <div class="clearfix">
-    <%= label_tag :password_confirmation %>
-    <div class="input">
-      <%= password_field_tag :password_confirmation, :class => 'xlarge', :size => 20 %>
-    </div>
-  </div>
-  <div class="actions"><%= submit_tag "Register", :class => 'btn primary' %></div>
 <% end %>

@@ -1,7 +1,159 @@
-/*
- * This is a manifest file that'll automatically include all the stylesheets available in this directory
- * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
- * the top of the compiled file, but it's generally better to create a new file per style scope.
- *= require_self
- *= require bootstrap
-*/
+#login {
+  width: 31em;
+}
+.login_form {
+    margin: 5em auto;
+    font: 13.34px/1.4 helvetica,arial,freesans,clean,sans-serif;
+}
+.login_form .formbody {
+    background-color: #E9F1F4;
+    border-color: #E9F1F4 #D8DEE2 #D8DEE2;
+    border-radius: 0 0 3px 3px;
+    border-style: solid;
+    border-width: 1px 1px 2px;
+    overflow: hidden;
+    padding: 2em;
+}
+.login_form .nothing-to-see-here {
+    color: #222222;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 0;
+}
+.login_form pre {
+    font-size: 13px;
+}
+.login_form h1 {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: -moz-linear-gradient(center top , #829AA8, #405A6A) repeat scroll 0 0 transparent;
+    border-color: #677C89 #677C89 #6B808D;
+    border-radius: 3px 3px 0 0;
+    border-style: solid;
+    border-width: 1px;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    padding: 8px 18px;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.7);
+}
+.login_form h1 a {
+    color: #E9F1F4;
+    font-size: 70%;
+    font-weight: normal;
+    text-shadow: none;
+}
+.login_form h1 a:hover {
+}
+.login_form p {
+    color: #2F424E;
+    font-size: 12px;
+    font-weight: normal;
+    margin: 0;
+    text-shadow: 0 -1px 0 rgba(100, 100, 100, 0.1);
+}
+.login_form p.note {
+    color: #AA0000;
+}
+.login_form ul {
+    border-bottom: 1px solid #D8DEE2;
+    margin: 0.2em 0 1.5em;
+    padding: 0 0 2em;
+}
+.login_form ul li {
+    color: #2F424E;
+    font-size: 12px;
+    font-weight: bold;
+    list-style-position: inside;
+}
+.login_form form {
+}
+.login_form form label, .login_form form .label, label.standard {
+    color: #2F424E;
+    cursor: text;
+    display: inline-block;
+    font-size: 110%;
+    text-shadow: 0 -1px 0 rgba(100, 100, 100, 0.1);
+}
+.login_form form label a {
+    font-size: 90%;
+}
+.login_form form label.error {
+    color: #AA0000;
+}
+.login_form form .label label {
+    color: black;
+    font-size: 95%;
+    margin: 0;
+}
+.login_form form .label span {
+    color: #888888;
+    font-size: 90%;
+}
+.login_form form input.text, .login_form form textarea {
+    border: 1px solid #D8DEE2;
+    margin: 0.2em 0 1em;
+    padding: 5px;
+}
+.login_form form input.text {
+    font-size: 110%;
+}
+.login_form form textarea {
+}
+.login_form button {
+    margin: 0 8px 0 0;
+}
+.login_form form input[type="submit"] {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: -moz-linear-gradient(-90deg, #FFFFFF, #E1E1E1) repeat scroll 0 0 transparent;
+    border-color: -moz-use-text-color -moz-use-text-color #EBEBEB;
+    border-radius: 4px 4px 4px 4px;
+    border-style: none none solid;
+    border-width: medium medium 1px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    color: #333333;
+    cursor: pointer;
+    display: inline-block;
+    font-family: helvetica,arial,freesans,clean,sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    height: 34px;
+    margin-left: 1px;
+    overflow: visible;
+    padding: 0 13px;
+    position: relative;
+    text-shadow: 1px 1px 0 #FFFFFF;
+    top: 1px;
+    white-space: nowrap;
+}
+.login_form form input[type="submit"]:hover {
+    background: -moz-linear-gradient(-90deg, #0CA6DD, #0770A0) repeat scroll 0 0 transparent;
+    border-bottom-color: #0770A0;
+    color: #FFFFFF;
+    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.3);
+}
+.login_form form .error_box, .login_form form .notification {
+    margin-bottom: 1em;
+}
+input.error[type="text"], .login_form form label.error input.text, .login_form form label.error textarea {
+    background-color: #F2E1E1;
+    border: 1px solid #AA0000;
+}
+.login_form form p.hint {
+    color: gray;
+    margin: -1em 0 1em;
+}
+.site {
+  margin: 0 auto;
+  padding: 0 15px;
+  width: 920px;
+  height: 450px;
+}
