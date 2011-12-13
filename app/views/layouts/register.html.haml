@@ -1,0 +1,15 @@
+!!! 5
+!!!
+%html
+  %head
+    %title Register in GaliSports
+    = stylesheet_link_tag 'register'
+    = csrf_meta_tags
+  %body
+    .container
+      .content
+        .page-header
+          %h1 Register in Application
+          .row
+            .span-one_third.offset-one-third
+              = yield(:main)

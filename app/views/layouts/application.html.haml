@@ -1,0 +1,41 @@
+!!! 5
+!!!
+%html
+  %head
+    %title GaliSport
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body{:style => "padding-top: 60px;"}
+    #topbar.container-fluid
+      .row
+        .span5.well
+          %ul
+            %li.register
+              = link_to "Registrarse", new_identity_path
+            - if current_user
+              %li.logout
+                = link_to 'Logout', logout_path
+        .span5.well
+          = render :partial =>  'welcome/form'
+          - if current_user
+            %p.pull-left.user
+              = current_user.name
+        .span3.well
+          %a{:href => "/auth/facebook", :class => "auth_provider"}
+            = image_tag "facebook_32.png", :alt => "Facebook"
+          %a{:href => "/auth/google_apps", :class => "auth_provider"}
+            = image_tag 'google_32.png', :alt => "Google"
+          %a{:href =>"/auth/twitter", :class => "auth_provider"}
+            = image_tag 'twitter_32.png', :alt => "Twitter"
+        .span3.well
+    .container-fluid
+      .sidebar
+        .well
+          = render :partial => 'welcome/categories'
+        .well#bycategory
+        .well#bystore
+      .content
+        .hero-unit#content_main
+        %footer
+          %p &copy; Galisports 2011

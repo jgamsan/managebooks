@@ -1,0 +1,5 @@
+%h5 Categorias
+%ul
+  - @categorias.each do |categoria|
+    %li.category
+      = link_to categoria.name, {:controller => "welcome", :action => "bycategory", :id => categoria.id}, :remote => true
