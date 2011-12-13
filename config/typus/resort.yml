@@ -7,5 +7,5 @@ Resort:
     form: name, store
     options:
       selectors: stores
-  relationships: store
+  relationships: store, intervals
   application: Application

@@ -1,0 +1,28 @@
+<div class="row" id="information">
+  <div class="span3">
+    <h5>Dia Anterior</h5>
+  </div>
+  <div class="span8">
+    <%= l Date.today, :format => "%A, %d de %B de %Y" %>
+  </div>
+  <div class="span3">
+    <h5>Dia Siguiente</h5>
+  </div>
+</div>
+<div class="row" id="list">
+  <div class="span8 offset4">
+    <table>
+      <tr>
+        <th>Hora Cita</th>
+        <th>Reserva</th>
+      </tr>
+      <% @intervals.each do |interval| %>
+          <tr>
+            <td>
+              <%= interval.init.strftime("%H:%M") %>
+            </td>
+          </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
