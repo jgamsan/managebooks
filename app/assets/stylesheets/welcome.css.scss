@@ -1,3 +1,58 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.auth_provider {
+  float: left;
+  text-decoration: none;
+  margin-right: 20px;
+  text-align: center;
+  margin-bottom: 10px;
+
+  img {
+    display: block;
+  }
+}
+
+li.register {
+  list-style: none;
+  background: url(image_path("user_blue.png")) left center no-repeat;
+  padding-left: 25px;
+  height: 24px;
+}
+
+li.logout {
+  list-style: none;
+  background: url(image_path("unlock_fill_18x24.png")) left center no-repeat;
+  padding-left: 25px;
+  height: 24px;
+  padding-top: 5px;
+}
+p.user{
+  background: url(image_path("user_green.png")) left bottom no-repeat;
+  padding-left: 25px;
+  height: 24px;
+}
+
+li.category {
+  list-style: none;
+  background: url(image_path("map_pin.png")) left center no-repeat;
+  padding-left: 25px;
+  height: 24px;
+  padding-top: 5px;
+}
+
+li.stores {
+  list-style: none;
+  background: url(image_path("pin.png")) left center no-repeat;
+  padding-left: 20px;
+  height: 30px;
+  padding-top: 5px;
+}
+
+li.resorts {
+  list-style: none;
+  background: url(image_path("tag.png")) left center no-repeat;
+  padding-left: 20px;
+  height: 30px;
+  padding-top: 5px;
+}
