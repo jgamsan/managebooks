@@ -1,0 +1,8 @@
+<h5><%= @category.name %></h5>
+<ul>
+  <% @stores.each do |store| %>
+    <li class="stores">
+      <%= link_to store.name, {:action => "bystore", :id => store.id }, :remote => true %>
+    </li>
+  <% end %>
+</ul>

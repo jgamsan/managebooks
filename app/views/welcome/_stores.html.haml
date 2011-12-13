@@ -1,6 +1,0 @@
-%h5
-  = @category.name
-%ul
-  - @stores.each do |store|
-    %li.stores
-      = link_to store.name, {:action => "bystore", :id => store.id }, :remote => true
