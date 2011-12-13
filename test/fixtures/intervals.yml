@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  resort_id: 1
+  init: 2011-12-13 18:13:59
+  end: 2011-12-13 18:13:59
+
+two:
+  resort_id: 1
+  init: 2011-12-13 18:13:59
+  end: 2011-12-13 18:13:59

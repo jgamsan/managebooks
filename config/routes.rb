@@ -1,5 +1,8 @@
 Managebooks::Application.routes.draw do
 
+  get "books/daily"
+  resources :intervals
+
   resources :identities
 
   get "welcome/index"

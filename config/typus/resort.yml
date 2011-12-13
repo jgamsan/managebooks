@@ -1,0 +1,11 @@
+# Use the README file as a reference to customize settings.
+
+Resort:
+  fields:
+    default: name, store
+    list: name, store
+    form: name, store
+    options:
+      selectors: stores
+  relationships: store
+  application: Application

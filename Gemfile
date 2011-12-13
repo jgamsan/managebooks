@@ -34,7 +34,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'i18n'
 # Use unicorn as the web server
 # gem 'unicorn'
-
+gem 'typus'
 # Deploy with Capistrano
 # gem 'capistrano'
 

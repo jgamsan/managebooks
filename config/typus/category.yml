@@ -1,0 +1,9 @@
+# Use the README file as a reference to customize settings.
+
+Category:
+  fields:
+    default: name
+    list: name
+    form: name
+  relationships: stores
+  application: Application

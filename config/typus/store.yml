@@ -1,0 +1,11 @@
+# Use the README file as a reference to customize settings.
+
+Store:
+  fields:
+    default: name, category
+    list: name, category
+    form: name, category
+    options:
+      selectors: categories
+  relationships: resorts, category
+  application: Application

@@ -1,0 +1,11 @@
+# Use the README file as a reference to customize settings.
+
+Interval:
+  fields:
+    default: resort, init, end
+    list: resort, init, end
+    form: resort, init, end
+    options:
+      selectors: resorts
+  relationships: resort
+  application: Application
