@@ -1,4 +1,5 @@
 class WelcomeController < ApplicationController
+  layout 'application'
   def index
     @categorias = Category.all
     @stores = Store.last_stores
