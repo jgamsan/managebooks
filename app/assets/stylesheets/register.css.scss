@@ -4,8 +4,8 @@
 .login_form {
     margin: 5em auto;
     font: 13.34px/1.4 helvetica,arial,freesans,clean,sans-serif;
-}
-.login_form .formbody {
+
+ .formbody {
     background-color: #E9F1F4;
     border-color: #E9F1F4 #D8DEE2 #D8DEE2;
     border-radius: 0 0 3px 3px;
@@ -13,17 +13,17 @@
     border-width: 1px 1px 2px;
     overflow: hidden;
     padding: 2em;
-}
-.login_form .nothing-to-see-here {
+ }
+ .nothing-to-see-here {
     color: #222222;
     font-size: 18px;
     font-weight: bold;
     margin-top: 0;
-}
-.login_form pre {
+ }
+ pre {
     font-size: 13px;
-}
-.login_form h1 {
+ }
+ h1 {
     -moz-border-bottom-colors: none;
     -moz-border-image: none;
     -moz-border-left-colors: none;
@@ -40,74 +40,74 @@
     margin: 0;
     padding: 8px 18px;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.7);
-}
-.login_form h1 a {
+ }
+ h1 a {
     color: #E9F1F4;
     font-size: 70%;
     font-weight: normal;
     text-shadow: none;
-}
-.login_form h1 a:hover {
-}
-.login_form p {
+ }
+ h1 a:hover {
+ }
+ p {
     color: #2F424E;
     font-size: 12px;
     font-weight: normal;
     margin: 0;
     text-shadow: 0 -1px 0 rgba(100, 100, 100, 0.1);
-}
-.login_form p.note {
+ }
+ p.note {
     color: #AA0000;
-}
-.login_form ul {
+ }
+ ul {
     border-bottom: 1px solid #D8DEE2;
     margin: 0.2em 0 1.5em;
     padding: 0 0 2em;
-}
-.login_form ul li {
+ }
+ ul li {
     color: #2F424E;
     font-size: 12px;
     font-weight: bold;
     list-style-position: inside;
-}
-.login_form form {
-}
-.login_form form label, .login_form form .label, label.standard {
+ }
+ form {
+ }
+ form label, form .label, label.standard {
     color: #2F424E;
     cursor: text;
     display: inline-block;
     font-size: 110%;
     text-shadow: 0 -1px 0 rgba(100, 100, 100, 0.1);
-}
-.login_form form label a {
+ }
+ form label a {
     font-size: 90%;
-}
-.login_form form label.error {
+ }
+ form label.error {
     color: #AA0000;
-}
-.login_form form .label label {
+ }
+ form .label label {
     color: black;
     font-size: 95%;
     margin: 0;
-}
-.login_form form .label span {
+ }
+ form .label span {
     color: #888888;
     font-size: 90%;
-}
-.login_form form input.text, .login_form form textarea {
+ }
+ form input.text, form textarea {
     border: 1px solid #D8DEE2;
     margin: 0.2em 0 1em;
     padding: 5px;
-}
-.login_form form input.text {
+ }
+ form input.text {
     font-size: 110%;
-}
-.login_form form textarea {
-}
-.login_form button {
+ }
+ form textarea {
+ }
+ button {
     margin: 0 8px 0 0;
-}
-.login_form form input[type="submit"] {
+ }
+ form input[type="submit"] {
     -moz-border-bottom-colors: none;
     -moz-border-image: none;
     -moz-border-left-colors: none;
@@ -133,23 +133,24 @@
     text-shadow: 1px 1px 0 #FFFFFF;
     top: 1px;
     white-space: nowrap;
-}
-.login_form form input[type="submit"]:hover {
+ }
+ form input[type="submit"]:hover {
     background: -moz-linear-gradient(-90deg, #0CA6DD, #0770A0) repeat scroll 0 0 transparent;
     border-bottom-color: #0770A0;
     color: #FFFFFF;
     text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.3);
-}
-.login_form form .error_box, .login_form form .notification {
+ }
+ form .error_box, form .notification {
     margin-bottom: 1em;
-}
-input.error[type="text"], .login_form form label.error input.text, .login_form form label.error textarea {
+ }
+ input.error[type="text"], form label.error input.text, form label.error textarea {
     background-color: #F2E1E1;
     border: 1px solid #AA0000;
-}
-.login_form form p.hint {
+ }
+ form p.hint {
     color: gray;
     margin: -1em 0 1em;
+ }
 }
 .site {
   margin: 0 auto;
