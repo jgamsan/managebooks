@@ -37,10 +37,10 @@ gem 'i18n'
 gem 'typus'
 # Deploy with Capistrano
 # gem 'capistrano'
-
+gem 'squeel'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
-
+gem "gritter", "1.0.0"
 group :test do
   # Pretty printed test output
   gem 'turn', '0.8.2', :require => false

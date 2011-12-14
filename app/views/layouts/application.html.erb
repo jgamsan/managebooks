@@ -7,40 +7,46 @@
   <%= csrf_meta_tags %>
 </head>
 <body style = "padding-top: 30px;">
+  <%= js add_gritter(flash[:notice], :image => :notice, :title => "Atencion!", :sticky => false, :time => 3000) %>
   <div id="topbar" class="container-fluid">
     <div class="row">
-      <div class="span5 well">
-        <ul>
-          <li class="register">
-            <%= link_to "Registrarse", new_identity_path %>
-          </li>
-          <% if current_user %>
-            <li class="logout">
-              <%= link_to 'Logout', logout_path %>
-            </li>
-          <% end %>
-        </ul>
+      <div class="span16 well">
+        <div class="row">
+          <div class="span5">
+            <ul>
+              <li class="register">
+                <%= link_to "Registrarse", new_identity_path %>
+              </li>
+              <% if current_user %>
+                <li class="logout">
+                  <%= link_to 'Logout', logout_path %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+          <div class="span5">
+            <%= render :partial =>  'welcome/form' %>
+            <% if current_user %>
+              <p class="pull-left user">
+                <%= current_user.name %>
+              </p>
+            <% end %>
+          </div>
+          <div class="span3">
+            <a href="/auth/facebook" class = "auth_provider">
+              <%= image_tag("facebook_32.png", :alt => "Facebook") %>
+            </a>
+            <a href="/auth/google_apps" class = "auth_provider">
+              <%= image_tag('google_32.png', :alt => "Google")%>
+            </a>
+            <a href="/auth/twitter" class = "auth_provider">
+              <%= image_tag('twitter_32.png', :alt => "Twitter")%>
+            </a>
+          </div>
+          <div class="span3"></div>
+        </div>
+
       </div>
-      <div class="span5 well">
-        <%= render :partial =>  'welcome/form' %>
-        <% if current_user %>
-          <p class="pull-left user">
-            <%= current_user.name %>
-          </p>
-        <% end %>
-      </div>
-      <div class="span3 well">
-        <a href="/auth/facebook" class = "auth_provider">
-          <%= image_tag("facebook_32.png", :alt => "Facebook") %>
-        </a>
-        <a href="/auth/google_apps" class = "auth_provider">
-          <%= image_tag('google_32.png', :alt => "Google")%>
-        </a>
-        <a href="/auth/twitter" class = "auth_provider">
-          <%= image_tag('twitter_32.png', :alt => "Twitter")%>
-        </a>
-      </div>
-      <div class="span3 well"></div>
     </div>
   </div>
   <div class="container-fluid">

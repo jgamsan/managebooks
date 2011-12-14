@@ -1,4 +1,5 @@
 <div class="row" id="information">
+  <h3 style="text-align: center"><%= @resort.name %></h3>
   <div class="span3">
     <h5>Dia Anterior</h5>
   </div>
@@ -19,8 +20,9 @@
       <% @intervals.each do |interval| %>
           <tr>
             <td>
-              <%= interval.init.strftime("%H:%M") %>
+              <%= interval.init.strftime("%H:%M") %> - <%= interval.end.strftime("%H:%M") %>
             </td>
+            <td><%= link_to (image_tag "check_green_alt_24x24.png"), assign_book_path(interval.resort.id, interval.id), :remote => true %></td>
           </tr>
       <% end %>
     </table>

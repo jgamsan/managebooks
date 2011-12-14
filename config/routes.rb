@@ -1,6 +1,8 @@
 Managebooks::Application.routes.draw do
 
   get "books/daily"
+  get "books/update_books"
+
   resources :intervals
 
   resources :identities
@@ -28,7 +30,7 @@ Managebooks::Application.routes.draw do
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
-
+  match 'books/:id/:gd/assign_book' => 'books#assign_book', :as => :assign_book
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
