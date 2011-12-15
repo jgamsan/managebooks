@@ -1,8 +1,9 @@
 Managebooks::Application.routes.draw do
 
-  get "books/daily"
+  get "books/view_daily"
   get "books/update_books"
   get "books/list_books"
+  get "books/view_weekly"
   resources :intervals
 
   resources :identities

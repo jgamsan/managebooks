@@ -3,7 +3,7 @@
   <% @resorts.each do |resort| %>
     <li class="resorts">
       <% if current_user %>
-        <%= link_to resort.name, {:controller => "books", :action => "daily", :id => resort.id}, :remote => true %>
+        <%= link_to resort.name, {:controller => "books", :action => "view_daily", :id => resort.id}, :remote => true %>
       <% else %>
         <%= resort.name %>
       <% end %>

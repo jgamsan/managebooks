@@ -6,12 +6,26 @@ class BooksController < ApplicationController
     end
   end
 
-  def daily
+  def view_daily
     @resort = Resort.find(params[:id])
-    @intervals = Interval.by_resort(params[:id])
+    @intervals = Book.by_resort(params[:id], Date.today)
     respond_to do |format|
       format.js
     end
+  end
+
+  def view_weekly
+    fecha = params[:id].to_date
+      if fecha.cwday > 5 then
+        inicial = fecha + (8 - fecha.cwday)
+      else
+        inicial = fecha
+      end
+      if inicial.cweek > fecha.cweek then
+        @primero = inicial
+      else
+        @primero = fecha - fecha.cwday + 1
+      end
   end
 
   def assign_book
@@ -23,7 +37,7 @@ class BooksController < ApplicationController
     t.interval_id = params[:gd]
     respond_to do |format|
       if t.save
-        @intervals = Interval.by_resort(@resort.id)
+        @intervals = Book.by_resort(@resort.id, Date.today)
         flash[:notice] = "Cita creada correctamente"
         format.js
       end
@@ -32,7 +46,7 @@ class BooksController < ApplicationController
 
   def update_books(resort)
     @resort = Resort.find(resort.id)
-    @intervals = Interval.byresort(resort.id)
+    @intervals = Book.by_resort(resort.id, Date.today)
     respond_to do |format|
       format.js
     end
