@@ -56,3 +56,11 @@ li.resorts {
   height: 30px;
   padding-top: 5px;
 }
+
+li.list_book {
+  list-style: none;
+  background: url(image_path("info_12x24.png")) left center no-repeat;
+  padding-left: 26px;
+  height: 24px;
+  padding-top: 5px;
+}

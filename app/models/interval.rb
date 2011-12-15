@@ -4,7 +4,7 @@ class Interval < ActiveRecord::Base
   class << self
     def by_resort(value)
       books = Book.busy(Date.today, value)
-      Interval.where{id.not_in(books.select{interval_id})}
+      Interval.where{(id.not_in(books.select{interval_id})) & (resort_id == value)}
     end
   end
 

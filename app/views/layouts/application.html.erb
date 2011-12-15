@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body style = "padding-top: 30px;">
-  <%= js add_gritter(flash[:notice], :image => :notice, :title => "Atencion!", :sticky => false, :time => 3000) %>
+  <%= js add_gritter(flash[:notice], :image => :notice, :title => "Atencion!", :sticky => false, :time => 2000) %>
   <div id="topbar" class="container-fluid">
     <div class="row">
       <div class="span16 well">
@@ -18,6 +18,9 @@
                 <%= link_to "Registrarse", new_identity_path %>
               </li>
               <% if current_user %>
+                <li class="list_book">
+                  <%= link_to 'Reservas', books_list_books_path, :remote => true %>
+                </li>
                 <li class="logout">
                   <%= link_to 'Logout', logout_path %>
                 </li>

@@ -2,7 +2,7 @@ Managebooks::Application.routes.draw do
 
   get "books/daily"
   get "books/update_books"
-
+  get "books/list_books"
   resources :intervals
 
   resources :identities

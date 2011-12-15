@@ -1,4 +1,11 @@
 class BooksController < ApplicationController
+  def list_books
+    @books = Book.by_user(current_user.uid)
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def daily
     @resort = Resort.find(params[:id])
     @intervals = Interval.by_resort(params[:id])
