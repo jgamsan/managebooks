@@ -1,37 +1,24 @@
 <div class="row" id="information">
-  <h3 style="text-align: center"><%= @resort.name %></h3>
+  <h3 style="text-align: center"><%= @resort.name %>(Vista Semanal)</h3>
   <div class="span3">
     <%= image_tag "calendar_24x24.png" %>
-    <%= image_tag "calendar_alt_fill_24x24.png" %>
+    <%#= image_tag "calendar_alt_fill_24x24.png" %>
     <%= image_tag "calendar_alt_stroke_24x24.png" %>
   </div>
 </div>
 <div class="row">
   <div class="span3">
-    <h5>Dia Anterior</h5>
+    <h5> Semana Anterior</h5>
   </div>
   <div class="span8">
     <%= l Date.today, :format => "%A, %d de %B de %Y" %>
   </div>
   <div class="span3">
-    <h5>Dia Siguiente</h5>
+    <h5>Semana Siguiente</h5>
   </div>
 </div>
 <div class="row" id="list">
-  <div class="span8 offset4">
-    <table>
-      <tr>
-        <th>Hora Cita</th>
-        <th>Reserva</th>
-      </tr>
-      <% @intervals.each do |interval| %>
-          <tr>
-            <td>
-              <%= interval.init.strftime("%H:%M") %> - <%= interval.end.strftime("%H:%M") %>
-            </td>
-            <td><%= link_to (image_tag "check_green_alt_24x24.png"), assign_book_path(interval.resort.id, interval.id), :remote => true %></td>
-          </tr>
-      <% end %>
-    </table>
+  <div class="span12 offset2">
+    <%= calendar_weekly(@intervals) %>
   </div>
 </div>

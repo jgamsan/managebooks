@@ -15,29 +15,41 @@ class BooksController < ApplicationController
   end
 
   def view_weekly
-    fecha = params[:id].to_date
-      if fecha.cwday > 5 then
-        inicial = fecha + (8 - fecha.cwday)
-      else
-        inicial = fecha
-      end
-      if inicial.cweek > fecha.cweek then
-        @primero = inicial
-      else
-        @primero = fecha - fecha.cwday + 1
-      end
+    @resort = Resort.find(params[:id])
+    fecha = params[:gd].to_date
+    if fecha.cwday > 5 then
+      inicial = fecha + (8 - fecha.cwday)
+    else
+      inicial = fecha
+    end
+    if inicial.cweek > fecha.cweek then
+      @primero = inicial
+    else
+      @primero = fecha - fecha.cwday + 1
+    end
+    @lunes = Book.by_resort(params[:id], @primero).map {|x| x.id}.flatten
+    @martes = Book.by_resort(params[:id], @primero + 1.day).map {|x| x.id}.flatten
+    @miercoles = Book.by_resort(params[:id], @primero + 2.day).map {|x| x.id}.flatten
+    @jueves = Book.by_resort(params[:id], @primero + 3.day).map {|x| x.id}.flatten
+    @viernes = Book.by_resort(params[:id], @primero + 4.day).map {|x| x.id}.flatten
+    @sabado = Book.by_resort(params[:id], @primero + 5.day).map {|x| x.id}.flatten
+    @domingo = Book.by_resort(params[:id], @primero + 6.day).map {|x| x.id}.flatten
+    @intervals = Interval.all
+    respond_to do |format|
+      format.js
+    end
   end
 
   def assign_book
-    @resort = Resort.find(params[:id])
+    r = Interval.find(params[:id]).resort_id
     t = Book.new
     t.user_id = current_user.id
-    t.resort_id = @resort.id
-    t.day = Date.today
-    t.interval_id = params[:gd]
+    t.resort_id = r
+    t.day = params[:gd]
+    t.interval_id = params[:id]
     respond_to do |format|
       if t.save
-        @intervals = Book.by_resort(@resort.id, Date.today)
+        @intervals = Book.by_resort(r, Date.today)
         flash[:notice] = "Cita creada correctamente"
         format.js
       end
