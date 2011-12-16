@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111213180654) do
+ActiveRecord::Schema.define(:version => 20111216083048) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "first_name",       :default => "",    :null => false
@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(:version => 20111213180654) do
 
   create_table "books", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "resort_id"
     t.date     "day"
     t.integer  "interval_id"
     t.datetime "created_at"

@@ -44,7 +44,6 @@ class BooksController < ApplicationController
     r = Interval.find(params[:id]).resort_id
     t = Book.new
     t.user_id = current_user.id
-    t.resort_id = r
     t.day = params[:gd]
     t.interval_id = params[:id]
     respond_to do |format|
