@@ -1,3 +1,3 @@
 $("#content-main").empty();
 $("#content-main").html( "<%= escape_javascript( js add_gritter(flash[:notice], :image => :success, :title => "Atencion!", :sticky => false, :time => 3000) ) %>" );
-$("#content-main").html( "<%= escape_javascript( render( :partial => "view_weekly", :locals => { :intervals => @intervals} ) ) %>" );
+$("#content-main").html( "<%= escape_javascript( render( :partial => "view_daily", :locals => { :intervals => @intervals} ) ) %>" );

@@ -34,7 +34,7 @@ class BooksController < ApplicationController
     @viernes = Book.by_resort(params[:id], @primero + 4.day).map {|x| x.id}.flatten
     @sabado = Book.by_resort(params[:id], @primero + 5.day).map {|x| x.id}.flatten
     @domingo = Book.by_resort(params[:id], @primero + 6.day).map {|x| x.id}.flatten
-    @intervals = Interval.all
+    @intervals = Interval.where(:resort_id => params[:id])
     respond_to do |format|
       format.js
     end
@@ -50,6 +50,7 @@ class BooksController < ApplicationController
     respond_to do |format|
       if t.save
         @intervals = Book.by_resort(r, Date.today)
+        @resort = Resort.find(r)
         flash[:notice] = "Cita creada correctamente"
         format.js
       end
@@ -62,5 +63,21 @@ class BooksController < ApplicationController
     respond_to do |format|
       format.js
     end
+  end
+
+  def next_day
+
+  end
+
+  def previous_day
+
+  end
+
+  def next_week
+
+  end
+
+  def previous_week
+
   end
 end

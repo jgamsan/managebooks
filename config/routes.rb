@@ -3,6 +3,7 @@ Managebooks::Application.routes.draw do
   get "books/view_daily"
   get "books/update_books"
   get "books/list_books"
+
   resources :intervals
 
   resources :identities
@@ -34,6 +35,10 @@ Managebooks::Application.routes.draw do
   #:id para el intervalo, :gd para la fecha
   match 'books/:id/:gd/view_weekly' => 'books#view_weekly', :as => :view_weekly
   # id para el resort :gd para la fecha
+  match 'books/:id/:gd/next_day' => 'books#next_day', :as => :next_day
+  match 'books/:id/:gd/previous_day' => 'books#previous_day', :as => :previous_day
+  match 'books/:id/:gd/next_week' => 'books#next_week', :as => :next_week
+  match 'books/:id/:gd/previous_week' => 'books#previous_week', :as => :previous_week
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 

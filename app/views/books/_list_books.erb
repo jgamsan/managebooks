@@ -1,5 +1,5 @@
 <div class="row" id="list">
-  <div class="span10 offset3">
+  <div class="span11 offset2">
     <% unless @books.empty? %>
       <table>
         <tr>
@@ -7,6 +7,7 @@
           <th>Dia Cita</th>
           <th>Hora Cita</th>
           <th>Reserva</th>
+          <th></th>
         </tr>
         <% @books.each do |book| %>
             <tr>
@@ -16,6 +17,7 @@
                 <%= book.interval.init.strftime("%H:%M") %> - <%= book.interval.end.strftime("%H:%M") %>
               </td>
               <td><%= book.resort.name.capitalize %></td>
+              <td><%= image_tag "x_14x14.png" %></td>
             </tr>
         <% end %>
       </table>

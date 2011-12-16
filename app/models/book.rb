@@ -7,8 +7,8 @@ class Book < ActiveRecord::Base
   scope :total, lambda { |day, resort, user| where{(user_id == user) & (day >= Date.today) & (resort_id == resort)}}
 
   class << self
-    def by_resort(value, day)
-      books = Book.busy(day, value)
+    def by_resort(value, dia)
+      books = Book.where{day == dia}
       Interval.where{(id.not_in(books.select{interval_id})) & (resort_id == value)}
     end
 
