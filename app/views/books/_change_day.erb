@@ -1,0 +1,29 @@
+<div class="row" id="vista">
+  <div class="span3">
+    <%= link_to image_tag("arrow_left_24x24.png"), change_day_path(@resort, @dia_menos ), :remote => true %>
+  </div>
+  <div class="span8">
+    <h4 style="text-align: center"><%= l @dia, :format => "%A, %d de %B de %Y" %></h4>
+  </div>
+  <div class="span3">
+    <%= link_to image_tag("arrow_right_24x24.png"), change_day_path(@resort, @dia_mas), :remote => true %>
+  </div>
+</div>
+<div class="row" id="list">
+  <div class="span8 offset4">
+    <table>
+      <tr>
+        <th>Hora Cita</th>
+        <th>Reserva</th>
+      </tr>
+      <% intervals.each do |interval| %>
+          <tr>
+            <td>
+              <%= interval.init.strftime("%H:%M") %> - <%= interval.end.strftime("%H:%M") %>
+            </td>
+            <td><%= link_to (image_tag "check_green_alt_24x24.png"), assign_book_path(interval.id, Date.today), :remote => true %></td>
+          </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

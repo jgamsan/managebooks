@@ -1,0 +1,2 @@
+$("#daily").empty();
+$( "#daily" ).html( "<%= escape_javascript( render( :partial => "change_day", :locals => { :intervals => @intervals} ) ) %>" );

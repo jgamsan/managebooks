@@ -16,24 +16,16 @@ class BooksController < ApplicationController
 
   def view_weekly
     @resort = Resort.find(params[:id])
-    fecha = params[:gd].to_date
-    if fecha.cwday > 5 then
-      inicial = fecha + (8 - fecha.cwday)
-    else
-      inicial = fecha
-    end
-    if inicial.cweek > fecha.cweek then
-      @primero = inicial
-    else
-      @primero = fecha - fecha.cwday + 1
-    end
-    @lunes = Book.by_resort(params[:id], @primero).map {|x| x.id}.flatten
-    @martes = Book.by_resort(params[:id], @primero + 1.day).map {|x| x.id}.flatten
-    @miercoles = Book.by_resort(params[:id], @primero + 2.day).map {|x| x.id}.flatten
-    @jueves = Book.by_resort(params[:id], @primero + 3.day).map {|x| x.id}.flatten
-    @viernes = Book.by_resort(params[:id], @primero + 4.day).map {|x| x.id}.flatten
-    @sabado = Book.by_resort(params[:id], @primero + 5.day).map {|x| x.id}.flatten
-    @domingo = Book.by_resort(params[:id], @primero + 6.day).map {|x| x.id}.flatten
+    @dia = params[:gd].to_date
+    @primero = calculate_first_day(@dia)
+
+    @lunes = calculate_free_books(@resort.id, @primero)
+    @martes = calculate_free_books(@resort.id, @primero + 1.day)
+    @miercoles = calculate_free_books(@resort.id, @primero + 2.day)
+    @jueves = calculate_free_books(@resort.id, @primero + 3.day)
+    @viernes = calculate_free_books(@resort.id, @primero + 4.day)
+    @sabado = calculate_free_books(@resort.id, @primero + 5.day)
+    @domingo = calculate_free_books(@resort.id, @primero + 6.day)
     @intervals = Interval.where(:resort_id => params[:id])
     respond_to do |format|
       format.js
@@ -64,19 +56,37 @@ class BooksController < ApplicationController
     end
   end
 
-  def next_day
+  def change_day
+    @dia = params[:gd].to_date
+    @resort = params[:id]
+    @intervals = Book.by_resort(@resort, @dia)
+    @dia_mas = @dia.to_date + 1.day
+    @dia_menos = @dia.to_date - 1.day
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def change_week
 
   end
 
-  def previous_day
+  private
 
+  def calculate_first_day(fecha)
+    if fecha.cwday > 5 then
+      inicial = fecha + (8 - fecha.cwday)
+    else
+      inicial = fecha
+    end
+    if inicial.cweek > fecha.cweek then
+      @primero = inicial
+    else
+      @primero = fecha - fecha.cwday + 1
+    end
   end
 
-  def next_week
-
-  end
-
-  def previous_week
-
+  def calculate_free_books(resort, fecha)
+    Book.by_resort(resort, fecha).map {|x| x.id}.flatten
   end
 end

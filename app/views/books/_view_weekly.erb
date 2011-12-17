@@ -1,23 +1,23 @@
 <div class="row" id="information">
   <h3 style="text-align: center"><%= @resort.name %>(Vista Semanal)</h3>
   <div class="span3">
-    <%= link_to image_tag("calendar_24x24.png"), {:controller => 'books', :action => 'view_daily', :id => @resort.id}, :remote => true %>
+    <%= link_to image_tag("calendar_24x24.png"), {:controller => 'books', :action => 'view_daily', :id => @resort}, :remote => true %>
     <%#= image_tag "calendar_alt_stroke_24x24.png" %>
   </div>
 </div>
 <div class="row">
   <div class="span3">
-    <%= image_tag("arrow_left_24x24.png") %>
+    <%= link_to image_tag("arrow_left_24x24.png"), view_weekly_path(@resort.id, @dia - 7.day), :remote => true %>
   </div>
   <div class="span8">
-    <h4 style="text-align: center"><%= l Date.today, :format => "%A, %d de %B de %Y" %></h4>
+    <h4 style="text-align: center"><%= l @dia, :format => "%A, %d de %B de %Y" %></h4>
   </div>
   <div class="span3">
-    <%= image_tag("arrow_right_24x24.png") %>
+    <%= link_to image_tag("arrow_right_24x24.png"), view_weekly_path(@resort.id, @dia + 7.day), :remote => true %>
   </div>
 </div>
 <div class="row" id="list">
   <div class="span12 offset2">
-    <%= calendar_weekly(@intervals) %>
+    <%= calendar_weekly(intervals) %>
   </div>
 </div>
