@@ -67,8 +67,14 @@ class BooksController < ApplicationController
     end
   end
 
-  def change_week
-
+  def delete_books
+    @book = Book.find(params[:id])
+    @book.destroy
+    @books = Book.by_user(current_user.uid)
+    respond_to do |format|
+      flash[:notice] = "Borrada la Cita. Se ha enviado un email a su cuenta con la notificacion"
+      format.js
+    end
   end
 
   private

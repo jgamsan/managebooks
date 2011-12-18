@@ -3,6 +3,7 @@ Managebooks::Application.routes.draw do
   get "books/view_daily"
   get "books/update_books"
   get "books/list_books"
+  get "books/delete_books"
 
   resources :intervals
 

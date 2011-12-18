@@ -1,4 +1,5 @@
 <div class="row" id="list">
+  <h3 style="text-align: center">Listado de Reservas Pendientes</h3>
   <div class="span11 offset2">
     <% unless @books.empty? %>
       <table>
@@ -10,20 +11,19 @@
           <th></th>
         </tr>
         <% @books.each do |book| %>
-            <tr>
-              <td> <%= book.interval.resort.store.name.capitalize %></td>
-              <td><%= l book.day, :format => "%A, %d de %B de %Y" %></td>
-              <td>
-                <%= book.interval.init.strftime("%H:%M") %> - <%= book.interval.end.strftime("%H:%M") %>
-              </td>
-              <td><%= book.interval.resort.name.capitalize %></td>
-              <td><%= image_tag "x_14x14.png" %></td>
-            </tr>
+          <tr>
+            <td> <%= book.interval.resort.store.name.capitalize %></td>
+            <td><%= l book.day, :format => "%A, %d de %B de %Y" %></td>
+            <td>
+              <%= book.interval.init.strftime("%H:%M") %> - <%= book.interval.end.strftime("%H:%M") %>
+            </td>
+            <td><%= book.interval.resort.name.capitalize %></td>
+            <td><%= link_to image_tag("x_14x14.png"), {:controller => 'books', :action => 'delete_books', :id => book}, :confirm => 'Are you sure?', :remote => true %></td>
+          </tr>
         <% end %>
       </table>
     <% else %>
-      <h2>No Tiene Reservas</h2>
+      <h2 style="text-align: center">No Tiene Reservas</h2>
     <% end %>
-
   </div>
 </div>
