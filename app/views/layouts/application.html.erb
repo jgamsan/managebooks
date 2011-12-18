@@ -14,9 +14,11 @@
         <div class="row">
           <div class="span5">
             <ul>
-              <li class="register">
-                <%= link_to "Registrarse", new_identity_path %>
-              </li>
+              <% unless current_user %>
+                <li class="register">
+                  <%= link_to "Registrarse", new_identity_path %>
+                </li>
+              <% end %>
               <% if current_user %>
                 <li class="list_book">
                   <%= link_to 'Reservas', books_list_books_path, :remote => true %>
