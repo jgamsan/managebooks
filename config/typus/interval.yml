@@ -7,6 +7,6 @@ Interval:
     form: resort, init, end
     options:
       selectors: resorts
-  relationships: resort
+  relationships: resort, books
   options:
     only_user_items: false

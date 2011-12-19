@@ -1,0 +1,8 @@
+# Use the README file as a reference to customize settings.
+
+Book:
+  fields:
+    default: user_id, day, interval_id
+    form: user_id, day, interval_id
+  relationships: interval
+  application: Application
