@@ -5,6 +5,10 @@ class Book < ActiveRecord::Base
   scope :busy, lambda { |day, resort| where(:resort_id => resort, :day => day) }
   scope :total, lambda { |day, resort, user| where{(user_id == user) & (day >= Date.today) & (resort_id == resort)}}
 
+  def self.next_days
+    Book.where(:day => Date.today..(Date.today + 7.day))
+  end
+
   class << self
     def by_resort(value, dia)
       books = Book.where{day == dia}
@@ -20,6 +24,8 @@ class Book < ActiveRecord::Base
       @user = User.find_by_uid(usuario)
       @user.books.where(:user_id => @user.id, :day => "=> #{Date.today}")
     end
+
+
   end
 
 end

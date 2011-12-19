@@ -2,7 +2,9 @@
 
 Book:
   fields:
-    default: user_id, day, interval_id
-    form: user_id, day, interval_id
-  relationships: interval
+    default: user, day, interval
+    list: user, day, interval
+    form: user, day, interval
+  relationships: interval, user
+  filters: day
   application: Application
