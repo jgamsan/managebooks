@@ -2,3 +2,6 @@
 
 admin:
   Resort: create, read, update, delete
+
+storeadmin:
+  Resort: create, read, update, delete

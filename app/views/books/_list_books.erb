@@ -18,7 +18,7 @@
               <%= book.interval.init.strftime("%H:%M") %> - <%= book.interval.end.strftime("%H:%M") %>
             </td>
             <td><%= book.interval.resort.name.capitalize %></td>
-            <td><%= link_to image_tag("x_14x14.png"), {:controller => 'books', :action => 'delete_books', :id => book}, :confirm => 'Are you sure?', :remote => true %></td>
+            <td><%= link_to image_tag("x_14x14.png"), {:controller => 'books', :action => 'delete_books', :id => book}, :confirm => 'Estas Seguro?', :remote => true %></td>
           </tr>
         <% end %>
       </table>

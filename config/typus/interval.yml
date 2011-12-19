@@ -8,4 +8,5 @@ Interval:
     options:
       selectors: resorts
   relationships: resort
-  application: Application
+  options:
+    only_user_items: false

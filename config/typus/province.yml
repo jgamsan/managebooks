@@ -1,0 +1,7 @@
+# Use the README file as a reference to customize settings.
+
+Province:
+  fields:
+    default: name
+  relationships: towns
+  application: Application

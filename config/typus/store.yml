@@ -2,10 +2,12 @@
 
 Store:
   fields:
-    default: name, category
-    list: name, category
-    form: name, category
+    default: name, category, address, zip_code, town, phone, cellphone, email, admin_user
+    list: name, category, admin_user
+    form: name, category, address, zip_code, town, phone, cellphone, email, admin_user
     options:
-      selectors: categories
-  relationships: resorts, category
+      selectors: categories, towns, admin_users
+  relationships: resorts, category, town, admin_user
   application: Application
+  options:
+    only_user_items: true

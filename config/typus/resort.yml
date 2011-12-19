@@ -9,3 +9,5 @@ Resort:
       selectors: stores
   relationships: store, intervals
   application: Application
+  options:
+    only_user_items: false

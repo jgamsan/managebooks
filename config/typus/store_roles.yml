@@ -2,3 +2,6 @@
 
 admin:
   Store: create, read, update, delete
+
+storeadmin:
+  Store: create, read, update, delete
