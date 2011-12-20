@@ -70,8 +70,8 @@
       <div class="well" id="bystore"></div>
     </div>
     <div class="content">
-      <div class="hero-unit" id="content-main"></div>
-      <footer><p>&copy; Galisports 2011</p></footer>
+      <div class="hero-unit" id="content-main"><%= gmaps4rails(@json) %></div>
+      <footer><p>&copy; Galisports 2011</p><%= yield :scripts %></footer>
     </div>
   </div>
 </body>

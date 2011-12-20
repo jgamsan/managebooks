@@ -20,7 +20,7 @@ group :assets do
   gem 'execjs'
   gem 'therubyracer'
 end
-
+gem 'gmaps4rails'
 gem 'jquery-rails'
 gem 'omniauth'
 gem 'omniauth-twitter'

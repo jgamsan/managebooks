@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111219210323) do
+ActiveRecord::Schema.define(:version => 20111220113001) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "first_name",       :default => "",    :null => false
@@ -84,6 +84,9 @@ ActiveRecord::Schema.define(:version => 20111219210323) do
     t.string   "cellphone"
     t.string   "email"
     t.integer  "admin_user_id"
+    t.decimal  "latitude"
+    t.decimal  "longitude"
+    t.boolean  "gmaps"
   end
 
   create_table "towns", :force => true do |t|

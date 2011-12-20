@@ -4,6 +4,7 @@ class WelcomeController < ApplicationController
     @categorias = Category.all
     @stores = Store.last_stores
     @provincias = Province.all
+    @json = Store.all.to_gmaps4rails
   end
 
   def bycategory
