@@ -36,7 +36,7 @@ gem 'i18n'
 # gem 'unicorn'
 gem 'typus'
 # Deploy with Capistrano
-# gem 'capistrano'
+gem 'capistrano'
 gem 'squeel'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
