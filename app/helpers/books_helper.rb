@@ -15,7 +15,7 @@ module BooksHelper
     cal << "\t\t</tr>\n\t</thead>\n\t<tbody>\n"
     intervals.each do |interval|
       cal << %(\t\t<tr>\n)
-      cal << "\t\t\t<td>\n #{interval.init.strftime('%H:%M')} - #{interval.end.strftime('%H:%M')} &nbsp;\t\t\t</td>\n"
+      cal << "\t\t\t<td>\n #{interval.init.strftime('%H:%M')} - #{interval.finish.strftime('%H:%M')} &nbsp;\t\t\t</td>\n"
       unless @lunes.include?(interval.id)
         cal << "\t\t\t<td align='center'>\n" + image_tag("check_grey_alt_24x24.png") + "&nbsp;\t\t\t</td>\n"
       else

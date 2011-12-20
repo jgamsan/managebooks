@@ -1,0 +1,14 @@
+<div class="well">
+  <form class="form-stacked">
+    <div class="clearfix">
+      <div class="input">
+        <%= select_tag 'Provincia', options_from_collection_for_select(@provincias, "id", "name"), :class => 'medium' %>
+      </div>
+    </div>
+    <div class="clearfix">
+      <div class="input">
+        <%#= select_tag 'Localidad', nil, :class => 'medium' %>
+      </div>
+    </div>
+  </form>
+</div>

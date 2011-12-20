@@ -3,6 +3,7 @@ class WelcomeController < ApplicationController
   def index
     @categorias = Category.all
     @stores = Store.last_stores
+    @provincias = Province.all
   end
 
   def bycategory

@@ -6,54 +6,58 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
-<body style = "padding-top: 30px;background-color:#B3BFBF ">
+<body style = "padding-top: 20px;background-color:#B3BFBF ">
   <%= js add_gritter(flash[:notice], :image => :notice, :title => "Atencion!", :sticky => false, :time => 2000) %>
   <div id="topbar" class="container-fluid">
-    <div class="row">
-      <div class="span16 well">
-        <div class="row">
-          <div class="span5">
-            <ul>
-              <% unless current_user %>
-                <li class="register">
-                  <%= link_to "Registrarse", new_identity_path %>
-                </li>
-              <% end %>
+    <div class="sidebar">
+      <%= render :partial => 'welcome/situation' %>
+    </div>
+    <div class="content">
+      <div class="row">
+        <div class="span16 well">
+          <div class="row">
+            <div class="span5">
+              <ul>
+                <% unless current_user %>
+                  <li class="register">
+                    <%= link_to "Registrarse", new_identity_path %>
+                  </li>
+                <% end %>
+                <% if current_user %>
+                  <li class="list_book">
+                    <%= link_to 'Reservas', books_list_books_path, :remote => true %>
+                  </li>
+                  <li class="logout">
+                    <%= link_to 'Logout', logout_path %>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+            <div class="span5">
+              <%= render :partial =>  'welcome/form' %>
               <% if current_user %>
-                <li class="list_book">
-                  <%= link_to 'Reservas', books_list_books_path, :remote => true %>
-                </li>
-                <li class="logout">
-                  <%= link_to 'Logout', logout_path %>
-                </li>
+                <p class="pull-left user">
+                  <%= current_user.name %>
+                </p>
               <% end %>
-            </ul>
+            </div>
+            <div class="span4">
+              <a href="/auth/facebook" class = "auth_provider">
+                <%= image_tag("facebook_32.png", :alt => "Facebook") %>
+              </a>
+              <a href="/auth/google_oauth2" class = "auth_provider">
+                <%= image_tag('google_32.png', :alt => "Google")%>
+              </a>
+              <a href="/auth/twitter" class = "auth_provider">
+                <%= image_tag('twitter_32.png', :alt => "Twitter")%>
+              </a>
+              <a href="/auth/github" class = "auth_provider">
+                <%= image_tag('github_32.png', :alt => "Github")%>
+              </a>
+            </div>
+            <div class="span2"></div>
           </div>
-          <div class="span5">
-            <%= render :partial =>  'welcome/form' %>
-            <% if current_user %>
-              <p class="pull-left user">
-                <%= current_user.name %>
-              </p>
-            <% end %>
-          </div>
-          <div class="span4">
-            <a href="/auth/facebook" class = "auth_provider">
-              <%= image_tag("facebook_32.png", :alt => "Facebook") %>
-            </a>
-            <a href="/auth/google_oauth2" class = "auth_provider">
-              <%= image_tag('google_32.png', :alt => "Google")%>
-            </a>
-            <a href="/auth/twitter" class = "auth_provider">
-              <%= image_tag('twitter_32.png', :alt => "Twitter")%>
-            </a>
-            <a href="/auth/github" class = "auth_provider">
-              <%= image_tag('github_32.png', :alt => "Github")%>
-            </a>
-          </div>
-          <div class="span2"></div>
         </div>
-
       </div>
     </div>
   </div>

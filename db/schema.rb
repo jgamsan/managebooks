@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111219122359) do
+ActiveRecord::Schema.define(:version => 20111219210323) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "first_name",       :default => "",    :null => false
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(:version => 20111219122359) do
   create_table "intervals", :force => true do |t|
     t.integer  "resort_id"
     t.time     "init"
-    t.time     "end"
+    t.time     "finish"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

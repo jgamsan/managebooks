@@ -2,9 +2,9 @@
 
 Interval:
   fields:
-    default: resort, init, end
-    list: resort, init, end
-    form: resort, init, end
+    default: resort, init, finish
+    list: resort, init, finish
+    form: resort, init, finish
     options:
       selectors: resorts
   relationships: resort, books
