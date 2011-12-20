@@ -17,4 +17,8 @@ class Store < ActiveRecord::Base
     "#{self.name}"
   end
 
+  def gmaps4rails_address
+    "#{self.address}, #{self.zip_code}"
+  end
+
 end
