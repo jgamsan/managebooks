@@ -1,6 +1,6 @@
 <div class="row" id="vista">
   <div class="span3">
-    <%= link_to image_tag("arrow_left_24x24.png"), change_day_path(@resort, @dia_menos ), :remote => true %>
+    <%= link_to image_tag("arrow_left_24x24.png"), change_day_path(@resort, @dia_menos ), :remote => true unless @dia_menos < Date.today %>
   </div>
   <div class="span8">
     <h4 style="text-align: center"><%= l @dia, :format => "%A, %d de %B de %Y" %></h4>
@@ -27,3 +27,4 @@
     </table>
   </div>
 </div>
+

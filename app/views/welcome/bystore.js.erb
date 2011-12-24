@@ -1,1 +1,2 @@
-$( "#bystore" ).html( "<%= escape_javascript( render( :partial => "resorts", :locals => { :resorts => @resorts} ) ) %>" );
+$("#bystore").html( "<%= escape_javascript( render( :partial => "resorts", :locals => { :resorts => @resorts} ) ) %>" );
+$("#content-main").html("<%= escape_javascript( render( :partial => "information", :locals => { :resorts => @resorts} ) ) %>");
