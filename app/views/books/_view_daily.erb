@@ -9,7 +9,7 @@
 <div id="daily">
   <div class="row" id="vista">
     <div class="span3">
-      <%= link_to image_tag("arrow_left_24x24.png"), {:controller => "books", :action => "change_day", :id => @resort.id, :gd => Date.today - 1.day}, :remote => true %>
+      <%#= link_to image_tag("arrow_left_24x24.png"), {:controller => "books", :action => "change_day", :id => @resort.id, :gd => Date.today - 1.day}, :remote => true %>
     </div>
     <div class="span8">
       <h4 style="text-align: center"><%= l Date.today, :format => "%A, %d de %B de %Y" %></h4>
@@ -37,3 +37,4 @@
     </div>
   </div>
 </div>
+

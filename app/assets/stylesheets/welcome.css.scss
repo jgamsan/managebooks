@@ -6,27 +6,13 @@
   text-decoration: none;
   margin-right: 20px;
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 11px;
 
   img {
     display: block;
   }
 }
 
-li.register {
-  list-style: none;
-  background: url(image_path("user_blue.png")) left center no-repeat;
-  padding-left: 25px;
-  height: 24px;
-}
-
-li.logout {
-  list-style: none;
-  background: url(image_path("unlock_fill_18x24.png")) left center no-repeat;
-  padding-left: 25px;
-  height: 24px;
-  padding-top: 5px;
-}
 p.user{
   background: url(image_path("user_green.png")) left bottom no-repeat;
   padding-left: 25px;
@@ -57,10 +43,11 @@ li.resorts {
   padding-top: 5px;
 }
 
-li.list_book {
-  list-style: none;
-  background: url(image_path("info_12x24.png")) left center no-repeat;
-  padding-left: 26px;
-  height: 24px;
-  padding-top: 5px;
-}
+.yellow { border: 1px solid black; margin-top: 8px; background: yellow; padding: 5px; }
+
+.menu { background-color: rgb(107,148,163); }
+
+.altura { z-index: 0;}
+
+.form { margin-top:18px; }
+
