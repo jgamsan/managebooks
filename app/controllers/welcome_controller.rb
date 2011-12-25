@@ -9,6 +9,7 @@ class WelcomeController < ApplicationController
 
   def bycategory
     @stores = Store.category(params[:id])
+
     @category = Category.find(params[:id])
     respond_to do |format|
       format.js
@@ -24,3 +25,4 @@ class WelcomeController < ApplicationController
   end
 
 end
+

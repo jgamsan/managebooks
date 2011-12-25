@@ -1,6 +1,6 @@
 class Store < ActiveRecord::Base
   acts_as_gmappable
-  
+
   belongs_to :category
   has_many :resorts
   belongs_to :town
@@ -10,8 +10,18 @@ class Store < ActiveRecord::Base
   scope :category, lambda { |value| where(:category_id => value) }
 
   def gmaps4rails_infowindow
-#describe how to retrieve the address from your model, if you use directly a db column, you can dry your code, see wiki
-    "#{self.address}, #{self.town_id}"
+    unless self.id.nil?
+      @town = Town.find(self.town_id) unless self.town_id.nil?
+      @resorts = Resort.where(:store_id => self.id)
+      info = ""
+      info << self.address + "<br/>" unless self.address.nil?
+      info << @town.name + "<br/>" unless @town.nil?
+      info << "Reservas Disponibles:<br/>"
+      @resorts.each do |resort|
+        info << resort.name + ":" + resort.intervals.count.to_s + " Reservas disponibles<br/>"
+      end
+    end
+    return info
   end
   def gmaps4rails_title
     "#{self.name}"
@@ -22,3 +32,4 @@ class Store < ActiveRecord::Base
   end
 
 end
+

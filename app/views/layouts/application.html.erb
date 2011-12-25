@@ -61,15 +61,7 @@
     </div>
     <div class="content" style="padding-top: 50px;">
       <div class="hero-unit" id="content-main">
-        <div id="s5">
-          <%= image_tag "invitation_rose.jpg" %>
-          <%= image_tag "invitation_rose_1.jpg" %>
-          <%= image_tag "invitation_rose_2.jpg" %>
-          <%= image_tag "invitation_rose_3.jpg" %>
-          <%= image_tag "invitation_rose_4.jpg" %>
-          <%= image_tag "invitation_rose_5.jpg" %>
-        </div>
-        <%#= gmaps4rails(@json) %>
+        <%= gmaps4rails(@json) %>
       </div>
       <footer><p>&copy; Galisports 2011</p>
         <%= yield :scripts %>

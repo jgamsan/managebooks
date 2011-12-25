@@ -3,5 +3,6 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $('#s5').cycle
-  fx: 'shuffle',
+  fx: 'fade',
   delay: -4000
+
