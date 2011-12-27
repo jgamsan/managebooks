@@ -2,9 +2,9 @@
 
 Store:
   fields:
-    default: name, category, address, zip_code, town, phone, cellphone, email, admin_user
+    default: name, category, address, zip_code, town, phone, cellphone, email, admin_user, latitude, longitude
     list: name, category, admin_user
-    form: name, category, address, zip_code, town, phone, cellphone, email, admin_user
+    form: name, category, address, zip_code, town, phone, cellphone, email, admin_user, latitude, longitude
     options:
       selectors: categories, towns, admin_users
   relationships: resorts, category, town, admin_user

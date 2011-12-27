@@ -12,7 +12,7 @@
     <% unless current_user %>
     <ul class="nav">
       <li>
-        <%= link_to image_tag("contact-new.png", :alt => "Registrarse", :size => "32x32", :title => "Registrarse"), new_identity_path %>
+        <%= link_to image_tag("pen_alt_fill_32x32.png", :alt => "Registrarse", :title => "Registrarse"), new_identity_path %>
       </li>
       <li>
         <a href="/auth/facebook">
@@ -39,14 +39,14 @@
     <% else -%>
       <ul class="nav">
         <li>
-          <%= link_to image_tag("history.png", :alt => "Reservas", :size => "32x32", :title => "Reservas Vigentes"), books_list_books_path, :remote => true %>
+          <%= link_to image_tag("info_16x32.png", :alt => "Reservas", :title => "Reservas Vigentes"), books_list_books_path, :remote => true %>
         </li>
         <li>
-          <%= link_to image_tag("logout.png", :alt => "Logout", :size => "32x32", :title => "Salir"), logout_path %>
+          <%= link_to image_tag("unlock_fill_24x32.png", :alt => "Logout", :title => "Salir"), logout_path %>
         </li>
       </ul>
       <p class="pull-right">
-        <%= image_tag "contact.png", :alt => "Usuario", :size => "32x32" %>
+        <%= image_tag "user_24x32.png", :alt => "Usuario" %>
         <%= current_user.name %>
       </p>
     <% end -%>
