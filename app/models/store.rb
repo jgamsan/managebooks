@@ -20,15 +20,31 @@ class Store < ActiveRecord::Base
       @resorts.each do |resort|
         info << resort.name + ":" + resort.intervals.count.to_s + " Reservas disponibles<br/>"
       end
+      return info
     end
-    return info
   end
+  
   def gmaps4rails_title
     "#{self.name}"
   end
 
   def gmaps4rails_address
     "#{self.address}, #{self.zip_code}"
+  end
+
+  def gmaps4rails_marker_picture
+    {
+     "picture" => "/images/map_pin_alt_16x32_green.png",
+     "width" => "16",
+     "height" => "32",
+    }
+  end
+
+  class << self
+    def stores_free_resorts
+      parahoy = Book.where{day == Date.today}
+      Store.joins{resorts.intervals.books}.select{'DISTINCT ON(stores.name) stores.name'}.where{id.not_in(parahoy.select{interval_id})}
+    end
   end
 
 end
