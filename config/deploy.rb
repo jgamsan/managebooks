@@ -4,9 +4,9 @@ set :rvm_ruby_string, 'ruby-1.9.2-p290'
 set :rvm_type, :user
 require "bundler/capistrano"
 set :application, "reservas"
-set :domain, "173.203.94.31"
-set :user, "miguel"
-set :port, 53200
+set :domain, "tienda_galiclick.galiclick.com"
+set :user, "galiclick"
+set :port, 58378
 set :repository,  "git@github.com:jgamsan/managebooks.git"
 default_run_options[:pty] = true
 
@@ -35,3 +35,4 @@ after 'deploy:update_code' do
   run "cd #{release_path}; RAILS_ENV=production bundle exec rake assets:precompile"
 end
 after "deploy", "deploy:cleanup"
+
