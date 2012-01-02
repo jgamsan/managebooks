@@ -15,7 +15,7 @@ set :scm, :git
 default_run_options[:pty] = true
 set :use_sudo, false
 set :deploy_via, :remote_cache
-set :deploy_to, "/home/#{user}/public_html/#{application}"
+set :deploy_to, "/aplicacion_web/public_html/#{application}"
 role :web, domain
 role :app, domain
 role :db,  domain, :primary => true
