@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/anjlab/bootstrap-rails.git
-  revision: 41bcbfdb36a2c18af9bbe77c4f3eec9310e405b8
+  revision: ff0078148a370b4fab5c49dd72860564a5381d1f
   specs:
-    anjlab-bootstrap-rails (1.4.0.13)
+    anjlab-bootstrap-rails (1.4.0.14)
       railties (~> 3.0)
       sass
       thor (~> 0.14)
@@ -56,7 +56,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.2.0)
-    crack (0.3.1)
     erubis (2.7.0)
     execjs (1.2.13)
       multi_json (~> 1.0)
@@ -64,8 +63,8 @@ GEM
       addressable (~> 2.2.6)
       multipart-post (~> 1.1.3)
       rack (>= 1.1.0, < 2)
-    gmaps4rails (1.3.2)
-      crack
+    gmaps4rails (1.4.1)
+      json
     gritter (1.0.0)
     haml (3.1.4)
     hashie (1.2.0)
@@ -75,7 +74,7 @@ GEM
     jquery-rails (1.0.19)
       railties (~> 3.0)
       thor (~> 0.14)
-    json (1.6.3)
+    json (1.6.4)
     kaminari (0.12.4)
       rails (>= 3.0.0)
     libv8 (3.3.10.4)
@@ -121,12 +120,11 @@ GEM
       rack-openid (~> 1.3.1)
     omniauth-twitter (0.0.7)
       omniauth-oauth (~> 1.0)
-    pg (0.12.0)
-      rake-compiler (~> 0.7)
+    pg (0.12.1)
     polyamorous (0.5.0)
       activerecord (~> 3.0)
     polyglot (0.3.3)
-    rack (1.3.5)
+    rack (1.3.6)
     rack-cache (1.1)
       rack (>= 0.4)
     rack-mount (0.8.3)
@@ -154,8 +152,6 @@ GEM
       rdoc (~> 3.4)
       thor (~> 0.14.6)
     rake (0.9.2.2)
-    rake-compiler (0.7.9)
-      rake
     rdoc (3.12)
       json (~> 1.4)
     ruby-openid (2.1.8)
@@ -182,13 +178,13 @@ GEM
       polyglot (>= 0.3.1)
     turn (0.8.2)
       ansi (>= 1.2.2)
-    typus (3.1.5)
+    typus (3.1.6)
       bcrypt-ruby (~> 3.0.0)
       jquery-rails
-      kaminari
-      rails (~> 3.1.0)
+      kaminari (~> 0.12.4)
+      rails (~> 3.1.3)
     tzinfo (0.3.31)
-    uglifier (1.2.0)
+    uglifier (1.2.1)
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
 
