@@ -2,7 +2,7 @@
 <ul>
   <% @categorias.each do |categoria| %>
     <li class="category">
-      <%= link_to categoria.name, {:controller => "welcome", :action => "bycategory", :id => categoria.id}, :remote => true %>
+      <%= link_to categoria.name, bycategory_path(categoria.id), :remote => true, :class => "replace_markers" %>
     </li>
   <% end %>
 </ul>

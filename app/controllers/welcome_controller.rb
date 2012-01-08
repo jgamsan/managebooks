@@ -1,5 +1,6 @@
 class WelcomeController < ApplicationController
   layout 'application'
+
   def index
     @categorias = Category.all
     @stores = Store.last_stores
@@ -9,10 +10,12 @@ class WelcomeController < ApplicationController
 
   def bycategory
     @stores = Store.category(params[:id])
-
+    @json = asignar_icono
     @category = Category.find(params[:id])
     respond_to do |format|
-      format.js
+      format.html { render :html => @stores}
+      format.js { render :js => @stores}
+      format.json { render :json => @json}
     end
   end
 

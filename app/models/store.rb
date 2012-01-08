@@ -22,6 +22,9 @@ class Store < ActiveRecord::Base
     return info
   end
 
+  def gmaps4rails_sidebar
+  "<span>#{name}</span>"
+end
 
   def gmaps4rails_address
     "#{self.address}, #{self.zip_code}"
