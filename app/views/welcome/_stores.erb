@@ -2,6 +2,7 @@
 <ul>
   <% @stores.each do |store| %>
     <li class="stores">
+      <%= image_tag store.category.icon.url %>
       <%= link_to store.name, {:controller => "welcome", :action => "bystore", :id => store.id }, :remote => true %>
     </li>
   <% end %>

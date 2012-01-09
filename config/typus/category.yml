@@ -4,6 +4,6 @@ Category:
   fields:
     default: name
     list: name
-    form: name
+    form: name, icon
   relationships: stores
   application: Application

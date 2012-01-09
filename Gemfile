@@ -29,6 +29,7 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-github'
 gem 'omniauth-openid'
 gem 'omniauth-identity'
+gem 'paperclip'
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'i18n'
