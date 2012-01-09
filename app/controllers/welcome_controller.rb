@@ -5,16 +5,15 @@ class WelcomeController < ApplicationController
     @categorias = Category.all
     @stores = Store.last_stores
     @provincias = Province.all
-    @json = asignar_icono
+    @json = all_stores
   end
 
   def bycategory
-    @stores = Store.category(params[:id])
-    @json = asignar_icono
+    @json = stores_by_category(params[:id])
     @category = Category.find(params[:id])
+    @stores = Store.category(params[:id])
     respond_to do |format|
-      format.html { render :html => @stores}
-      format.js { render :js => @stores}
+      format.js
       format.json { render :json => @json}
     end
   end
@@ -28,7 +27,22 @@ class WelcomeController < ApplicationController
   end
 
   private
-  def asignar_icono
+  def stores_by_category(category)
+    @stores = Store.category(category).map {|x| x.id}.shuffle
+    @stores_free = Store.free_resorts_by_category(category).map {|x| x.id}.shuffle
+    @stores_by_icon = []
+    @stores.each do |store|
+      @tienda = Store.find(store)
+      if @stores_free.include?(store)
+        @stores_by_icon << {description: Store.infowindow(store), title: @tienda.name.capitalize, lng: @tienda.longitude, lat: @tienda.latitude, picture: "/images/map_pin_alt_16x32_green_dark.png", width: "16", height: "32"}
+      else
+        @stores_by_icon << {description: Store.infowindow(store),title: @tienda.name.capitalize, lng: @tienda.longitude, lat: @tienda.latitude, picture: "/images/map_pin_alt_16x32_red.png", width: "16", height: "32"}
+      end
+    end
+    @stores_by_icon.to_json
+  end
+
+  def all_stores
     @stores = Store.all.map {|x| x.id}.shuffle
     @stores_free = Store.free_resorts.map {|x| x.id}.shuffle
     @stores_by_icon = []

@@ -4,6 +4,7 @@
 
 $ ->
   $(".replace_markers").click ->
-    square = $(this).attr("url")
-    $.getJSON "welcome/" + 1 + "/bycategory.json", (data)->
+    result = $.get(this)
+     .attr("href")
+    $.getJSON result + ".json", (data)->
       Gmaps.map.replaceMarkers(data)

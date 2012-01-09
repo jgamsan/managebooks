@@ -16,7 +16,7 @@ Managebooks::Application.routes.draw do
   resources :stores
 
   resources :categories
-
+  get "welcome/bycategory"
   get "welcome/bystore"
   match "/auth/:provider/callback", to: "sessions#create"
   match "/auth/failure", to: "sessions#failure"
@@ -31,7 +31,7 @@ Managebooks::Application.routes.draw do
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
-  match 'welcome/:id/bycategory' => 'welcome#bycategory', :as => :bycategory
+  #match 'welcome/:id/bycategory' => 'welcome#bycategory', :as => :bycategory
   match 'books/:id/:gd/assign_book' => 'books#assign_book', :as => :assign_book
   #:id para el intervalo, :gd para la fecha
   match 'books/:id/:gd/view_weekly' => 'books#view_weekly', :as => :view_weekly

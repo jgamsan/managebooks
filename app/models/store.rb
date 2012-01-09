@@ -36,6 +36,11 @@ end
       parahoy = Book.where{day == Date.today}
       Interval.joins{resort.store}.select{'DISTINCT ON(stores.id) stores.*'}.where{id.not_in(parahoy.select{interval_id})}
     end
+
+    def free_resorts_by_category(category)
+      parahoy = Book.where{day == Date.today}
+      Interval.joins{resort.store}.select{'DISTINCT ON(stores.id) stores.*'}.where{(id.not_in(parahoy.select{interval_id})) & (stores.category_id == category)}
+    end
   end
 
 end
