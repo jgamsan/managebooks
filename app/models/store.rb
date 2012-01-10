@@ -1,6 +1,6 @@
 class Store < ActiveRecord::Base
   acts_as_gmappable
-
+  has_many :service_extras
   belongs_to :category
   has_many :resorts
   belongs_to :town
@@ -8,6 +8,7 @@ class Store < ActiveRecord::Base
 
   scope :last_stores, order('created_at asc').limit(5)
   scope :category, lambda { |value| where(:category_id => value) }
+  scope :admin, lambda { |value| where(:admin_user_id => value) }
 
   def self.infowindow(tienda)
     @store = Store.find(tienda)

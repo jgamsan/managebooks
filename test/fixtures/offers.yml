@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  resort_id: 1
+  service_extra_id: 1
+  enable: false
+  hduration: false
+  hcost: false
+
+two:
+  resort_id: 1
+  service_extra_id: 1
+  enable: false
+  hduration: false
+  hcost: false

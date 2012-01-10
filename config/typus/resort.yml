@@ -4,10 +4,10 @@ Resort:
   fields:
     default: name, store
     list: name, store
-    form: name, store
+    form: name
     options:
       selectors: stores
-  relationships: store, intervals
+  relationships: store, intervals, offers
   application: Application
   options:
     only_user_items: false

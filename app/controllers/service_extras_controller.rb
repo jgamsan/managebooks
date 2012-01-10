@@ -1,0 +1,2 @@
+class ServiceExtrasController < ApplicationController
+end

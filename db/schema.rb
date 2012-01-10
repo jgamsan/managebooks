@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120109191723) do
+ActiveRecord::Schema.define(:version => 20120110165928) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "first_name",       :default => "",    :null => false
@@ -63,6 +63,16 @@ ActiveRecord::Schema.define(:version => 20120109191723) do
     t.datetime "updated_at"
   end
 
+  create_table "offers", :force => true do |t|
+    t.integer  "resort_id"
+    t.integer  "service_extra_id"
+    t.boolean  "enable",           :default => true
+    t.boolean  "hduration",        :default => true
+    t.boolean  "hcost",            :default => true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "provinces", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -71,6 +81,15 @@ ActiveRecord::Schema.define(:version => 20120109191723) do
 
   create_table "resorts", :force => true do |t|
     t.string   "name"
+    t.integer  "store_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "service_extras", :force => true do |t|
+    t.string   "name"
+    t.integer  "lasting",                                  :default => 0
+    t.decimal  "cost",       :precision => 6, :scale => 2, :default => 0.0
     t.integer  "store_id"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -1,0 +1,7 @@
+# Use the README file as a reference to customize settings.
+
+admin:
+  ServiceExtra: create, read, update, delete
+
+storeadmin:
+  ServiceExtra: create, read, update, delete

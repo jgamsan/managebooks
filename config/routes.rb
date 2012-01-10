@@ -1,5 +1,9 @@
 Managebooks::Application.routes.draw do
 
+  resources :offers
+
+  resources :service_extras
+
   get "books/view_daily"
   get "books/update_books"
   get "books/list_books"

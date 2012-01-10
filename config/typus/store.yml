@@ -7,7 +7,7 @@ Store:
     form: name, category, address, zip_code, town, phone, cellphone, email, admin_user, latitude, longitude
     options:
       selectors: categories, towns, admin_users
-  relationships: resorts, category, town, admin_user
+  relationships: resorts, category, town, admin_user, service_extras
   application: Application
   options:
     only_user_items: true
