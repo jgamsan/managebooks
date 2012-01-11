@@ -7,23 +7,10 @@
 </head>
 
 <body id="account">
-
-  <div id="wrapper">
-
-    <div id="box">
-      <h1 class="logo"><%= Typus.admin_title %></h1>
-      <%= display_flash_message %>
-      <%= yield :layout %>
-    </div>
-
-    <% if content_for?(:actions) %>
-      <div id="actions">
-        <%= yield :actions %>
-      </div>
-    <% end %>
-
+  <div class="site">
+    <h1 class="logo">WebReserva</h1>
+    <%= display_flash_message %>
+    <%= yield :layout %>
   </div>
-
 </body>
-
 </html>

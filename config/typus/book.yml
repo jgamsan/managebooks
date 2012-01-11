@@ -1,8 +1,0 @@
-Book:
-  fields:
-    default: user, day, interval
-    list: user, day, interval
-    form: user, day, interval
-  relationships: interval, user
-  filters: day, interval
-  application: Application

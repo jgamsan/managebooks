@@ -29,13 +29,14 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-github'
 gem 'omniauth-openid'
 gem 'omniauth-identity'
-gem 'paperclip'
+gem 'carrierwave'
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'i18n'
 # Use unicorn as the web server
 # gem 'unicorn'
-gem 'typus'
+gem 'devise'
+gem 'simple_form'
 # Deploy with Capistrano
 gem 'capistrano'
 gem 'squeel'

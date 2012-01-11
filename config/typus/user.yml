@@ -1,8 +1,0 @@
-# Use the README file as a reference to customize settings.
-
-User:
-  fields:
-    default: provider, uid, name
-    form: provider, uid, name
-  relationships: books
-  application: Application

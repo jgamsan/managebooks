@@ -1,7 +1,0 @@
-# Use the README file as a reference to customize settings.
-
-admin:
-  Offer: create, read, update, delete
-
-storeadmin:
-  Offer: create, read, update, delete

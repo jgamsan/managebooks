@@ -6,42 +6,32 @@
   <%= render 'admin/shared/head' %>
 </head>
 
-<body>
+<body style="padding-top: 60px">
 
-  <div id="wrapper">
-
-    <div id="header">
-      <div class="container_12">
-        <div class="grid_12 title">
-          <%= header %>
-        </div>
-
-        <div class="grid_8 applications">
-          <%= apps %>
-        </div>
-
-        <div class="grid_4 profile">
-          <%= login_info %>
-        </div>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="container-fluid">
+        <a class="brand" href="#">Project name</a>
+        <ul class="nav">
+          <li></li>
+        </ul>
+        <p class="pull-right">
+          Logged in as
+          <a href="#">username</a>
+        </p>
       </div>
     </div>
-
-    <div id="content">
-      <div class="container_12">
-        <%= yield :layout %>
+  </div>
+  <div class="container-fluid">
+    <div class="sidebar">
+      <div class="well"></div>
+    </div>
+    <div class="content">
+      <div class="hero-unit"></div>
+      <div id="footer">
+        <p>@ Webreserva 2012</p>
       </div>
     </div>
-
-    <div id="footer">
-      <div class="container_12">
-        <div class="grid_12">
-          <span class="copyright">
-            Powered by <%= link_to "Typus", "http://core.typuscmf.com/" %> &#183; <%= Typus.admin_sub_title.html_safe %>
-          </span>
-        </div>
-      </div>
-    </div>
-
   </div>
 
 </body>
