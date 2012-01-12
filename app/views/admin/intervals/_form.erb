@@ -1,10 +1,13 @@
-<%= simple_form_for [:admin, @category], :html => { :class => "form-stacked" } do |f| %>
+<%= simple_form_for [:admin, @interval], :html => { :class => "form-stacked" } do |f| %>
   <div class="row">
     <div class="span4">
       <div class="clearfix">
         <div class="input">
-          <%= f.input :name %>
+          <%= f.association :resort %>
         </div>
+      </div>
+      <div class="clearfix">
+
       </div>
     </div>
   </div>
@@ -13,4 +16,3 @@
     <%= f.button :submit, :class => "btn primary" %>
   </div>
 <% end %>
-

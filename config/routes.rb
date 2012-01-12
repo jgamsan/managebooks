@@ -13,7 +13,7 @@ Managebooks::Application.routes.draw do
   get "books/list_books"
   get "books/delete_books"
 
-  resources :intervals
+
 
   resources :identities
 
@@ -77,7 +77,12 @@ Managebooks::Application.routes.draw do
 
   # Sample resource route within a namespace:
   namespace :admin do
-    resources :categories, :stores, :resorts, :intervals, :offers, :service_extras
+    resources :categories, :stores, :resorts, :offers, :service_extras
+    resources :intervals do
+      member do
+        post 'by_period'
+      end
+    end
     root :to => 'dashboard#index'
   end
 

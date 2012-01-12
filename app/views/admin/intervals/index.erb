@@ -1,0 +1,29 @@
+<% content_for :content do %>
+  <h2>Intervalos</h2>
+
+    <table class="zebra-striped">
+      <tr>
+        <th>Recurso</th>
+        <th>Inicio</th>
+        <th>Fin</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+      <% for interval in @intervals %>
+        <tr>
+          <td><%= interval.resort.name %></td>
+          <td><%= interval.init %></td>
+          <td><%= interval.finish %></td>
+          <td><%= link_to "Show", admin_interval_path(interval) %></td>
+          <td><%= link_to "Edit", edit_admin_interval_path(interval) %></td>
+          <td><%= link_to "Destroy", admin_interval_path(interval), :confirm => 'Are you sure?', :method => :delete %></td>
+        </tr>
+      <% end %>
+    </table>
+    <%#= will_paginate @products %>
+    <br />
+    <br />
+    <p><%= link_to "Nuevo Intervalo", new_admin_interval_path %></p>
+
+<% end %>

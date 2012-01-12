@@ -1,6 +1,8 @@
 class Interval < ActiveRecord::Base
   belongs_to :resort
   has_many :books
+
+  cattr_accessor :period, :init, :finish
   def to_label
     "#{init.strftime('%H:%M')}"
   end
