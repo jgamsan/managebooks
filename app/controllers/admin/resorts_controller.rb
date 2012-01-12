@@ -1,7 +1,62 @@
-class Admin::ResortsController < Admin::ResourcesController
+class Admin::ResortsController < Admin::BaseController
   def index
-    @store = Store.find_by_admin_user_id(admin_user.id)
-    params.merge!({:store_id => @store.id}) if admin_user.role == "storeadmin"
-    super
+    @resorts = Resort.all
+  end
+
+  def new
+    @resort = Resort.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @resort }
+    end
+  end
+
+  def create
+    @resort = Resort.new(params[:resort])
+
+    respond_to do |format|
+      if @resort.save
+        format.html { redirect_to(@resort, :notice => 'Nuevo recurso creada correctamente.') }
+        format.xml  { render :xml => @resort, :status => :created, :location => @resort }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @resort.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  def update
+    @resort = Resort.find(params[:id])
+
+    respond_to do |format|
+      if @resort.update_attributes(params[:resort])
+        format.html { redirect_to(@resort, :notice => 'Recurso actualizado.') }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @resort.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy
+    @resort = Resort.find(params[:id])
+    @resort.destroy
+
+    respond_to do |format|
+      format.html { redirect_to(admin_resorts_path) }
+      format.xml  { head :ok }
+    end
+  end
+
+  def edit
+    @resort = Resort.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @resort }
+    end
   end
 end
+

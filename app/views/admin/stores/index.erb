@@ -1,0 +1,28 @@
+<% content_for :content do %>
+  <h2>Negocios</h2>
+
+    <table class="zebra-striped">
+      <tr>
+        <th>Name</th>
+        <th>Categoria</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+      <% for store in @stores %>
+        <tr>
+          <td><%= store.name %></td>
+          <td><%= store.category.name %></td>
+          <td><%= link_to "Show", admin_store_path(store) %></td>
+          <td><%= link_to "Edit", edit_admin_store_path(store) %></td>
+          <td><%= link_to "Destroy", admin_store_path(store), :confirm => 'Are you sure?', :method => :delete %></td>
+        </tr>
+      <% end %>
+    </table>
+    <%#= will_paginate @products %>
+    <br />
+    <br />
+    <p><%= link_to "Nuevo Negocio", new_admin_store_path %></p>
+
+<% end %>
+

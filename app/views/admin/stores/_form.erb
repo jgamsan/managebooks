@@ -1,0 +1,22 @@
+<%= simple_form_for [:admin, @store], :html => { :class => "form-stacked" } do |f| %>
+
+  <%= field_set_tag 'Comerciales' do -%>
+    <div class="input">
+      <%= f.input :name %>
+    </div>
+    <div class="input">
+      <%= f.association :category %>
+    </div>
+    <div class="input">
+      <%= f.input :address %>
+    </div>
+    <div class="input">
+      <%= f.input :zip_code %>
+    </div>
+  <% end -%>
+
+  <div class="actions">
+    <%= f.button :submit, :class => "btn primary" %>
+  </div>
+<% end %>
+

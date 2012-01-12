@@ -21,9 +21,9 @@ Managebooks::Application.routes.draw do
 
   resources :resorts
 
-  resources :stores
 
-  resources :categories
+
+
   get "welcome/bycategory"
   get "welcome/bystore"
   match "/auth/:provider/callback", to: "sessions#create"
@@ -77,8 +77,7 @@ Managebooks::Application.routes.draw do
 
   # Sample resource route within a namespace:
   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
+    resources :categories, :stores, :resorts, :intervals, :offers, :service_extras
     root :to => 'dashboard#index'
   end
 
@@ -92,3 +91,4 @@ Managebooks::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
 end
+

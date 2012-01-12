@@ -1,0 +1,28 @@
+<% content_for :content do %>
+  <h2>Recursos</h2>
+
+    <table class="zebra-striped">
+      <tr>
+        <th>Name</th>
+        <th>Negocio</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+      <% for resort in @resorts %>
+        <tr>
+          <td><%= resort.name %></td>
+          <td><%= resort.store.name %></td>
+          <td><%= link_to "Show", admin_resort_path(resort) %></td>
+          <td><%= link_to "Edit", edit_admin_resort_path(resort) %></td>
+          <td><%= link_to "Destroy", admin_resort_path(resort), :confirm => 'Are you sure?', :method => :delete %></td>
+        </tr>
+      <% end %>
+    </table>
+    <%#= will_paginate @products %>
+    <br />
+    <br />
+    <p><%= link_to "Nuevo Recurso", new_admin_resort_path %></p>
+
+<% end %>
+

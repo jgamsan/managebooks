@@ -1,0 +1,10 @@
+<%= simple_form_for [:admin, @category], :html => { :class => "form-stacked" } do |f| %>
+
+  <div class="input">
+    <%= f.input :name %>
+  </div>
+  <div class="actions">
+    <%= f.button :submit, :class => "btn primary" %>
+  </div>
+<% end %>
+
