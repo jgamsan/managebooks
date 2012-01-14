@@ -29,7 +29,7 @@ SimpleForm.setup do |config|
   # config.error_notification_id = nil
 
   # You can wrap all inputs in a pre-defined tag.
-  # config.wrapper_tag = :div
+  config.wrapper_tag = nil
 
   # CSS class to add to all wrapper tags.
   # config.wrapper_class = :input
@@ -86,8 +86,9 @@ SimpleForm.setup do |config|
   # config.country_priority = nil
 
   # Default size for text inputs.
-  # config.default_input_size = 50
+  config.default_input_size = 25
 
   # When false, do not use translations for labels, hints or placeholders.
   # config.translate = true
 end
+

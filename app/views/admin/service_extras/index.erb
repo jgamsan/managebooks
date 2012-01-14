@@ -1,0 +1,35 @@
+<% content_for :content do %>
+  <div class="page-header">
+    <h2>Servicios Extras</h2>
+  </div>
+
+
+    <table class="zebra-striped">
+      <tr>
+        <th>Nombre</th>
+        <th>Lasting</th>
+        <th>Cost</th>
+        <th>Negocio</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+      <% for service in @service_extras %>
+        <tr>
+          <td><%= service.name %></td>
+          <td><%= service.lasting %></td>
+          <td><%= service.cost %></td>
+          <td><%= service.store.name %></td>
+          <td><%= link_to "Show", admin_service_extra_path(service) %></td>
+          <td><%= link_to "Edit", edit_admin_service_extra_path(service) %></td>
+          <td><%= link_to "Destroy", admin_service_extra_path(service), :confirm => 'Are you sure?', :method => :delete %></td>
+        </tr>
+      <% end %>
+    </table>
+    <%#= will_paginate @products %>
+    <br />
+    <br />
+    <p><%= link_to "Nuevo Servicio Extra", new_admin_service_extra_path %></p>
+
+<% end %>
+

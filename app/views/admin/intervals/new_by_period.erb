@@ -1,0 +1,42 @@
+<% content_for :content do -%>
+  <div class="page-header">
+    <h2>Intervalos por Periodo</h2>
+  </div>
+
+  <%= simple_form_for @interval, :url => by_period_admin_intervals_path, :html => { :class => "form-stacked", :method => :post } do |f| %>
+    <div class="row">
+      <div class="span8">
+        <div class="clearfix">
+          <div class="input">
+            <%= f.association :resort, :input_html => { :class => 'medium' } %>
+          </div>
+        </div>
+        <div class="clearfix">
+          <div class="input">
+            <%= f.input :period, :input_html => { :class => 'span2' } %>
+          </div>
+        </div>
+        <div class="clearfix">
+          <div class="input">
+            <div class="inline inputs">
+              <%= f.input :time_init, :as => :time, :input_html => { :class => 'span2' }, :minute_step => 5 %>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix">
+          <div class="input">
+            <%= f.input :time_finish, :as => :time, :input_html => { :class => 'span2' }, :minute_step => 5 %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Crear Intervalo", :class => "btn primary" %>
+    </div>
+  <% end %>
+
+  <p><%= link_to "Pantalla Principal", root_path %></p>
+
+<% end -%>
+

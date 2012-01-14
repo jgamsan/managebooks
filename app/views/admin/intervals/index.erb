@@ -24,6 +24,7 @@
     <%#= will_paginate @products %>
     <br />
     <br />
-    <p><%= link_to "Nuevo Intervalo", new_admin_interval_path %></p>
+    <p><%= link_to "Nuevo Intervalo", new_admin_interval_path %> | <%= link_to 'Nuevo Intervalo por periodo', new_by_period_admin_intervals_path %></p>
 
 <% end %>
+

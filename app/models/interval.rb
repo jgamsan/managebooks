@@ -2,11 +2,11 @@ class Interval < ActiveRecord::Base
   belongs_to :resort
   has_many :books
 
-  cattr_accessor :period, :init, :finish
+  cattr_reader :period, :time_init, :time_finish
   def to_label
     "#{init.strftime('%H:%M')}"
   end
-  
+
   class << self
     def list_by_store_admin(user)
       @store = Store.find_by_admin_user_id(user)
@@ -16,3 +16,4 @@ class Interval < ActiveRecord::Base
   end
 
 end
+

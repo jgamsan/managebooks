@@ -79,7 +79,8 @@ Managebooks::Application.routes.draw do
   namespace :admin do
     resources :categories, :stores, :resorts, :offers, :service_extras
     resources :intervals do
-      member do
+      collection do
+        get 'new_by_period'
         post 'by_period'
       end
     end

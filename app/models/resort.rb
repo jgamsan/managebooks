@@ -4,6 +4,7 @@ class Resort < ActiveRecord::Base
   has_many :offers
   has_many :service_extras, :through => :offers
   scope :store, lambda { |value| where(:store_id => value) }
+
   class << self
     def by_storeadmin(user)
       stores = Store.where{admin_user_id == user}
@@ -12,3 +13,4 @@ class Resort < ActiveRecord::Base
   end
 
 end
+

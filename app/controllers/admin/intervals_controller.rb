@@ -60,10 +60,11 @@ class Admin::IntervalsController < Admin::BaseController
   end
 
   def new_by_period
-
+    @interval = Interval.new
   end
 
   def by_period
 
   end
 end
+

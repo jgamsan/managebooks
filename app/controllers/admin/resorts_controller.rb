@@ -5,6 +5,7 @@ class Admin::ResortsController < Admin::BaseController
 
   def new
     @resort = Resort.new
+    @service_extras = ServiceExtra.all
 
     respond_to do |format|
       format.html # new.html.erb
