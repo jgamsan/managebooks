@@ -17,7 +17,7 @@ class Admin::CategoriesController < Admin::BaseController
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to(@category, :notice => 'Nueva categoria creada correctamente.') }
+        format.html { redirect_to(admin_categories_path, :notice => 'Nueva categoria creada correctamente.') }
         format.xml  { render :xml => @category, :status => :created, :location => @category }
       else
         format.html { render :action => "new" }
@@ -31,7 +31,7 @@ class Admin::CategoriesController < Admin::BaseController
 
     respond_to do |format|
       if @category.update_attributes(params[:category])
-        format.html { redirect_to(@category, :notice => 'Categoria actualizado.') }
+        format.html { redirect_to(admin_categories_path, :notice => 'Categoria actualizado.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

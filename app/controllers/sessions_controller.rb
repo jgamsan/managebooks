@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   def create
     user = User.from_omniauth(env["omniauth.auth"])
     session[:user_id] = user.id
-    redirect_to root_url, notice: "Bienvenido a galisports!"
+    redirect_to root_url, notice: "Bienvenido a WebReserva!. Su Reserva aqui"
   end
 
   def destroy

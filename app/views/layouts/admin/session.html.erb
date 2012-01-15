@@ -6,11 +6,24 @@
   <%= render 'admin/shared/head' %>
 </head>
 
-<body id="account">
-  <div class="site">
-    <h1 class="logo">WebReserva</h1>
-    <%= display_flash_message %>
-    <%= yield :layout %>
+<body style="padding-top:50px;">
+  <div class="container">
+    <div class="content">
+      <div class="page-header">
+      <h1 style="padding-bottom:150px;text-align:center">Administracion WebReserva</h1>
+      <div class="row">
+        <div class="span12 offset3">
+          <% if notice %>
+            <div class="alert-message success fade in" data-alert="alert">
+              <a class="close" href="#">×</a>
+              <p><%= notice %></p>
+            </div>
+          <% end %>
+          <%= yield :layout %>
+        </div>
+      </div>
+      </div>
+    </div>
   </div>
 </body>
 </html>

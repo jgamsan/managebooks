@@ -1,0 +1,23 @@
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <%= field_set_tag 'Registro' do -%>
+    <div class="clearfix">
+      <%= f.label :email %>
+      <div class="input">
+        <%= f.email_field :email, :class => "xlarge span3" %>
+      </div>
+    </div>
+    <div class="clearfix">
+      <%= f.label :password %>
+      <div class="input">
+        <%= f.password_field :password, :class => "xlarge span3" %>
+      </div>
+    </div>
+    <%#= f.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
+
+    <div class="actions">
+      <%= f.submit "Enviar", :class => "btn primary" %>
+    </div>
+  <% end -%>
+<% end %>
+
+<%#= render :partial => "devise/shared/links" %>

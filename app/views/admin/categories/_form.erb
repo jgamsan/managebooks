@@ -1,9 +1,20 @@
 <%= simple_form_for [:admin, @category], :html => { :class => "form-stacked" } do |f| %>
+  <% if f.error_notification %>
+    <div class="alert-message warning fade in" data-alert="alert">
+      <a class="close" href="#">×</a>
+      <p><%= f.error_notification %></p>
+    </div>
+  <% end %>
   <div class="row">
     <div class="span4">
       <div class="clearfix">
         <div class="input">
           <%= f.input :name %>
+        </div>
+      </div>
+      <div class="clearfix">
+        <div class="input">
+          <%= f.input :icon %>
         </div>
       </div>
     </div>

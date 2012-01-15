@@ -1,4 +1,16 @@
-
+<% content_for :content do -%>
+  <h2>Bienvenido</h2><%= current_admin_admin.nombre_completo %>
+  <h3>Resumen desde la ultima vez que se conecto</h3>
+  <dl>
+    <dt>Su ultima conexion fue el</dt>
+      <dd><%= l current_admin_admin.last_sign_in_at, :format => '%A, %d de %B de %Y a las %H:%M' %></dd>
+    <dt>Reservas realizadas</dt>
+      <dd></dd>
+      <dd></dd>
+      <dd></dd>
+  </dl>
+  
+<% end -%>
 
 
 

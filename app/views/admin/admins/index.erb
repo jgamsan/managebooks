@@ -1,0 +1,31 @@
+<% content_for :content do %>
+  <h2>Administradores</h2>
+
+    <table class="zebra-striped">
+      <tr>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Status</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+      <% for admin in @admins %>
+        <tr>
+          <td><%= admin.nombre_completo %></td>
+          <td><%= admin.email %></td>
+          <td><%= admin.role %></td>
+          <td><%= admin.status %></td>
+          <td><%= link_to "Show", admin_admin_path(admin) %></td>
+          <td><%= link_to "Edit", edit_admin_admin_path(admin) %></td>
+          <td><%= link_to "Destroy", admin_admin_path(admin), :confirm => 'Are you sure?', :method => :delete %></td>
+        </tr>
+      <% end %>
+    </table>
+    <%#= will_paginate @products %>
+    <br />
+    <br />
+    <p><%= link_to "Nuevo Administador", new_admin_admin_path %></p>
+
+<% end %>

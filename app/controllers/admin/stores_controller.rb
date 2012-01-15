@@ -17,7 +17,7 @@ class Admin::StoresController < Admin::BaseController
 
     respond_to do |format|
       if @store.save
-        format.html { redirect_to(@store, :notice => 'Nuevo Negocio creado correctamente.') }
+        format.html { redirect_to(admin_stores_path, :notice => 'Nuevo Negocio creado correctamente.') }
         format.xml  { render :xml => @store, :status => :created, :location => @store }
       else
         format.html { render :action => "new" }

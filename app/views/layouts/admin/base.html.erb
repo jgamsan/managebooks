@@ -11,13 +11,13 @@
   <div class="topbar">
     <div class="topbar-inner">
       <div class="container-fluid">
-        <a class="brand" href="#">Project name</a>
+        <a class="brand" href="#">Panel administracion de WebReserva</a>
         <ul class="nav">
-          <li></li>
+          <li><%= link_to 'Salir', destroy_admin_admin_session_path %></li>
         </ul>
         <p class="pull-right">
           Logged in as
-          <a href="#">username</a>
+          <a><%= current_admin_admin.nombre_completo %></a>
         </p>
       </div>
     </div>
@@ -30,6 +30,12 @@
     </div>
     <div class="content">
       <div class="hero-unit">
+        <% if notice %>
+          <div class="alert-message success fade in" data-alert="alert">
+            <a class="close" href="#">×</a>
+            <p><%= notice %></p>
+          </div>
+        <% end %>
         <%= yield :content %>
       </div>
       <div id="footer">

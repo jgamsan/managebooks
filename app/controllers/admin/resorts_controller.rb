@@ -18,7 +18,7 @@ class Admin::ResortsController < Admin::BaseController
 
     respond_to do |format|
       if @resort.save
-        format.html { redirect_to(@resort, :notice => 'Nuevo recurso creada correctamente.') }
+        format.html { redirect_to(admin_resorts_path, :notice => 'Nuevo Recurso creado correctamente.') }
         format.xml  { render :xml => @resort, :status => :created, :location => @resort }
       else
         format.html { render :action => "new" }

@@ -40,6 +40,8 @@ gem 'simple_form'
 # Deploy with Capistrano
 gem 'capistrano'
 gem 'squeel'
+gem 'rmagick'
+gem 'i18n'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 gem "gritter", "1.0.0"

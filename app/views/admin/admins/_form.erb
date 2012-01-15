@@ -1,0 +1,52 @@
+<%= simple_form_for [:admin, @admin], :html => { :class => "form-stacked" } do |f| %>
+  <% if f.error_notification %>
+    <div class="alert-message warning fade in" data-alert="alert">
+      <a class="close" href="#">×</a>
+      <p><%= f.error_notification %></p>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="span4">
+      <div class="clearfix">
+        <div class="input">
+          <%= f.input :first_name %>
+        </div>
+      </div>
+      <div class="clearfix">
+        <div class="input">
+          <%= f.input :last_name %>
+        </div>
+      </div>
+      <div class="clearfix">
+        <div class="input">
+          <%= f.input :email %>
+        </div>
+      </div>
+      <div class="clearfix">
+        <div class="input">
+          <%= f.input :password %>
+        </div>
+      </div>
+      <div class="clearfix">
+        <div class="input">
+          <%= f.input :password_confirmation %>
+        </div>
+      </div>
+      <div class="clearfix">
+        <div class="input">
+          <%= f.input :role, :collection => Admin::ROLES %>
+        </div>
+      </div>
+      <div class="clearfix">
+        <div class="input">
+          <%= f.input :status %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit, :class => "btn primary" %>
+  </div>
+<% end %>
+

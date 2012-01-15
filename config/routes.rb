@@ -2,7 +2,7 @@ Managebooks::Application.routes.draw do
 
   get "dashboard/index"
 
-  devise_for :admins
+  
 
   resources :offers
 
@@ -77,6 +77,8 @@ Managebooks::Application.routes.draw do
 
   # Sample resource route within a namespace:
   namespace :admin do
+    devise_for :admins, :controllers => { :sessions => "admin/admins/sessions" }
+    resources :admins
     resources :categories, :stores, :resorts, :offers, :service_extras
     resources :intervals do
       collection do
