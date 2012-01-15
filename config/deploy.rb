@@ -1,6 +1,6 @@
 $:.unshift(File.expand_path('./lib', ENV['rvm_path']))
 require "rvm/capistrano"
-set :rvm_ruby_string, 'ruby-1.9.2-p290'
+set :rvm_ruby_string, 'ruby-1.9.3-p0'
 set :rvm_type, :user
 require "bundler/capistrano"
 set :application, "reservas"
@@ -34,5 +34,13 @@ end
 after 'deploy:update_code' do
   run "cd #{release_path}; RAILS_ENV=production bundle exec rake assets:precompile"
 end
+namespace :customs do
+  task :symlink, :roles => :app do
+    run <<-CMD
+      ln -nfs #{shared_path}/system/uploads #{release_path}/public
+    CMD
+  end
+end
+after "deploy:symlink","customs:symlink"
 after "deploy", "deploy:cleanup"
 
