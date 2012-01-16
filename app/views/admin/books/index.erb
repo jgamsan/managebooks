@@ -1,0 +1,25 @@
+<% content_for :content do %>
+  <h2>Listado de Reservas</h2> | <h3><%= link_to 'Reservas Hoy', para_hoy_admin_books_path, :remote => true %></h3>
+
+    <table class="zebra-striped">
+      <tr>
+        <th>Nombre</th>
+        <th>Dia</th>
+        <th>Recurso</th>
+        <th>Periodo</th>
+        <th></th>
+        <th></th>
+      </tr>
+      <tbody id="books">
+        <%= render :partial => @books %>
+      </tbody>
+    </table>
+    <div id="paginator">
+      <%= paginate @books, :remote => true %>
+    </div>
+    <br />
+    <br />
+    <p><%= link_to "Nueva Reserva", new_admin_book_path %></p>
+
+<% end %>
+

@@ -32,7 +32,7 @@ class Admin::ResortsController < Admin::BaseController
 
     respond_to do |format|
       if @resort.update_attributes(params[:resort])
-        format.html { redirect_to(@resort, :notice => 'Recurso actualizado.') }
+        format.html { redirect_to(admin_resorts_path, :notice => 'Recurso actualizado.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

@@ -3,6 +3,7 @@ class Book < ActiveRecord::Base
   belongs_to :interval
   scope :busy, lambda { |day, resort| where(:resort_id => resort, :day => day) }
   scope :total, lambda { |day, resort, user| where{(user_id == user) & (day >= Date.today) & (resort_id == resort)}}
+  scope :hoy, where{day == Date.today}
 
   def self.next_days
     Book.where(:day => Date.today..(Date.today + 7.day))
@@ -24,7 +25,7 @@ class Book < ActiveRecord::Base
       @user.books.where(:user_id => @user.id, :day => "=> #{Date.today}")
     end
 
-
   end
 
 end
+

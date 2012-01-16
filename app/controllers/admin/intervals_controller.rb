@@ -1,6 +1,6 @@
 class Admin::IntervalsController < Admin::BaseController
   def index
-    @intervals = Interval.all
+    @intervals = Interval.page params[:page]
   end
 
   def new

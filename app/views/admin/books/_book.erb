@@ -1,0 +1,9 @@
+<tr>
+  <td><%= book.user.name %></td>
+  <td><%= book.day %></td>
+  <td><%= book.interval.resort.name %></td>
+  <td><%= book.interval.intervalo %></td>
+  <td><%= link_to "Edit", edit_admin_book_path(book) %></td>
+  <td><%= link_to "Destroy", admin_book_path(book), :confirm => 'Are you sure?', :method => :delete %></td>
+</tr>
+

@@ -2,7 +2,7 @@ Managebooks::Application.routes.draw do
 
   get "dashboard/index"
 
-  
+
 
   resources :offers
 
@@ -79,7 +79,15 @@ Managebooks::Application.routes.draw do
   namespace :admin do
     devise_for :admins, :controllers => { :sessions => "admin/admins/sessions" }
     resources :admins
-    resources :categories, :stores, :resorts, :offers, :service_extras
+    resources :categories, :stores, :service_extras
+    resources :books do
+      collection do
+        get 'para_hoy'
+      end
+    end
+    resources :resorts do
+      resources :offers
+    end
     resources :intervals do
       collection do
         get 'new_by_period'
