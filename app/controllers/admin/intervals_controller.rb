@@ -17,7 +17,7 @@ class Admin::IntervalsController < Admin::BaseController
 
     respond_to do |format|
       if @interval.save
-        format.html { redirect_to(@interval, :notice => 'Nueva categoria creada correctamente.') }
+        format.html { redirect_to(admin_intervals_path, :notice => 'Nuevo Intervalo creado correctamente.') }
         format.xml  { render :xml => @interval, :status => :created, :location => @interval }
       else
         format.html { render :action => "new" }
@@ -64,7 +64,19 @@ class Admin::IntervalsController < Admin::BaseController
   end
 
   def by_period
+    inicio = Time.new(params[:interval][:"time_init(1i)"].to_i, params[:interval][:"time_init(2i)"].to_i, params[:interval][:"time_init(3i)"].to_i, params[:interval][:"time_init(4i)"].to_i, params[:interval][:"time_init(5i)"].to_i)
+    fin = Time.new(params[:interval][:"time_finish(1i)"].to_i, params[:interval][:"time_finish(2i)"].to_i, params[:interval][:"time_finish(3i)"].to_i, params[:interval][:"time_finish(4i)"].to_i, params[:interval][:"time_finish(5i)"].to_i)
 
+    i = ((fin - inicio)/(params[:interval][:period].to_i * 60)).to_i
+    i.times do |n|
+      ini = inicio + (n)*params[:interval][:period].to_i.minute
+      final = inicio + (n+1)*params[:interval][:period].to_i.minute
+      Interval.create(:resort_id => params[:interval][:resort_id], :init => ini, :finish => final)
+    end
+    respond_to do |format|
+      format.html { redirect_to(admin_intervals_path, :notice => 'Intervalos creados correctamente.') }
+      format.xml  { head :ok }
+    end
   end
 end
 

@@ -43,6 +43,7 @@ gem 'squeel'
 gem 'rmagick'
 gem 'i18n'
 gem 'kaminari'
+gem 'chronic'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 gem "gritter", "1.0.0"

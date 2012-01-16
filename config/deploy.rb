@@ -36,7 +36,7 @@ after 'deploy:update_code' do
 end
 namespace :customs do
   task :symlink, :roles => :app do
-    run "ln -nfs #{shared_path}/system/uploads #{release_path}/public/"
+    run "ln -nfs #{shared_path}/system/uploads #{release_path}/public"
   end
 end
 after "deploy:symlink","customs:symlink"

@@ -83,6 +83,7 @@ Managebooks::Application.routes.draw do
     resources :books do
       collection do
         get 'para_hoy'
+        get 'tomorrow'
       end
     end
     resources :resorts do
