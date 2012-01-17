@@ -43,10 +43,14 @@ gem 'squeel'
 gem 'rmagick'
 gem 'i18n'
 gem 'kaminari'
-gem 'chronic'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 gem "gritter", "1.0.0"
+group :development do
+  gem "wirble"
+  gem "hirb"
+  gem "awesome_print"
+end
 group :test do
   # Pretty printed test output
   gem 'turn', '0.8.2', :require => false
