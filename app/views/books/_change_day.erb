@@ -21,7 +21,7 @@
             <td>
               <%= interval.init.strftime("%H:%M") %> - <%= interval.finish.strftime("%H:%M") %>
             </td>
-            <td><%= link_to (image_tag "check_green_alt_24x24.png"), assign_book_path(interval.id, Date.today), :remote => true %></td>
+            <td><%= link_to (image_tag "check_green_alt_24x24.png"), assign_book_path(interval.id, @dia), :remote => true %></td>
           </tr>
       <% end %>
     </table>

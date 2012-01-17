@@ -64,8 +64,8 @@ class Admin::IntervalsController < Admin::BaseController
   end
 
   def by_period
-    inicio = Time.new(params[:interval][:"time_init(1i)"].to_i, params[:interval][:"time_init(2i)"].to_i, params[:interval][:"time_init(3i)"].to_i, params[:interval][:"time_init(4i)"].to_i, params[:interval][:"time_init(5i)"].to_i)
-    fin = Time.new(params[:interval][:"time_finish(1i)"].to_i, params[:interval][:"time_finish(2i)"].to_i, params[:interval][:"time_finish(3i)"].to_i, params[:interval][:"time_finish(4i)"].to_i, params[:interval][:"time_finish(5i)"].to_i)
+    inicio = Time.new(Date.today.year, Date.today.month, Date.today.day, params[:interval][:time_init][0..1].to_i, params[:interval][:time_init][3..4].to_i)
+    fin = Time.new(Date.today.year, Date.today.month, Date.today.day, params[:interval][:time_finish][0..1].to_i, params[:interval][:time_finish][3..4].to_i)
 
     i = ((fin - inicio)/(params[:interval][:period].to_i * 60)).to_i
     i.times do |n|

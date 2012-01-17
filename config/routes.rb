@@ -3,7 +3,6 @@ Managebooks::Application.routes.draw do
   get "dashboard/index"
 
 
-
   resources :offers
 
   resources :service_extras
@@ -12,7 +11,8 @@ Managebooks::Application.routes.draw do
   get "books/update_books"
   get "books/list_books"
   get "books/delete_books"
-
+  
+  
 
 
   resources :identities
