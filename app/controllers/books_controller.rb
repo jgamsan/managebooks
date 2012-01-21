@@ -32,12 +32,26 @@ class BooksController < ApplicationController
     end
   end
 
+  def get_book
+    m = Interval.find(params[:id])
+    r = m.resort_id
+    @resort = Resort.find(r)
+    @duracion = ((m.finish - m.init) / 60)
+    @horario = m.init.strftime("%H:%M").to_s + " - " + m.finish.strftime("%H:%M")
+    @services_extras = ServiceExtra.where(:store_id => m.resort.store.id)
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def assign_book
-    r = Interval.find(params[:id]).resort_id
+    m = Interval.find(params[:id])
+    r = m.resort_id
     t = Book.new
     t.user_id = current_user.id
     t.day = params[:gd]
     t.interval_id = params[:id]
+    t.who = "u" + current_user.id.to_s
     respond_to do |format|
       if t.save
         @intervals = Book.by_resort(r, Date.today)
@@ -96,3 +110,4 @@ class BooksController < ApplicationController
     Book.by_resort(resort, fecha).map {|x| x.id}.flatten
   end
 end
+

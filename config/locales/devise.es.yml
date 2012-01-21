@@ -12,10 +12,10 @@ es:
   devise:
     failure:
       already_authenticated: 'Ya estas You are already signed in.'
-      unauthenticated: 'You need to sign in or sign up before continuing.'
+      unauthenticated: 'Se necesita Login o Registro antes de continuar.'
       unconfirmed: 'You have to confirm your account before continuing.'
       locked: 'Your account is locked.'
-      invalid: 'Invalid email or password.'
+      invalid: 'Email o password no validos.'
       invalid_token: 'Invalid authentication token.'
       timeout: 'Your session expired, please sign in again to continue.'
       inactive: 'Your account was not activated yet.'

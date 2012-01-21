@@ -11,8 +11,8 @@ Managebooks::Application.routes.draw do
   get "books/update_books"
   get "books/list_books"
   get "books/delete_books"
-  
-  
+
+
 
 
   resources :identities
@@ -41,6 +41,7 @@ Managebooks::Application.routes.draw do
   # This route can be invoked with purchase_url(:id => product.id)
   #match 'welcome/:id/bycategory' => 'welcome#bycategory', :as => :bycategory
   match 'books/:id/:gd/assign_book' => 'books#assign_book', :as => :assign_book
+  match 'books/:id/:gd/get_book' => 'books#get_book', :as => :get_book
   #:id para el intervalo, :gd para la fecha
   match 'books/:id/:gd/view_weekly' => 'books#view_weekly', :as => :view_weekly
   # id para el resort :gd para la fecha
@@ -84,6 +85,8 @@ Managebooks::Application.routes.draw do
       collection do
         get 'para_hoy'
         get 'tomorrow'
+        get 'month'
+        get 'range'
       end
     end
     resources :resorts do

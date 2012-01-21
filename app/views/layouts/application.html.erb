@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body style = "background-color:#F5F5F5 ">
-  <%= js add_gritter(flash[:notice], :image => :notice, :title => "Atencion!", :sticky => false, :time => 2000) %>
+  <%= gflash %>
   <div class="container-fluid menu">
     <% unless current_user %>
     <ul class="nav">

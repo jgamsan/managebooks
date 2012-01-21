@@ -1,0 +1,29 @@
+%h6
+  Reserva
+  = @horario
+%table
+  %tr
+    %th Nombre
+    %th Duracion
+    %th Coste
+  %tr
+    %td
+      = @resort.name
+    %td
+      = @duracion
+    %td
+      = @resort.cost
+  - unless @services_extras.nil?
+    - @services_extras.each do |service|
+      %tr
+        %td
+          = service.name
+        %td
+          = service.lasting
+        %td
+          = service.cost
+  %tr
+    %td(colspan=2) Total
+    %td cifra
+%button.btn.primary#resumen Solicitar
+
