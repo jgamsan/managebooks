@@ -1,7 +1,11 @@
 class Book < ActiveRecord::Base
   belongs_to :user
   belongs_to :interval
-  cattr_accessor :init_date, :finish_date
+  has_many :extras
+  has_many :service_extras, :through => :extras
+
+  cattr_accessor :init_date, :finish_date, :service_extra
+  #after_save :create_extras
   scope :busy, lambda { |day, resort| where(:resort_id => resort, :day => day) }
   scope :total, lambda { |day, resort, user| where{(user_id == user) & (day >= Date.today) & (resort_id == resort)}}
   scope :hoy, where{day == Date.today}
@@ -11,7 +15,13 @@ class Book < ActiveRecord::Base
   def self.next_days
     Book.where(:day => Date.today..(Date.today + 7.day))
   end
-
+  
+  def create_extras
+    @service_extra.each do |element|
+      Extra.create(:book_id => self.id, :service_extra_id => element.to_i)
+    end
+  end
+  
   class << self
     def by_resort(value, dia)
       books = Book.where{day == dia}

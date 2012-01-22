@@ -11,7 +11,7 @@ Managebooks::Application.routes.draw do
   get "books/update_books"
   get "books/list_books"
   get "books/delete_books"
-
+  post 'books/assign_book'
 
 
 
@@ -40,7 +40,7 @@ Managebooks::Application.routes.draw do
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
   #match 'welcome/:id/bycategory' => 'welcome#bycategory', :as => :bycategory
-  match 'books/:id/:gd/assign_book' => 'books#assign_book', :as => :assign_book
+  #match 'books/:id/:gd/assign_book' => 'books#assign_book', :as => :assign_book
   match 'books/:id/:gd/get_book' => 'books#get_book', :as => :get_book
   #:id para el intervalo, :gd para la fecha
   match 'books/:id/:gd/view_weekly' => 'books#view_weekly', :as => :view_weekly

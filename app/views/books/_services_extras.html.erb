@@ -1,0 +1,37 @@
+<%= form_tag books_assign_book_path, :remote => true do -%>
+  <h5>Reserva @horario</h5>
+  <p>
+    <%= hidden_field_tag :interval, @interval.id %>
+    <%= hidden_field_tag :day, @dia %>
+  </p>
+  
+  <table>
+    <tr>
+      <th></th>
+      <th>Nombre</th>
+      <th>Duracion</th>
+      <th>Coste</th>
+    </tr>
+    <tr>
+      <td></td>
+      <td><%= @resort.name %></td>
+      <td><%= @duracion %></td>
+      <td><%= @resort.cost %></td>
+    </tr>
+    <% unless @services_extras.nil? -%>
+      <% @services_extras.each do |service_extra| -%>
+        <tr>
+          <td><%= check_box_tag "service_extra_ids[]", service_extra.id %></td>
+          <td><%= service_extra.name %></td>
+          <td><%= service_extra.lasting %></td>
+          <td><%= service_extra.cost %></td>
+        </tr>
+      <% end -%>
+    <% end -%>
+    <tr>
+      <td colspan=2>Total</td>
+      <td>cifra</td>
+    </tr>
+  </table>
+  <%= submit_tag 'Solicitar', :class => 'btn primary' %>
+<% end -%>
