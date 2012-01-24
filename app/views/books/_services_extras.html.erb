@@ -1,5 +1,5 @@
 <%= form_tag books_assign_book_path, :remote => true do -%>
-  <h5>Reserva @horario</h5>
+  <h5>Reserva <%= @horario %></h5>
   <p>
     <%= hidden_field_tag :interval, @interval.id %>
     <%= hidden_field_tag :day, @dia %>
@@ -21,7 +21,7 @@
     <% unless @services_extras.nil? -%>
       <% @services_extras.each do |service_extra| -%>
         <tr>
-          <td><%= check_box_tag "service_extra_ids[]", service_extra.id %></td>
+          <td><%= check_box_tag "extras_tokens_ids[]", service_extra.id %></td>
           <td><%= service_extra.name %></td>
           <td><%= service_extra.lasting %></td>
           <td><%= service_extra.cost %></td>

@@ -50,7 +50,6 @@ class BooksController < ApplicationController
     m = Interval.find(params[:interval])
     r = m.resort_id
     t = Book.new
-    @service_extra = params[:service_extra_ids]
     t.user_id = current_user.id
     t.day = params[:day].to_date
     t.interval_id = params[:interval]
@@ -59,9 +58,9 @@ class BooksController < ApplicationController
       if t.save
         @intervals = Book.by_resort(r, params[:dia])
         @resort = Resort.find(r)
-        @service_extra.each do |element|
-          Extra.create(:book_id => t.id, :service_extra_id => element.to_i)
-        end
+        #@service_extra.each do |element|
+        #  Extra.create(:book_id => t.id, :service_extra_id => element.to_i)
+        #end
         flash[:notice] = "Cita creada correctamente"
         format.js
       end
