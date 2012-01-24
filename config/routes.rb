@@ -13,6 +13,7 @@ Managebooks::Application.routes.draw do
   get "books/delete_books"
   post 'books/assign_book'
 
+  resources :books
 
 
   resources :identities
