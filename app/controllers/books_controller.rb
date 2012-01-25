@@ -65,7 +65,8 @@ class BooksController < ApplicationController
       if @book.save
         @intervals = Book.by_resort(r, params[:dia])
         @resort = Resort.find(r)
-        flash[:notice] = "Cita creada correctamente"
+        flash[:success] = "Cita creada correctamente"
+        flash[:notice] = "Tiene una Reserva para el #{l @book.day, :format => '%a, %d%b%Y'}"
         format.js
       end
     end

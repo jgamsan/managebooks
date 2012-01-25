@@ -10,6 +10,13 @@ class Resort < ActiveRecord::Base
       stores = Store.where{admin_user_id == user}
       Resort.where{store_id.in(stores.select{id})}
     end
+    def by_role(role)
+      if role == 1
+        Store.all
+      else
+        Store.where{admin_id.eq role}
+      end
+    end
   end
 
 end

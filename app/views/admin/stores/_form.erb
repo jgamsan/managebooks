@@ -19,7 +19,7 @@
       </div>
       <div class="clearfix">
         <div class="input">
-          <%= f.association :admin %>
+          <%= f.hidden_field :admin, :value => current_admin_admin.id %>
         </div>
       </div>
       <div class="clearfix">

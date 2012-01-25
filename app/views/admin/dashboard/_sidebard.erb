@@ -1,9 +1,14 @@
 <h4>Menu!</h4>
 
 <ul>
-  <li>
+  <% unless current_admin_admin.role == 2 -%>
+    <li>
+      <%= link_to 'Administradores', admin_admins_path %>
+    </li>
+    <li>
     <%= link_to "Categorias", admin_categories_path %>
   </li>
+  <% end -%>
   <li>
     <%= link_to 'Negocios', admin_stores_path %>
   </li>
@@ -16,9 +21,7 @@
   <li>
     <%= link_to 'Servicios Extras', admin_service_extras_path %>
   </li>
-  <li>
-    <%= link_to 'Administradores', admin_admins_path %>
-  </li>
+  
   <li>
     <%= link_to 'Reservas', admin_books_path %>
   </li>

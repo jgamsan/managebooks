@@ -1,6 +1,6 @@
 class Admin::ResortsController < Admin::BaseController
   def index
-    @resorts = Resort.all
+    @resorts = Resort.by_role(current_admin_admin.role)
   end
 
   def new
@@ -53,6 +53,7 @@ class Admin::ResortsController < Admin::BaseController
 
   def edit
     @resort = Resort.find(params[:id])
+    
 
     respond_to do |format|
       format.html
