@@ -1,8 +1,14 @@
 class BooksController < ApplicationController
   def list_books
-    @books = Book.by_user(current_user.uid)
+    @books = Book.by_user(current_user.uid).page(params[:page]).per(4)
     respond_to do |format|
-      format.js
+      format.js do
+        if (!params[:page].nil?)
+          {:render => 'pagin'}
+        else
+          {:render => 'list_books'}
+        end
+      end
     end
   end
 
@@ -40,7 +46,7 @@ class BooksController < ApplicationController
     @duracion = ((@interval.finish - @interval.init) / 60)
     @horario = @interval.init.strftime("%H:%M").to_s + " - " + @interval.finish.strftime("%H:%M")
     @services_extras = ServiceExtra.where(:store_id => @interval.resort.store.id)
-    
+
     respond_to do |format|
       format.js
     end
@@ -49,18 +55,16 @@ class BooksController < ApplicationController
   def assign_book
     m = Interval.find(params[:interval])
     r = m.resort_id
-    t = Book.new
-    t.user_id = current_user.id
-    t.day = params[:day].to_date
-    t.interval_id = params[:interval]
-    t.who = "u" + current_user.id.to_s
+    @book = Book.new
+    @book.user_id = current_user.id
+    @book.day = params[:day].to_date
+    @book.interval_id = params[:interval]
+    @book.who = "u" + current_user.id.to_s
+    @book.service_extra_ids = params[:extras_tokens_ids]
     respond_to do |format|
-      if t.save
+      if @book.save
         @intervals = Book.by_resort(r, params[:dia])
         @resort = Resort.find(r)
-        #@service_extra.each do |element|
-        #  Extra.create(:book_id => t.id, :service_extra_id => element.to_i)
-        #end
         flash[:notice] = "Cita creada correctamente"
         format.js
       end

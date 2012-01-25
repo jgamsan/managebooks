@@ -1,10 +1,10 @@
 <%= form_tag books_assign_book_path, :remote => true do -%>
-  <h5>Reserva <%= @horario %></h5>
+  <h5><%= l @dia.to_date, :format => "%a, %d%b%Y" %> de <%= @horario %></h5>
   <p>
     <%= hidden_field_tag :interval, @interval.id %>
     <%= hidden_field_tag :day, @dia %>
   </p>
-  
+
   <table>
     <tr>
       <th></th>
@@ -35,3 +35,4 @@
   </table>
   <%= submit_tag 'Solicitar', :class => 'btn primary' %>
 <% end -%>
+

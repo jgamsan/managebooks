@@ -8,7 +8,7 @@ module BooksHelper
     cal << %(</th>\n)
     for i in 0..6 do
       cal << %(\t\t\t<th text-align='center'>)
-      cal << l(@primero + i, {:format => '%A %d'})
+      cal << l(@primero + i, {:format => '%a %d'})
       cal << %(</th>\n)
     end
 
