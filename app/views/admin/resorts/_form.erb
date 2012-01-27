@@ -14,14 +14,14 @@
       </div>
       <div class="clearfix">
         <div class="input">
-          <%= f.association :store %>
+          <%= f.association :store, :collection => Store.by_role(current_admin_admin.role, current_admin_admin.id) %>
         </div>
       </div>
       <div class="clearfix">
         <label>Servicios Extras</label>
         <div class="input">
           <ul class="inputs-list">
-            <%= f.association :service_extras, :label => false %>
+            <%= f.association :service_extras, :label => false, :collection => ServiceExtra.by_storeadmin(current_admin_admin.role, current_admin_admin.id) %>
           </ul>
         </div>
       </div>

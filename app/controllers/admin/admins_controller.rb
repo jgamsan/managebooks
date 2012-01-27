@@ -91,8 +91,8 @@ class Admin::AdminsController < Admin::BaseController
 
     if params[:admin][:password].blank?
       [:password,:password_confirmation].collect{|p| params[:admin].delete(p) }
-    else
-      @admin.errors[:base] << "El password que has introducido es incorrecto" unless @admin.valid_password?(params[:admin][:password])
+    #else
+      #@admin.errors[:base] << "El password que has introducido es incorrecto" unless @admin.valid_password?(params[:admin][:password])
     end
 
     respond_to do |format|
@@ -112,3 +112,4 @@ class Admin::AdminsController < Admin::BaseController
     respond_to_not_found(:js, :xml, :html)
   end
 end
+

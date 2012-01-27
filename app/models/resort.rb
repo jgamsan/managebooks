@@ -6,15 +6,12 @@ class Resort < ActiveRecord::Base
   scope :store, lambda { |value| where(:store_id => value) }
 
   class << self
-    def by_storeadmin(user)
-      stores = Store.where{admin_user_id == user}
-      Resort.where{store_id.in(stores.select{id})}
-    end
-    def by_role(role)
+    def by_storeadmin(role, user)
       if role == 1
-        Store.all
+        Resort.all
       else
-        Store.where{admin_id.eq role}
+        stores = Store.where{admin_id.eq user}
+        Resort.where{store_id.in(stores.select{id})}
       end
     end
   end

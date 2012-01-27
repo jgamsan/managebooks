@@ -1,6 +1,6 @@
 class Admin::StoresController < Admin::BaseController
   def index
-    @stores = Store.all
+    @stores = Store.by_role(current_admin_admin.role, current_admin_admin.id)
   end
 
   def new

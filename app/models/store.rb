@@ -34,13 +34,20 @@ end
 
   class << self
     def free_resorts
-      parahoy = Book.where{day == Date.today}
+      parahoy = Book.where{day.eq Date.today}
       Interval.joins{resort.store}.select{'DISTINCT ON(stores.id) stores.*'}.where{id.not_in(parahoy.select{interval_id})}
     end
 
     def free_resorts_by_category(category)
-      parahoy = Book.where{day == Date.today}
-      Interval.joins{resort.store}.select{'DISTINCT ON(stores.id) stores.*'}.where{(id.not_in(parahoy.select{interval_id})) & (stores.category_id == category)}
+      parahoy = Book.where{day.eq Date.today}
+      Interval.joins{resort.store}.select{'DISTINCT ON(stores.id) stores.*'}.where{(id.not_in(parahoy.select{interval_id})) & (stores.category_id.eq category)}
+    end
+    def by_role(role, id)
+      if role == 1
+        Store.all
+      else
+        Store.where{admin_id.eq id}
+      end
     end
   end
 

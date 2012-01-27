@@ -15,7 +15,7 @@
         <tr>
           <td><%= admin.nombre_completo %></td>
           <td><%= admin.email %></td>
-          <td><%= admin.role %></td>
+          <td><%= Admin::ROLES[admin.role - 1][0] %></td>
           <td><%= admin.status %></td>
           <td><%= link_to "Show", admin_admin_path(admin) %></td>
           <td><%= link_to "Edit", edit_admin_admin_path(admin) %></td>
@@ -29,3 +29,4 @@
     <p><%= link_to "Nuevo Administador", new_admin_admin_path %></p>
 
 <% end %>
+

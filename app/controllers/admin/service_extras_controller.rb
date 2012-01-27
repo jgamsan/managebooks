@@ -1,6 +1,6 @@
 class Admin::ServiceExtrasController < Admin::BaseController
   def index
-    @service_extras = ServiceExtra.all
+    @service_extras = ServiceExtra.by_storeadmin(current_admin_admin.role, current_admin_admin.id)
   end
 
   def new

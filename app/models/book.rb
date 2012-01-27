@@ -1,7 +1,7 @@
 class Book < ActiveRecord::Base
   belongs_to :user
   belongs_to :interval
-  has_many :extras
+  has_many :extras, :dependent => :destroy
   has_many :service_extras, :through => :extras
   attr_reader :extra_tokens
   cattr_accessor :init_date, :finish_date

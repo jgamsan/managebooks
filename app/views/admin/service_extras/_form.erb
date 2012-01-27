@@ -24,7 +24,7 @@
       </div>
       <div class="clearfix">
         <div class="input">
-          <%= f.association :store, :input_html => { :class => 'medium' } %>
+          <%= f.association :store, :input_html => { :class => 'medium' }, :collection => Store.by_role(current_admin_admin.role, current_admin_admin.id) %>
         </div>
       </div>
     </div>
