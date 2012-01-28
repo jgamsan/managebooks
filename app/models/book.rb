@@ -5,6 +5,7 @@ class Book < ActiveRecord::Base
   has_many :service_extras, :through => :extras
   attr_reader :extra_tokens
   cattr_accessor :init_date, :finish_date
+  after_create :sum_lasting_of_service_extras
   scope :busy, lambda { |day, resort| where(:resort_id => resort, :day => day) }
   scope :total, lambda { |day, resort, user| where{(user_id.eq user) & (day.gteq Date.today) & (resort_id.eq resort)}}
   scope :hoy, where{day == Date.today}
@@ -14,17 +15,20 @@ class Book < ActiveRecord::Base
   scope :storeadmin, lambda { |value|
     joins{interval.resort.store}.where{stores.admin_id.eq value}
   }
-  def self.next_days
-    Book.where(:day => Date.today..(Date.today + 7.day))
-  end
+  scope :by_resort, lambda { |value, dia|
+    books = Book.where{day.eq dia}
+    where{(id.not_in(books.select{interval_id})) & (resort_id.eq value)}
+  }
+  scope :next_days, where(:day => Date.today..(Date.today + 7.day))
 
-
-  class << self
-    def by_resort(value, dia)
-      books = Book.where{day.eq dia}
-      Interval.where{(id.not_in(books.select{interval_id})) & (resort_id.eq value)}
+  def sum_lasting_of_service_extras
+    for element in self.service_extra_ids
+      tiempo += element.lasting
     end
 
+  end
+
+  class << self
     def weekly(value, day)
       books = Book.busy(day, value)
       Interval.where{(id.not_in(books.select{interval_id})) & (resort_id.eq value)}
@@ -36,9 +40,6 @@ class Book < ActiveRecord::Base
     end
 
   end
-
-
-
 
 end
 

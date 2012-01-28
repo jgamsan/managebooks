@@ -1,6 +1,14 @@
 class Admin::ResortsController < Admin::BaseController
   def index
-    @resorts = Resort.by_storeadmin(current_admin_admin.role, current_admin_admin.id)
+    if current_admin_admin.role == 1
+      @resorts = Resort.page params[:page]
+    else
+      @resorts = Resort.storeadmin(current_admin_admin.id).page params[:page]
+    end
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @resort }
+    end
   end
 
   def new

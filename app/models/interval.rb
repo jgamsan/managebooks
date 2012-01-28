@@ -1,7 +1,7 @@
 class Interval < ActiveRecord::Base
   belongs_to :resort
   has_many :books
-  
+
   cattr_accessor :period, :time_init, :time_finish
   scope :storeadmin, lambda { |value|
     @store = Store.find_by_admin_id(value)
@@ -25,17 +25,6 @@ class Interval < ActiveRecord::Base
     end
   end
 
-  class << self
-    def by_storeadmin(role, user)
-      if role == 1
-        Interval.all
-      else
-        @store = Store.find_by_admin_id(user)
-        @resorts = @store.resorts.map {|x| x.id}
-        Interval.where(:resort_id => @resorts)
-      end
-    end
-  end
 
 end
 

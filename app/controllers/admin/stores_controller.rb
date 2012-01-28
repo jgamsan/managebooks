@@ -1,6 +1,14 @@
 class Admin::StoresController < Admin::BaseController
   def index
-    @stores = Store.by_role(current_admin_admin.role, current_admin_admin.id)
+    if current_admin_admin.role == 1
+      @stores = Store.page params[:page]
+    else
+      @stores = Store.storeadmin(current_admin_admin.id).page params[:page]
+    end
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @store }
+    end
   end
 
   def new
@@ -58,7 +66,7 @@ class Admin::StoresController < Admin::BaseController
       format.json { render json: @store }
     end
   end
-  
+
   def update_town_select
     towns = Town.where(:province_id => params[:id]).order(:name) unless params[:id].blank?
     render :partial => "towns", :locals => { :towns => towns}
