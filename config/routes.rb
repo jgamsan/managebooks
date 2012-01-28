@@ -68,7 +68,7 @@ Managebooks::Application.routes.draw do
   #     resources :comments, :sales
   #     resource :seller
   #   end
-
+  match 'admin/stores/update_town_select/:id' => 'admin/stores#update_town_select'
   # Sample resource route with more complex sub-resources
   #   resources :products do
   #     resources :comments
@@ -90,6 +90,7 @@ Managebooks::Application.routes.draw do
         get 'range'
       end
     end
+    
     resources :resorts do
       resources :offers
     end

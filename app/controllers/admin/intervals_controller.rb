@@ -1,6 +1,11 @@
 class Admin::IntervalsController < Admin::BaseController
   def index
-    @intervals = Interval.page params[:page]
+    if current_admin_admin.role == 1
+      @intervals = Interval.page params[:page]
+    else
+      @intervals = Interval.storeadmin(current_admin_admin.id).page params[:page]
+    end
+    
   end
 
   def new

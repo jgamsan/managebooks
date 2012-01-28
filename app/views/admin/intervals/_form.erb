@@ -8,12 +8,13 @@
   <div class="row">
     <div class="span4">
       <div class="clearfix">
-        <div class="input">
-          <%= f.association :resort %>
-        </div>
+        <%= f.association :resort, :collection => Resort.by_storeadmin(current_admin_admin.role, current_admin_admin.id) %>
       </div>
       <div class="clearfix">
-
+        <%= f.input :init, :as => :string, :input_html => {:class => 'span2', :id => 'timepicker'} %>
+      </div>
+      <div class="clearfix">
+        <%= f.input :finish, :as => :string, :input_html => {:class => 'span2', :id => 'timepicker1'} %>
       </div>
     </div>
   </div>

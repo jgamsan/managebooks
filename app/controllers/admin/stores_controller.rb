@@ -5,7 +5,7 @@ class Admin::StoresController < Admin::BaseController
 
   def new
     @store = Store.new
-
+    @provinces = Province.all
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @store }
@@ -57,6 +57,11 @@ class Admin::StoresController < Admin::BaseController
       format.html
       format.json { render json: @store }
     end
+  end
+  
+  def update_town_select
+    towns = Town.where(:province_id => params[:id]).order(:name) unless params[:id].blank?
+    render :partial => "towns", :locals => { :towns => towns}
   end
 end
 

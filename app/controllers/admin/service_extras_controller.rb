@@ -1,6 +1,11 @@
 class Admin::ServiceExtrasController < Admin::BaseController
   def index
-    @service_extras = ServiceExtra.by_storeadmin(current_admin_admin.role, current_admin_admin.id)
+    if current_admin_admin.role == 1
+      ServiceExtra.page params[:page]
+    else
+      @service_extras = ServiceExtra.storeadmin(current_admin_admin.id).page params[:page]
+    end
+    
   end
 
   def new

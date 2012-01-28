@@ -11,4 +11,5 @@ $ ->
   $.datepicker.setDefaults($.datepicker.regional['es'])
   $('#init_date').datepicker()
   $('#finish_date').datepicker()
+  $('#day').datepicker()
 

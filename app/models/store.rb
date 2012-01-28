@@ -5,7 +5,7 @@ class Store < ActiveRecord::Base
   has_many :resorts
   belongs_to :town
   belongs_to  :admin
-
+  cattr_accessor :province
   scope :last_stores, order('created_at asc').limit(5)
   scope :category, lambda { |value| where(:category_id => value) }
   scope :admin, lambda { |value| where(:admin_user_id => value) }

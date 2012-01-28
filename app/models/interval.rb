@@ -1,10 +1,13 @@
 class Interval < ActiveRecord::Base
-  #include ActiveModel::Validations
   belongs_to :resort
   has_many :books
-
+  
   cattr_accessor :period, :time_init, :time_finish
-  #validates_with :time_init, :time_finish, :period, :interval_times => true
+  scope :storeadmin, lambda { |value|
+    @store = Store.find_by_admin_id(value)
+    @resorts = @store.resorts.map {|x| x.id}
+    where(:resort_id => @resorts)
+  }
   def to_label
     "#{init.strftime('%H:%M')}"
   end
@@ -21,17 +24,16 @@ class Interval < ActiveRecord::Base
       return true
     end
   end
-  class IntervalTimesValidator < ActiveModel::Validator
-    def validate
-      errors.add(:period, "No permite un distribucion exacta en el intervalo de tiempo marcado") unless check_times?
-    end
-  end
 
   class << self
-    def list_by_store_admin(user)
-      @store = Store.find_by_admin_user_id(user)
-      @resorts = @store.resorts.map {|x| x.id}
-      Interval.where(:resort_id => @resorts).map {|x| x.id}.flatten
+    def by_storeadmin(role, user)
+      if role == 1
+        Interval.all
+      else
+        @store = Store.find_by_admin_id(user)
+        @resorts = @store.resorts.map {|x| x.id}
+        Interval.where(:resort_id => @resorts)
+      end
     end
   end
 

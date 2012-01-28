@@ -4,3 +4,13 @@
 $ ->
   $('a[data-code]').click ->
     $('pre').toggle
+      
+      
+$ ->
+  $("#store_province").change ->
+    province = $('select#store_province :selected').val()
+    if province == ""
+      province = 0
+    $.get '/admin/stores/update_town_select/' + province, (data)->
+      $("#addressTowns").html(data)
+    return false

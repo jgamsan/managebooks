@@ -94,13 +94,13 @@ class Admin::AdminsController < Admin::BaseController
     #else
       #@admin.errors[:base] << "El password que has introducido es incorrecto" unless @admin.valid_password?(params[:admin][:password])
     end
-
+    @admin = Admin.find(params[:id])
     respond_to do |format|
-      if @admin.errors[:base].empty? and @admin.update_attributes(params[:admin])
+      if @admin.update_attributes(params[:admin])
         flash[:notice] = "Esta cuenta ha sido actualizada"
         format.json { render :json => @admin.to_json, :status => 200 }
         format.xml  { head :ok }
-        format.html { render :action => :edit }
+        format.html { redirect_to admin_admins_path }
       else
         format.json { render :text => "No se pudo actualizar el administrador", :status => :unprocessable_entity } #placeholder
         format.xml  { render :xml => @admin.errors, :status => :unprocessable_entity }

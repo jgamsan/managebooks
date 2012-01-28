@@ -13,24 +13,16 @@
     <div class="row">
       <div class="span8">
         <div class="clearfix">
-          <div class="input">
-            <%= f.association :resort, :input_html => { :class => 'medium' } %>
-          </div>
+          <%= f.association :resort, :input_html => { :class => 'medium' }, :collection => Resort.by_storeadmin(current_admin_admin.role, current_admin_admin.id) %>
         </div>
         <div class="clearfix">
-          <div class="input">
-            <%= f.input :period, :input_html => { :class => 'span2' } %>
-          </div>
+          <%= f.input :period, :input_html => { :class => 'span2' } %>
         </div>
         <div class="clearfix">
-          <div class="input">
-            <%= f.input :time_init, :input_html => {:class => 'span2', :id => 'timepicker'} %>
-          </div>
+          <%= f.input :time_init, :input_html => {:class => 'span2', :id => 'timepicker'} %>
         </div>
         <div class="clearfix">
-          <div class="input">
-            <%= f.input :time_finish, :input_html => {:class => 'span2', :id => 'timepicker1'} %>
-          </div>
+          <%= f.input :time_finish, :input_html => {:class => 'span2', :id => 'timepicker1'} %>
         </div>
       </div>
     </div>

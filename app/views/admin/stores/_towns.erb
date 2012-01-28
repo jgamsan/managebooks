@@ -1,0 +1,7 @@
+<%= simple_fields_for 'store' do |f| %>
+  <% if !towns.blank? %>
+    <%= f.input :town_id, :collection => towns.collect{ |s| [s.name,s.id]}, :label => "Ciudad" %>
+  <% else %>
+    <%= f.input :town_id, :collection => [], :label => "Ciudad" %>
+  <% end %>
+<% end %>
