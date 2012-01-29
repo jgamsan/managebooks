@@ -8,6 +8,11 @@ class Interval < ActiveRecord::Base
     @resorts = @store.resorts.map {|x| x.id}
     where(:resort_id => @resorts)
   }
+  scope :by_store, lambda { |value, dia|
+    resorts = Resort.where(:store_id => value).map {|x| x.id}
+    books = Book.where{day.eq dia}
+    joins{resort}.select("intervals.id, intervals.resort_id, intervals.init, intervals.finish").where{id.not_in(books.select{interval_id})}
+  }
   def to_label
     "#{init.strftime('%H:%M')}"
   end
@@ -19,9 +24,9 @@ class Interval < ActiveRecord::Base
     @inicio = Time.new(Date.today.year, Date.today.month, Date.today.day, time_init[0..1].to_i, time_init[3..4].to_i)
     @fin = Time.new(Date.today.year, Date.today.month, Date.today.day, time_finish[0..1].to_i, time_finish[3..4].to_i)
     if ((@fin - @inicio)%(period.to_i * 60)) > 0
-      return false
+      false
     else
-      return true
+      true
     end
   end
 

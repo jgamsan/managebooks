@@ -69,6 +69,7 @@ Managebooks::Application.routes.draw do
   #     resource :seller
   #   end
   match 'admin/stores/update_town_select/:id' => 'admin/stores#update_town_select'
+  match 'admin/books/update_day_selected/:id' => 'admin/books#update_day_selected'
   # Sample resource route with more complex sub-resources
   #   resources :products do
   #     resources :comments

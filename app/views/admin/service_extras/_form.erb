@@ -7,26 +7,7 @@
   <% end %>
   <div class="row">
     <div class="span4">
-      <div class="clearfix">
-        <div class="input">
-          <%= f.input :name %>
-        </div>
-      </div>
-      <div class="clearfix">
-        <div class="input">
-          <%= f.input :lasting, :input_html => { :class => 'span2' } %>
-        </div>
-      </div>
-      <div class="clearfix">
-        <div class="input">
-          <%= f.input :cost, :input_html => { :class => 'span2' } %>
-        </div>
-      </div>
-      <div class="clearfix">
-        <div class="input">
-          <%= f.association :store, :input_html => { :class => 'medium' }, :collection => Store.by_role(current_admin_admin.role, current_admin_admin.id) %>
-        </div>
-      </div>
+      <%= render :partial => "services_extras_fields", :locals => {:f => f} %>
     </div>
   </div>
 

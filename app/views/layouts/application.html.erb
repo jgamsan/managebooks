@@ -6,7 +6,7 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
-<body style = "background-color:#F5F5F5 ">
+<body>
   <%= gflash %>
   <div class="container-fluid menu">
     <% unless current_user %>
@@ -53,11 +53,11 @@
   </div>
   <div class="container-fluid" >
     <div class="sidebar" style="padding-top: 60px;" >
-      <div class="well menu">
+      <div class="well">
         <%= render :partial => 'welcome/categories' %>
       </div>
-      <div class="well menu" id="bycategory"></div>
-      <div class="well menu" id="bystore"></div>
+      <div class="well" id="bycategory"></div>
+      <div class="well" id="bystore"></div>
     </div>
     <div class="content">
       <div class="hero-unit" id="content-main">

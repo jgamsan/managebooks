@@ -1,0 +1,65 @@
+<div class="span4">
+  <div class="clearfix">
+    <div class="input">
+      <%= f.input :name %>
+    </div>
+  </div>
+  <div class="clearfix">
+    <div class="input">
+      <%= f.association :category %>
+    </div>
+  </div>
+  <div class="clearfix">
+    <div class="input">
+      <%= f.hidden_field :admin_id, :value => current_admin_admin.id %>
+    </div>
+  </div>
+  <div class="clearfix">
+    <div class="input">
+      <%= f.input :email %>
+    </div>
+  </div>
+  <div class="clearfix">
+    <div class="input">
+      <%= f.input :cellphone %>
+    </div>
+  </div>
+</div>
+
+<div class="span4">
+  <div class="clearfix">
+    <div class="input">
+      <%= f.input :address %>
+    </div>
+  </div>
+  <div class="clearfix">
+    <div class="input">
+      <%= f.input :zip_code %>
+    </div>
+  </div>
+  <div class="clearfix">
+    <div class="input">
+      <%= f.input :province, :collection => @provinces, :label => "Provincia" %>
+    </div>
+  </div>
+  <div class="clearfix">
+    <div class="input", id="addressTowns">
+      <%= render :partial => 'towns' %>
+    </div>
+  </div>
+</div>
+<div class="span4">
+  <div class="clearfix">
+    <%= f.input :latitude %>
+  </div>
+  <div class="clearfix">
+    <div class="input">
+      <%= f.input :longitude %>
+    </div>
+  </div>
+  <div class="clearfix">
+    <div class="input-prepend">
+      <%= f.input :gmaps %>
+    </div>
+  </div>
+</div>

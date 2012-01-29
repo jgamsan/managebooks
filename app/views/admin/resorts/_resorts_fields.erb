@@ -1,0 +1,14 @@
+<div class="clearfix">
+  <%= f.input :name %>
+</div>
+<div class="clearfix">
+  <%= f.association :store, :collection => Store.storeadmin(current_admin_admin.id) %>
+</div>
+<div class="clearfix">
+  <label>Servicios Extras</label>
+  <div class="input">
+    <ul class="inputs-list">
+      <%= f.association :service_extras, :label => false, :collection => ServiceExtra.storeadmin(current_admin_admin.id) %>
+    </ul>
+  </div>
+</div>

@@ -7,20 +7,7 @@
   <% end %>
   <div class="row">
     <div class="span4">
-      <div class="clearfix">
-        <%= f.input :name %>
-      </div>
-      <div class="clearfix">
-        <%= f.association :store, :collection => Store.by_role(current_admin_admin.role, current_admin_admin.id) %>
-      </div>
-      <div class="clearfix">
-        <label>Servicios Extras</label>
-        <div class="input">
-          <ul class="inputs-list">
-            <%= f.association :service_extras, :label => false, :collection => ServiceExtra.by_storeadmin(current_admin_admin.role, current_admin_admin.id) %>
-          </ul>
-        </div>
-      </div>
+      <%= render :partial => "resorts_fields", :locals => {:f => f} %>
     </div>
   </div>
   <div class="actions">

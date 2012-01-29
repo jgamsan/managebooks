@@ -32,6 +32,7 @@ gem 'omniauth-github'
 gem 'omniauth-openid'
 gem 'omniauth-identity'
 gem 'carrierwave'
+gem 'cocoon'
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby'
 gem 'i18n'

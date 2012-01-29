@@ -5,7 +5,7 @@ class Book < ActiveRecord::Base
   has_many :service_extras, :through => :extras
   attr_reader :extra_tokens
   cattr_accessor :init_date, :finish_date
-  after_create :sum_lasting_of_service_extras
+  after_save :sum_lasting_of_service_extras
   scope :busy, lambda { |day, resort| where(:resort_id => resort, :day => day) }
   scope :total, lambda { |day, resort, user| where{(user_id.eq user) & (day.gteq Date.today) & (resort_id.eq resort)}}
   scope :hoy, where{day == Date.today}
@@ -22,10 +22,27 @@ class Book < ActiveRecord::Base
   scope :next_days, where(:day => Date.today..(Date.today + 7.day))
 
   def sum_lasting_of_service_extras
-    for element in self.service_extra_ids
-      tiempo += element.lasting
+    tiempo = 0
+    unless self.service_extra_ids.nil?
+      for element in self.service_extra_ids do
+        tiempo += element.lasting
+      end
     end
-
+    final = self.finish + tiempo.minutes
+    @intervals = Interval.where{resort_id.eq self.interval.resort.id}
+    ocupados = []
+    for i in (self.interval_id + 1)..(@intervals.size - 1)
+      if @intervals[i].finish < tiempo
+        final << i
+      else
+        break
+      end
+    end
+    unless ocupados.nil?
+      ocupados.each do |element|
+        Book.create(:user_id => self.user_id, :day => self.day, :interval_id => element, :who => ("u" + self.user_id.to_s))
+      end
+    end
   end
 
   class << self

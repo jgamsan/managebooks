@@ -8,8 +8,11 @@
   <div class="row">
     <div class="span4">
       <div class="clearfix">
-        <%= f.input :day %>
+        <%= f.input :day, :as => :string %>
       </div>
+    </div>
+    <div class="clearfix">
+      <%= f.select :interval_id, grouped_options_for_select(@intervals) %>
     </div>
   </div>
   <div class="actions">

@@ -14,6 +14,16 @@ class Admin::BooksController < Admin::BaseController
     end
   end
 
+  def new
+    @book = Book.new
+    store = Store.find_by_admin_id(current_admin_admin.id)
+    @intervals = Interval.by_store(store, Date.today)
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @books }
+    end
+  end
+
   def para_hoy
     @books = Book.by_storeadmin(current_admin_admin.role, current_admin_admin.id).hoy.page params[:page]
     respond_to do |format|
@@ -47,6 +57,11 @@ class Admin::BooksController < Admin::BaseController
       format.js
     end
   end
+  
+  def update_day_selected
+    books = Book.where(:day => params[:id]).order(:name) unless params[:id].blank?
+    render :partial => "towns", :locals => { :towns => towns}
+  end
 
   private
 
@@ -54,10 +69,5 @@ class Admin::BooksController < Admin::BaseController
     fechas = fecha.split('-')
     Date.new(fechas[2].to_i, fechas[1].to_i, fechas[0].to_i)
   end
-  
-  def new
-    @book = Book.new
-  end
-
 end
 

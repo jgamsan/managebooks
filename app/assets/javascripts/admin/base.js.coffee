@@ -12,4 +12,5 @@ $ ->
   $('#init_date').datepicker()
   $('#finish_date').datepicker()
   $('#day').datepicker()
+  $('#book_day').datepicker()
 

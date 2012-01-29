@@ -6,4 +6,5 @@
 //= require_tree .
 //= require bootstrap
 //= require gritter
+//= require cocoon
 
