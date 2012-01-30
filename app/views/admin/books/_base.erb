@@ -10,12 +10,15 @@
       <div class="clearfix">
         <%= f.input :day, :as => :string %>
       </div>
-    </div>
-    <div class="clearfix">
-      <%= f.select :interval_id, grouped_options_for_select(@intervals) %>
+      <div class="clearfix">
+        <div class="input", id="freeIntervals">
+          <%= render :partial => 'intervals' %>
+        </div>
+      </div>
     </div>
   </div>
   <div class="actions">
     <%= f.button :submit, :class => "btn primary" %>
   </div>
 <% end -%>
+

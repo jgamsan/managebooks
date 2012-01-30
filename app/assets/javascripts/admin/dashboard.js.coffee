@@ -4,8 +4,8 @@
 $ ->
   $('a[data-code]').click ->
     $('pre').toggle
-      
-      
+
+
 $ ->
   $("#store_province").change ->
     province = $('select#store_province :selected').val()
@@ -14,9 +14,10 @@ $ ->
     $.get '/admin/stores/update_town_select/' + province, (data)->
       $("#addressTowns").html(data)
     return false
-      
+
 $ ->
-  $("book_day").change ->
+  $("#book_day").change ->
     fecha = $('input#book_day').val()
     $.get '/admin/books/update_day_selected/' + fecha, (data)->
       $("#freeIntervals").html(data)
+

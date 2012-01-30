@@ -1,12 +1,13 @@
 class Admin::BooksController < Admin::BaseController
 
+  before_filter :get_store, :only => [:new, :create, :update_day_selected]
   def index
    if current_admin_admin.role == 1
      @books = Book.page params[:page]
    else
      @books = Book.storeadmin(current_admin_admin.id).page params[:page]
    end
-   
+
    respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @books }
@@ -16,12 +17,15 @@ class Admin::BooksController < Admin::BaseController
 
   def new
     @book = Book.new
-    store = Store.find_by_admin_id(current_admin_admin.id)
-    @intervals = Interval.by_store(store, Date.today)
+    @intervals = Interval.for_select(@store, Date.today)
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @books }
     end
+  end
+
+  def create
+
   end
 
   def para_hoy
@@ -57,12 +61,15 @@ class Admin::BooksController < Admin::BaseController
       format.js
     end
   end
-  
+
   def update_day_selected
-    books = Book.where(:day => params[:id]).order(:name) unless params[:id].blank?
-    render :partial => "towns", :locals => { :towns => towns}
+    intervals = Interval.for_select(@store, params[:id]) unless params[:id].blank?
+    render :partial => "intervals", :locals => { :intervals => intervals}
   end
 
+  def get_store
+    @store = Store.find_by_admin_id(current_admin_admin.id)
+  end
   private
 
   def parse_dates(fecha)
