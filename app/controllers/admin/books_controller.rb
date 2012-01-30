@@ -25,7 +25,18 @@ class Admin::BooksController < Admin::BaseController
   end
 
   def create
+    @book = Book.new(params[:book])
+    
 
+    respond_to do |format|
+      if @book.save
+        format.html { redirect_to(admin_books_path, :notice => 'Nueva Reserva creada correctamente.') }
+        format.xml  { render :xml => @category, :status => :created, :location => @category }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @category.errors, :status => :unprocessable_entity }
+      end
+    end
   end
 
   def para_hoy
@@ -65,6 +76,12 @@ class Admin::BooksController < Admin::BaseController
   def update_day_selected
     intervals = Interval.for_select(@store, params[:id]) unless params[:id].blank?
     render :partial => "intervals", :locals => { :intervals => intervals}
+  end
+  
+  def update_interval_select
+    @interval = Interval.find(params[:id])
+    services_extras = ServiceExtra.where(:store_id => @interval.resort.store.id)
+    render :partial => "services_extras", :locals => { :services_extras => services_extras}
   end
 
   def get_store

@@ -14,7 +14,7 @@ Managebooks::Application.routes.draw do
   post 'books/assign_book'
 
   resources :books
-
+  resources :clients
 
   resources :identities
 
@@ -70,6 +70,7 @@ Managebooks::Application.routes.draw do
   #   end
   match 'admin/stores/update_town_select/:id' => 'admin/stores#update_town_select'
   match 'admin/books/update_day_selected/:id' => 'admin/books#update_day_selected'
+  match 'admin/books/update_interval_select/:id' => 'admin/books#update_interval_select'
   # Sample resource route with more complex sub-resources
   #   resources :products do
   #     resources :comments
@@ -95,6 +96,7 @@ Managebooks::Application.routes.draw do
     resources :resorts do
       resources :offers
     end
+    resources :users
     resources :intervals do
       collection do
         get 'new_by_period'

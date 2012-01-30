@@ -14,3 +14,11 @@ $ ->
   $('#day').datepicker()
   $('#book_day').datepicker()
 
+$ ->
+  $("#book_user_token").tokenInput "/admin/users.json"
+    ,crossDomain: false
+    ,prePopulate: $("#book_user_token").data("pre")
+    ,preventDuplicates: true
+    ,allowCustomEntry: true
+    ,tokenLimit: 1
+

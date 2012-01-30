@@ -8,12 +8,18 @@
   <div class="row">
     <div class="span4">
       <div class="clearfix">
-        <%= f.input :day, :as => :string %>
+        <%= f.input :day, :as => :string, :label => "Fecha Reserva" %>
       </div>
       <div class="clearfix">
         <div class="input", id="freeIntervals">
           <%= render :partial => 'intervals' %>
         </div>
+      </div>
+      <div class="clearfix">
+        
+      </div>
+      <div class="clearfix">
+        <%= f.input :user_token, :label => "Cliente", :input_html => {"data-pre" => @users.to_json} %>
       </div>
     </div>
   </div>

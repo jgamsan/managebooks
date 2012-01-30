@@ -3,7 +3,7 @@ class Book < ActiveRecord::Base
   belongs_to :interval
   has_many :extras, :dependent => :destroy
   has_many :service_extras, :through => :extras
-  attr_reader :extra_tokens
+  attr_reader :extra_tokens, :user_token
   cattr_accessor :init_date, :finish_date
   after_save :sum_lasting_of_service_extras
   scope :busy, lambda { |day, resort| where(:resort_id => resort, :day => day) }
@@ -20,7 +20,14 @@ class Book < ActiveRecord::Base
     where{(id.not_in(books.select{interval_id})) & (resort_id.eq value)}
   }
   scope :next_days, where(:day => Date.today..(Date.today + 7.day))
-
+  
+  def user_token=(id)
+    id.gsub!(/CREATE_(.+?)_END/) do
+      User.create!(:name => $1).id
+    end
+    self.user_id = id
+  end
+  
   def sum_lasting_of_service_extras
     tiempo = 0
     unless self.service_extra_ids.nil?

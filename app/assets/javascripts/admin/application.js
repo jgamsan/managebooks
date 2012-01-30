@@ -7,4 +7,5 @@
 //= require bootstrap
 //= require gritter
 //= require cocoon
+//= require admin/jquery.tokeninput
 

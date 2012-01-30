@@ -1,9 +1,8 @@
 <%= simple_fields_for 'book' do |f| %>
-  <% if !intervals.blank? %>
-    <label>Recurso/Horario</label>
+  <% if !services_extras.blank? %>
+    <label>Servicios Extras</label>
     <%= f.select :interval_id, grouped_options_for_select(intervals) %>
   <% else %>
     <%= f.input :interval_id, :collection => [], :label => "Recurso/Horario" %>
   <% end %>
 <% end %>
-

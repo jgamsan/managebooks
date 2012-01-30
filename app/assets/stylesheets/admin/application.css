@@ -8,4 +8,5 @@
  *= require_tree .
  *= require gritter
  *= require jquery.ui.timepicker
+ *= require admin/styles/token-input-facebook
 */
