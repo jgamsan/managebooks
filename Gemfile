@@ -14,8 +14,6 @@ group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
   gem 'uglifier'
-  gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
-                              :git => 'git://github.com/anjlab/bootstrap-rails.git'
   gem 'haml'
 
   gem 'execjs'
@@ -39,7 +37,7 @@ gem 'i18n'
 # Use unicorn as the web server
 # gem 'unicorn'
 gem 'devise'
-gem 'simple_form'
+gem 'simple_form', git: 'git://github.com/plataformatec/simple_form.git'
 # Deploy with Capistrano
 gem 'capistrano'
 gem 'squeel'

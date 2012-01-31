@@ -6,11 +6,11 @@
   <%= render 'admin/shared/head' %>
 </head>
 
-<body style="padding-top: 60px">
+<body>
 
-  <div class="topbar">
-    <div class="topbar-inner">
-      <div class="container-fluid">
+  <div class="navbar navbar-fixed">
+    <div class="navbar-inner">
+      <div class="container">
         <a class="brand" href="#">Panel administracion de WebReserva</a>
         <ul class="nav">
           <li><%= link_to 'Salir', destroy_admin_admin_session_path %></li>
@@ -47,3 +47,4 @@
 </body>
 
 </html>
+

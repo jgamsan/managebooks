@@ -1,52 +1,24 @@
-<%= simple_form_for [:admin, @admin], :html => { :class => "form-stacked" } do |f| %>
+<%= simple_form_for([:admin, @admin], :html => { :class => "form-stacked" }) do |f| %>
   <% if f.error_notification %>
-    <div class="alert-message warning fade in" data-alert="alert">
-      <a class="close" href="#">×</a>
+    <div class="alert alert-error fade in">
+      <a class="close" data-dismiss="alert" href="#">&times;</a>
       <p><%= f.error_notification %></p>
     </div>
   <% end %>
   <div class="row">
     <div class="span4">
-      <div class="clearfix">
-        <div class="input">
-          <%= f.input :first_name %>
-        </div>
-      </div>
-      <div class="clearfix">
-        <div class="input">
-          <%= f.input :last_name %>
-        </div>
-      </div>
-      <div class="clearfix">
-        <div class="input">
-          <%= f.input :email %>
-        </div>
-      </div>
-      <div class="clearfix">
-        <div class="input">
-          <%= f.input :password %>
-        </div>
-      </div>
-      <div class="clearfix">
-        <div class="input">
-          <%= f.input :password_confirmation %>
-        </div>
-      </div>
-      <div class="clearfix">
-        <div class="input">
-          <%= f.input :role, :collection => Admin::ROLES %>
-        </div>
-      </div>
-      <div class="clearfix">
-        <div class="input">
-          <%= f.input :status %>
-        </div>
-      </div>
+      <%= f.input :first_name %>
+      <%= f.input :last_name %>
+      <%= f.input :email %>
+      <%= f.input :password %>
+      <%= f.input :password_confirmation %>
+      <%= f.input :role, :collection => Admin::ROLES %>
+      <%= f.input :status, :as => :boolean %>
     </div>
   </div>
 
   <div class="actions">
-    <%= f.button :submit, :class => "btn primary" %>
+    <%= f.button :submit, :class => "primary" %>
   </div>
 <% end %>
 

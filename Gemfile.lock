@@ -1,11 +1,10 @@
 GIT
-  remote: git://github.com/anjlab/bootstrap-rails.git
-  revision: 3ba9ea85c7634fb5d9af067349a9a97200ef6dae
+  remote: git://github.com/plataformatec/simple_form.git
+  revision: a369f0467d1cd8827554464ac87855f65979b6b6
   specs:
-    anjlab-bootstrap-rails (1.4.0.14)
-      railties (~> 3.0)
-      sass
-      thor (~> 0.14)
+    simple_form (2.0.0.dev)
+      actionpack (~> 3.0)
+      activemodel (~> 3.0)
 
 GEM
   remote: http://rubygems.org/
@@ -177,9 +176,6 @@ GEM
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
-    simple_form (1.5.2)
-      actionpack (~> 3.0)
-      activemodel (~> 3.0)
     sprockets (2.1.2)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -209,7 +205,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  anjlab-bootstrap-rails!
   awesome_print
   bcrypt-ruby
   capistrano
@@ -237,7 +232,7 @@ DEPENDENCIES
   rails (= 3.2.1)
   rmagick
   sass-rails
-  simple_form
+  simple_form!
   squeel
   therubyracer
   turn (= 0.8.2)
