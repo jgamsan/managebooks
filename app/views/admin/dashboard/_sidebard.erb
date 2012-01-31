@@ -1,6 +1,4 @@
-<h4>Menu!</h4>
-
-<ul>
+<ul class="nav nav-pills">
   <% unless current_admin_admin.role == 2 -%>
     <li>
       <%= link_to 'Administradores', admin_admins_path %>

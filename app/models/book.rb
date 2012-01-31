@@ -15,10 +15,7 @@ class Book < ActiveRecord::Base
   scope :storeadmin, lambda { |value|
     joins{interval.resort.store}.where{stores.admin_id.eq value}
   }
-  scope :by_resort, lambda { |value, dia|
-    books = Book.where{day.eq dia}
-    where{(id.not_in(books.select{interval_id})) & (resort_id.eq value)}
-  }
+  
   scope :next_days, where(:day => Date.today..(Date.today + 7.day))
   
   def user_token=(id)

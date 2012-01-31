@@ -1,7 +1,7 @@
 <% content_for :content do %>
   <h2>Categorias</h2>
 
-    <table class="zebra-striped">
+    <table class="table table-bordered table-striped">
       <tr>
         <th>Name</th>
         <th></th>
@@ -17,7 +17,6 @@
         </tr>
       <% end %>
     </table>
-    <%#= will_paginate @products %>
     <br />
     <br />
     <p><%= link_to "Nueva Categoria", new_admin_category_path %></p>

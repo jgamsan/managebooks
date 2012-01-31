@@ -13,10 +13,10 @@
   }
 }
 
-p.user{
-  background: url(image_path("user_green.png")) left bottom no-repeat;
-  padding-left: 25px;
+.user{
+  padding: 12px 8px 12px 8px;
   height: 24px;
+  float:right;
 }
 
 li.category {
@@ -37,9 +37,11 @@ li.resorts {
 
 .yellow { border: 1px solid black; margin-top: 8px; background: yellow; padding: 5px; }
 
-.menu { background-color: #a8b1c6; }
+.menu { background-color: #eeeeee; }
 
 .altura { z-index: 0;}
 
-.form { margin-top:18px; }
-
+.form-menu {
+  margin-top: 14px;
+  margin-bottom: 0px;
+}

@@ -1,5 +1,7 @@
-<div class="row" id="information">
+<div class="page-header">
   <h3 style="text-align: center"><%= @resort.name %>(Vista Diaria)</h3>
+</div>
+<div class="row" id="information">
   <div class="span3">
     <%= link_to image_tag("calendar_alt_fill_24x24.png"), view_weekly_path(@resort.id, Date.today), :remote => true %>
   </div>
@@ -7,7 +9,7 @@
 <div id="daily">
   <div class="row" id="vista">
     <div class="span3">
-      <%#= link_to image_tag("arrow_left_24x24.png"), {:controller => "books", :action => "change_day", :id => @resort.id, :gd => Date.today - 1.day}, :remote => true %>
+      
     </div>
     <div class="span8">
       <h4 style="text-align: center"><%= l Date.today, :format => "%A, %d de %B de %Y" %></h4>
@@ -17,8 +19,8 @@
     </div>
   </div>
   <div class="row" id="list">
-    <div class="span6 offset1">
-      <table>
+    <div class="span6">
+      <table class="table">
         <tr>
           <th>Hora Cita</th>
           <th>Reserva</th>
@@ -33,7 +35,7 @@
         <% end %>
       </table>
     </div>
-    <div class="span5 offset2" id="services"></div>
+    <div class="span4 offset1" id="services"></div>
   </div>
 </div>
 

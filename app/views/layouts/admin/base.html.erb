@@ -22,17 +22,15 @@
       </div>
     </div>
   </div>
-  <div class="container-fluid">
-    <div class="sidebar">
-      <div class="well">
-        <%= render :partial => "admin/dashboard/sidebard" %>
-      </div>
+  <div class="container">
+    <div class="subnav">
+      <%= render :partial => "admin/dashboard/sidebard" %>
     </div>
     <div class="content">
       <div class="hero-unit">
         <% if notice %>
-          <div class="alert-message success fade in" data-alert="alert">
-            <a class="close" href="#">×</a>
+          <div class="alert alert-success fade in">
+            <a class="close" href="#" data-dismiss="alert">×</a>
             <p><%= notice %></p>
           </div>
         <% end %>

@@ -1,26 +1,13 @@
-<%= simple_form_for [:admin, @interval], :html => { :class => "form-stacked" } do |f| %>
+<%= simple_form_for([:admin, @interval], :html => { :class => "form-horizontal" }) do |f| %>
   <% if f.error_notification %>
-    <div class="alert-message warning fade in" data-alert="alert">
-      <a class="close" href="#">×</a>
+    <div class="alert alert-error fade in">
+      <a class="close" data-dismiss="alert" href="#">&times;</a>
       <p><%= f.error_notification %></p>
     </div>
   <% end %>
-  <div class="row">
-    <div class="span4">
-      <div class="clearfix">
-        <%= f.association :resort, :collection => Resort.by_storeadmin(current_admin_admin.role, current_admin_admin.id) %>
-      </div>
-      <div class="clearfix">
-        <%= f.input :init, :as => :string, :input_html => {:class => 'span2', :id => 'timepicker'} %>
-      </div>
-      <div class="clearfix">
-        <%= f.input :finish, :as => :string, :input_html => {:class => 'span2', :id => 'timepicker1'} %>
-      </div>
-    </div>
-  </div>
-
-  <div class="actions">
-    <%= f.button :submit, :class => "btn primary" %>
-  </div>
+  <%= f.association :resort, :collection => Resort.storeadmin(current_admin_admin.id) %>
+  <%= f.input :init, :as => :string, :input_html => {:class => 'span2', :id => 'timepicker'} %>
+  <%= f.input :finish, :as => :string, :input_html => {:class => 'span2', :id => 'timepicker1'} %>
+  <%= f.button :submit, :class => "btn-primary" %> 
 <% end %>
 

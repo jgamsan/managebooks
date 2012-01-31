@@ -1,7 +1,7 @@
 <% content_for :content do %>
   <h2>Intervalos</h2>
 
-    <table class="zebra-striped">
+    <table class="table table-bordered table-striped">
       <tr>
         <th>Recurso</th>
         <th>Periodo</th>
@@ -19,7 +19,9 @@
         </tr>
       <% end %>
     </table>
-    <%= paginate @intervals %>
+    <div id="pagination">
+      <%= paginate @intervals %>
+    </div>
     <br />
     <br />
     <p><%= link_to "Nuevo Intervalo", new_admin_interval_path %> | <%= link_to 'Nuevo Intervalo por periodo', new_by_period_admin_intervals_path %></p>

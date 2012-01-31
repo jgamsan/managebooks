@@ -1,17 +1,11 @@
-<%= simple_form_for [:admin, @resort], :html => { :class => "form-stacked" } do |f| %>
+<%= simple_form_for([:admin, @resort], :html => { :class => "form-horizontal" }) do |f| %>
   <% if f.error_notification %>
-    <div class="alert-message warning fade in" data-alert="alert">
-      <a class="close" href="#">×</a>
+    <div class="alert alert-error fade in">
+      <a class="close" data-dismiss="alert" href="#">&times;</a>
       <p><%= f.error_notification %></p>
     </div>
   <% end %>
-  <div class="row">
-    <div class="span4">
-      <%= render :partial => "resorts_fields", :locals => {:f => f} %>
-    </div>
-  </div>
-  <div class="actions">
-    <%= f.button :submit, :class => "btn primary" %>
-  </div>
+  <%= render :partial => "resort_fields", :locals => {:f => f} %>
+  <%= f.button :submit, :class => "btn primary" %>
 <% end %>
 

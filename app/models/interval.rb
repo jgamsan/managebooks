@@ -8,7 +8,10 @@ class Interval < ActiveRecord::Base
     @resorts = @store.resorts.map {|x| x.id}
     where(:resort_id => @resorts)
   }
-
+  scope :by_resort, lambda { |value, dia|
+    books = Book.where{day.eq dia}
+    where{(id.not_in(books.select{interval_id})) & (resort_id.eq value)}
+  }
 
   def to_label
     "#{init.strftime('%H:%M')}"

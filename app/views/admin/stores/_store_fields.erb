@@ -1,0 +1,15 @@
+<%= f.input :name %>
+<%= f.association :category %>
+<%= f.hidden_field :admin_id, :value => current_admin_admin.id %>
+<%= f.input :email %>
+<%= f.input :cellphone %>
+<%= f.input :address %>
+<%= f.input :zip_code %>
+<%= f.input :province, :collection => @provinces, :label => "Provincia" %>
+<div id="addressTowns">
+  <%= render :partial => 'towns' %>
+</div>
+<%= f.input :latitude %>
+<%= f.input :longitude %>
+<%= f.input :gmaps %>
+    

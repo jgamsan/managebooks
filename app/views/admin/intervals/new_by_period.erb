@@ -3,33 +3,23 @@
     <h2>Intervalos por Periodo</h2>
   </div>
 
-  <%= simple_form_for @interval, :url => by_period_admin_intervals_path, :html => { :class => "form-stacked", :method => :post } do |f| %>
+  <%= simple_form_for(@interval, :url => by_period_admin_intervals_path, :html => { :class => "form-horizontal", :method => :post }) do |f| %>
     <% if f.error_notification %>
-      <div class="alert-message warning fade in" data-alert="alert">
-        <a class="close" href="#">×</a>
+      <div class="alert alert-error fade in">
+        <a class="close" data-dismiss="alert" href="#">&times;</a>
         <p><%= f.error_notification %></p>
       </div>
     <% end %>
-    <div class="row">
-      <div class="span8">
-        <div class="clearfix">
-          <%= f.association :resort, :input_html => { :class => 'medium' }, :collection => Resort.by_storeadmin(current_admin_admin.role, current_admin_admin.id) %>
-        </div>
-        <div class="clearfix">
-          <%= f.input :period, :input_html => { :class => 'span2' } %>
-        </div>
-        <div class="clearfix">
-          <%= f.input :time_init, :input_html => {:class => 'span2', :id => 'timepicker'} %>
-        </div>
-        <div class="clearfix">
-          <%= f.input :time_finish, :input_html => {:class => 'span2', :id => 'timepicker1'} %>
-        </div>
-      </div>
-    </div>
+    
+    <%= f.association :resort, :input_html => { :class => 'medium' }, :collection => Resort.storeadmin(current_admin_admin.id) %>
+  
+    <%= f.input :period, :input_html => { :class => 'span2' } %>
+  
+    <%= f.input :time_init, :input_html => {:class => 'span2', :id => 'timepicker'} %>
+        
+    <%= f.input :time_finish, :input_html => {:class => 'span2', :id => 'timepicker1'} %>
 
-    <div class="actions">
-      <%= f.submit "Crear Intervalo", :class => "btn primary" %>
-    </div>
+    <%= f.submit "Crear Intervalo", :class => "btn primary" %>
   <% end %>
 
   <p><%= link_to "Volver Listado", admin_intervals_path %></p>

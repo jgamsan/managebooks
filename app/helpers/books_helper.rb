@@ -1,7 +1,7 @@
 module BooksHelper
 
   def calendar_weekly(intervals)
-    cal = %(<table>\n)
+    cal = %(<table class="table table-condensed">\n)
     cal << %(\t<thead>\n\t\t<tr>\n)
     cal << %(\t\t\t<th align='center'>)
     cal << "Horario"

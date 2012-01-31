@@ -1,7 +1,7 @@
 <% content_for :content do %>
   <h2>Recursos</h2>
 
-    <table class="zebra-striped">
+    <table class="table table-bordered table-striped">
       <tr>
         <th>Name</th>
         <th>Negocio</th>
@@ -20,7 +20,6 @@
         </tr>
       <% end %>
     </table>
-    <%#= will_paginate @products %>
     <br />
     <br />
     <p><%= link_to "Nuevo Recurso", new_admin_resort_path %></p>

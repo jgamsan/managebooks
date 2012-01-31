@@ -14,7 +14,7 @@ class BooksController < ApplicationController
 
   def view_daily
     @resort = Resort.find(params[:id])
-    @intervals = Book.by_resort(params[:id], Date.today)
+    @intervals = Interval.by_resort(params[:id], Date.today)
     respond_to do |format|
       format.js
     end
@@ -117,7 +117,7 @@ class BooksController < ApplicationController
   end
 
   def calculate_free_books(resort, fecha)
-    Book.by_resort(resort, fecha).map {|x| x.id}.flatten
+    Interval.by_resort(resort, fecha).map {|x| x.id}.flatten
   end
 end
 

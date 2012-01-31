@@ -1,0 +1,4 @@
+<%= f.input :name %>
+<%= f.association :store, :collection => Store.storeadmin(current_admin_admin.id) %>
+<%= f.association :service_extras, :label => "Servicios Extras", :as => :check_boxes, :collection => ServiceExtra.storeadmin(current_admin_admin.id) %>
+

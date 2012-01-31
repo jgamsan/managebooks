@@ -1,11 +1,11 @@
 <%= form_tag books_assign_book_path, :remote => true do -%>
-  <h5><%= l @dia.to_date, :format => "%a, %d%b%Y" %> de <%= @horario %></h5>
+  <h5>Reserva: <%= l @dia.to_date, :format => "%A, %d de %b de %Y" %> de <%= @horario %></h5>
   <p>
     <%= hidden_field_tag :interval, @interval.id %>
     <%= hidden_field_tag :day, @dia %>
   </p>
 
-  <table>
+  <table class="table table-condensed">
     <tr>
       <th></th>
       <th>Nombre</th>
@@ -29,10 +29,10 @@
       <% end -%>
     <% end -%>
     <tr>
-      <td colspan=2>Total</td>
-      <td id = "total">cifra</td>
+      <td colspan=3>Total</td>
+      <td id= "total">cifra</td>
     </tr>
   </table>
-  <%= submit_tag 'Solicitar', :class => 'btn primary' %>
+  <%= submit_tag 'Solicitar', :class => 'btn-primary' %>
 <% end -%>
 
