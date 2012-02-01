@@ -5,43 +5,44 @@
 <head>
   <%= render 'admin/shared/head' %>
 </head>
-
 <body>
-
-  <div class="navbar navbar-fixed">
+  <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
-      <div class="container">
-        <a class="brand" href="#">Panel administracion de WebReserva</a>
-        <ul class="nav">
-          <li><%= link_to 'Salir', destroy_admin_admin_session_path %></li>
-        </ul>
-        <p class="pull-right">
-          Logged in as
+      <div class="container-fluid">
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li><%= link_to 'Salir', destroy_admin_admin_session_path %></li>
+          </ul>
+        </div>
+        <p class="navbar-text pull-right">
+          Administrador
           <a><%= current_admin_admin.nombre_completo %></a>
         </p>
       </div>
     </div>
   </div>
-  <div class="container">
-    <div class="subnav">
-      <%= render :partial => "admin/dashboard/sidebard" %>
-    </div>
-    <div class="content">
-      <div class="hero-unit">
-        <% if notice %>
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span3">
+        <div class="well sidebar-nav">
+          <%= render :partial => "admin/dashboard/sidebard" %>
+        </div>
+      </div>
+      <div class="span9">
+        <div class="hero-unit">
+          <% if notice %>
           <div class="alert alert-success fade in">
             <a class="close" href="#" data-dismiss="alert">×</a>
             <p><%= notice %></p>
           </div>
         <% end %>
         <%= yield :content %>
+        </div>
       </div>
       <div id="footer">
         <p>@ Webreserva 2012</p>
       </div>
     </div>
-  </div>
-
 </body>
 
 </html>

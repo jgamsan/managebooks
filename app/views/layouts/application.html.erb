@@ -8,7 +8,7 @@
 </head>
 <body>
   <%= gflash %>
-  <div class="subnav menu">
+  <div class="navbar navbar-fixed-top menu">
       <% unless current_user %>
       <ul class="nav nav-pills">
         <li>
@@ -38,29 +38,26 @@
       </ul>
     <% else -%>
         <ul class="nav nav-pills">
-        <li>
-          <%= link_to image_tag("info_16x32.png", :alt => "Reservas", :title => "Reservas Vigentes"), books_list_books_path, :remote => true %>
-        </li>
-        <li>
-          <%= link_to image_tag("unlock_fill_24x32.png", :alt => "Logout", :title => "Salir"), logout_path %>
-        </li>
-        <li style="float:right;padding-top:20px;padding-right:15px;"><%= current_user.name %></li>
-        <li class="user", style="float:right;">
-          <%= image_tag "user_24x32.png", :alt => "Usuario" %>
-        </li>
-      </ul>
+          <li>
+            <%= link_to image_tag("info_16x32.png", :alt => "Reservas", :title => "Reservas Vigentes"), books_list_books_path, :remote => true %>
+          </li>
+          <li>
+            <%= link_to image_tag("unlock_fill_24x32.png", :alt => "Logout", :title => "Salir"), logout_path %>
+          </li>
+        </ul>
+        <p class="navbar-text pull-right"><%= link_to image_tag("user_24x32.png", :alt => "Usuario"), '#'  %><%= current_user.name %></p>
     <% end -%>
     </div>
     
   <div class="container-fluid" >
-    <div class="row-fluid" style="padding-top: 20px;" >
+    <div class="row-fluid">
       <div class="span2">
-        <div class="well"><%= render :partial => 'welcome/categories' %></div>
-        <div class="well" id="bycategory"></div>
-        <div class="well" id="bystore"></div>
+        <div class="well sidebar-nav"><%= render :partial => 'welcome/categories' %></div>
+        <div class="well sidebar-nav" id="bycategory"></div>
+        <div class="well sidebar-nav" id="bystore"></div>
       </div>
       <div class="span10">
-        <div id="content-main">
+        <div class="hero-unit", id="content-main">
           <%= gmaps4rails(@json) %>
         </div>
         <footer><p>&copy; Galisports 2011</p>
