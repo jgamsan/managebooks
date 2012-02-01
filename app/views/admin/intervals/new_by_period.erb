@@ -10,16 +10,11 @@
         <p><%= f.error_notification %></p>
       </div>
     <% end %>
-    
     <%= f.association :resort, :input_html => { :class => 'medium' }, :collection => Resort.storeadmin(current_admin_admin.id) %>
-  
     <%= f.input :period, :input_html => { :class => 'span2' } %>
-  
     <%= f.input :time_init, :input_html => {:class => 'span2', :id => 'timepicker'} %>
-        
-    <%= f.input :time_finish, :input_html => {:class => 'span2', :id => 'timepicker1'} %>
-
-    <%= f.submit "Crear Intervalo", :class => "btn primary" %>
+    <%= f.input :numero, :input_html => {:class => 'span2'} %>
+    <%= f.submit "Crear Intervalo", :class => "btn-primary" %>
   <% end %>
 
   <p><%= link_to "Volver Listado", admin_intervals_path %></p>

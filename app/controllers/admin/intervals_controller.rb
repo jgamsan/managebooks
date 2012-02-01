@@ -5,7 +5,7 @@ class Admin::IntervalsController < Admin::BaseController
     else
       @intervals = Interval.storeadmin(current_admin_admin.id).page params[:page]
     end
-    
+
   end
 
   def new
@@ -70,17 +70,24 @@ class Admin::IntervalsController < Admin::BaseController
 
   def by_period
     inicio = Time.new(Date.today.year, Date.today.month, Date.today.day, params[:interval][:time_init][0..1].to_i, params[:interval][:time_init][3..4].to_i)
-    fin = Time.new(Date.today.year, Date.today.month, Date.today.day, params[:interval][:time_finish][0..1].to_i, params[:interval][:time_finish][3..4].to_i)
-
-    i = ((fin - inicio)/(params[:interval][:period].to_i * 60)).to_i
-    i.times do |n|
-      ini = inicio + (n)*params[:interval][:period].to_i.minute
-      final = inicio + (n+1)*params[:interval][:period].to_i.minute
-      Interval.create(:resort_id => params[:interval][:resort_id], :init => ini, :finish => final)
+    period = params[:interval][:period].to_i.minute
+    n = params[:interval][:numero].to_i
+    n.times do |n|
+      ini = inicio + (n * period)
+      final = inicio + (n+1)*period
+      @interval = Interval.new
+      @interval.resort_id = params[:interval][:resort_id]
+      @interval.init = ini
+      @interval.finish = final
+      @interval.save
     end
     respond_to do |format|
-      format.html { redirect_to(admin_intervals_path, :notice => 'Intervalos creados correctamente.') }
-      format.xml  { head :ok }
+      if @interval.save
+        format.html { redirect_to(admin_intervals_path, :notice => 'Intervalos creados correctamente.') }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "new_by_period" }
+      end
     end
   end
 end

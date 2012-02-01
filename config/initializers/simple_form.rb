@@ -140,7 +140,7 @@ SimpleForm.setup do |config|
 
   # Tell browsers whether to use default HTML5 validations (novalidate option).
   # Default is enabled.
-  config.browser_validations = false
+  config.browser_validations = true
 
   # Collection of methods to detect if a file type was given.
   # config.file_methods = [ :mounted_as, :file?, :public_filename ]
@@ -168,3 +168,4 @@ SimpleForm.setup do |config|
   # Cache simple form inputs discovery
   # config.cache_discovery = !Rails.env.development?
 end
+

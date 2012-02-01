@@ -1,0 +1,5 @@
+<%= f.input :name %>
+<%= f.input :lasting, :input_html => { :class => 'span2' } %>
+<%= f.input :cost, :input_html => { :class => 'span2' } %>
+<%= f.association :store, :input_html => { :class => 'medium' }, :collection => Store.storeadmin(current_admin_admin.id) %>
+
