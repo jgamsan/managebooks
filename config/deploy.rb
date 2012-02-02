@@ -1,4 +1,3 @@
-load 'deploy/assets'
 $:.unshift(File.expand_path('./lib', ENV['rvm_path']))
 require "rvm/capistrano"
 set :rvm_ruby_string, 'ruby-1.9.3-p0'
