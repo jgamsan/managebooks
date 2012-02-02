@@ -6,9 +6,9 @@
  *= require bootstrap-responsive
  *= require docs
  *= require_self
- *= require_tree ../../../../vendor/assets/stylesheets
  *= require_tree .
  *= require gritter
  *= require jquery.ui.timepicker
  *= require admin/styles/token-input-facebook
+ *= require jquery-ui
 */
