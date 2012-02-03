@@ -1,0 +1,180 @@
+/* line 1, ../../app/assets/stylesheets/register.css.scss */
+#login {
+  width: 31em;
+}
+
+/* line 4, ../../app/assets/stylesheets/register.css.scss */
+.login_form {
+  margin: 5em auto;
+  font: 13.34px/1.4 helvetica, arial, freesans, clean, sans-serif;
+}
+/* line 8, ../../app/assets/stylesheets/register.css.scss */
+.login_form .formbody {
+  background-color: #E9F1F4;
+  border-color: #E9F1F4 #D8DEE2 #D8DEE2;
+  border-radius: 0 0 3px 3px;
+  border-style: solid;
+  border-width: 1px 1px 2px;
+  overflow: hidden;
+  padding: 2em;
+}
+/* line 17, ../../app/assets/stylesheets/register.css.scss */
+.login_form .nothing-to-see-here {
+  color: #222222;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 0;
+}
+/* line 23, ../../app/assets/stylesheets/register.css.scss */
+.login_form pre {
+  font-size: 13px;
+}
+/* line 26, ../../app/assets/stylesheets/register.css.scss */
+.login_form h1 {
+  -moz-border-bottom-colors: none;
+  -moz-border-image: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  background: -moz-linear-gradient(center top, #829aa8, #405a6a) repeat scroll 0 0 transparent;
+  border-color: #677C89 #677C89 #6B808D;
+  border-radius: 3px 3px 0 0;
+  border-style: solid;
+  border-width: 1px;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  padding: 8px 18px;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.7);
+}
+/* line 44, ../../app/assets/stylesheets/register.css.scss */
+.login_form h1 a {
+  color: #E9F1F4;
+  font-size: 70%;
+  font-weight: normal;
+  text-shadow: none;
+}
+/* line 52, ../../app/assets/stylesheets/register.css.scss */
+.login_form p {
+  color: #2F424E;
+  font-size: 12px;
+  font-weight: normal;
+  margin: 0;
+  text-shadow: 0 -1px 0 rgba(100, 100, 100, 0.1);
+}
+/* line 59, ../../app/assets/stylesheets/register.css.scss */
+.login_form p.note {
+  color: #AA0000;
+}
+/* line 62, ../../app/assets/stylesheets/register.css.scss */
+.login_form ul {
+  border-bottom: 1px solid #D8DEE2;
+  margin: 0.2em 0 1.5em;
+  padding: 0 0 2em;
+}
+/* line 67, ../../app/assets/stylesheets/register.css.scss */
+.login_form ul li {
+  color: #2F424E;
+  font-size: 12px;
+  font-weight: bold;
+  list-style-position: inside;
+}
+/* line 75, ../../app/assets/stylesheets/register.css.scss */
+.login_form form label, .login_form form .label, .login_form label.standard {
+  color: #2F424E;
+  cursor: text;
+  display: inline-block;
+  font-size: 110%;
+  text-shadow: 0 -1px 0 rgba(100, 100, 100, 0.1);
+}
+/* line 82, ../../app/assets/stylesheets/register.css.scss */
+.login_form form label a {
+  font-size: 90%;
+}
+/* line 85, ../../app/assets/stylesheets/register.css.scss */
+.login_form form label.error {
+  color: #AA0000;
+}
+/* line 88, ../../app/assets/stylesheets/register.css.scss */
+.login_form form .label label {
+  color: black;
+  font-size: 95%;
+  margin: 0;
+}
+/* line 93, ../../app/assets/stylesheets/register.css.scss */
+.login_form form .label span {
+  color: #888888;
+  font-size: 90%;
+}
+/* line 97, ../../app/assets/stylesheets/register.css.scss */
+.login_form form input.text, .login_form form textarea {
+  border: 1px solid #D8DEE2;
+  margin: 0.2em 0 1em;
+  padding: 5px;
+}
+/* line 102, ../../app/assets/stylesheets/register.css.scss */
+.login_form form input.text {
+  font-size: 110%;
+}
+/* line 107, ../../app/assets/stylesheets/register.css.scss */
+.login_form button {
+  margin: 0 8px 0 0;
+}
+/* line 110, ../../app/assets/stylesheets/register.css.scss */
+.login_form form input[type="submit"] {
+  -moz-border-bottom-colors: none;
+  -moz-border-image: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  background: -moz-linear-gradient(-90deg, white, #e1e1e1) repeat scroll 0 0 transparent;
+  border-color: -moz-use-text-color -moz-use-text-color #EBEBEB;
+  border-radius: 4px 4px 4px 4px;
+  border-style: none none solid;
+  border-width: medium medium 1px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  color: #333333;
+  cursor: pointer;
+  display: inline-block;
+  font-family: helvetica,arial,freesans,clean,sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  height: 34px;
+  margin-left: 1px;
+  overflow: visible;
+  padding: 0 13px;
+  position: relative;
+  text-shadow: 1px 1px 0 #FFFFFF;
+  top: 1px;
+  white-space: nowrap;
+}
+/* line 137, ../../app/assets/stylesheets/register.css.scss */
+.login_form form input[type="submit"]:hover {
+  background: -moz-linear-gradient(-90deg, #0ca6dd, #0770a0) repeat scroll 0 0 transparent;
+  border-bottom-color: #0770A0;
+  color: #FFFFFF;
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.3);
+}
+/* line 143, ../../app/assets/stylesheets/register.css.scss */
+.login_form form .error_box, .login_form form .notification {
+  margin-bottom: 1em;
+}
+/* line 146, ../../app/assets/stylesheets/register.css.scss */
+.login_form input.error[type="text"], .login_form form label.error input.text, .login_form form label.error textarea {
+  background-color: #F2E1E1;
+  border: 1px solid #AA0000;
+}
+/* line 150, ../../app/assets/stylesheets/register.css.scss */
+.login_form form p.hint {
+  color: gray;
+  margin: -1em 0 1em;
+}
+
+/* line 155, ../../app/assets/stylesheets/register.css.scss */
+.site {
+  margin: 0 auto;
+  padding: 0 15px;
+  width: 920px;
+  height: 450px;
+}
