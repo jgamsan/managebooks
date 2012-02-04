@@ -19,6 +19,7 @@ $ ->
     ,crossDomain: false
     ,prePopulate: $("#book_user_token").data("pre")
     ,preventDuplicates: true
+    ,theme: "facebook"
     ,allowCustomEntry: true
     ,tokenLimit: 1
 
