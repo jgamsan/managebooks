@@ -1,8 +1,6 @@
-//= require_tree .
-//= require twitter/bootstrap
+//= require_self
 //= require jquery
 //= require jquery_ujs
 //= require gritter
 //= require gmaps4rails/googlemaps
-//= require jquery.cycle.all
-
+//= require welcome
