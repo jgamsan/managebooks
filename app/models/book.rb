@@ -29,22 +29,26 @@ class Book < ActiveRecord::Base
     tiempo = 0
     unless self.service_extra_ids.nil?
       for element in self.service_extra_ids do
-        tiempo += element.lasting
+        extra = ServiceExtra.find(element.to_i)
+        tiempo += extra.lasting
       end
     end
-    final = self.finish + tiempo.minutes
-    @intervals = Interval.where{resort_id.eq self.interval.resort.id}
-    ocupados = []
-    for i in (self.interval_id + 1)..(@intervals.size - 1)
-      if @intervals[i].finish < tiempo
-        final << i
-      else
-        break
+    interval = Interval.find(self.interval_id)
+    final = interval.finish + tiempo.minutes
+    @intervals = Interval.where{resort_id.eq interval.resort_id}
+    unless tiempo == 0
+      ocupados = []
+      for i in (self.interval_id + 1)..(@intervals.size - 1)
+        if @intervals[i].finish < tiempo
+          final << i
+        else
+          break
+        end
       end
-    end
-    unless ocupados.nil?
-      ocupados.each do |element|
-        Book.create(:user_id => self.user_id, :day => self.day, :interval_id => element, :who => ("u" + self.user_id.to_s))
+      unless ocupados.empty?
+        ocupados.each do |element|
+          Book.create(:user_id => self.user_id, :day => self.day, :interval_id => element, :who => ("u" + self.user_id.to_s))
+        end
       end
     end
   end

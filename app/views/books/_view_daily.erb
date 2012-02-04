@@ -3,7 +3,7 @@
 </div>
 <div class="row" id="information">
   <div class="span3">
-    <%= link_to image_tag("calendar_alt_fill_24x24.png"), view_weekly_path(@resort.id, Date.today), :remote => true %>
+    <%= link_to image_tag("calendar.gif", :size => "24x24"), view_weekly_path(@resort.id, Date.today), :remote => true %>
   </div>
 </div>
 <div id="daily">
@@ -15,7 +15,7 @@
       <h4 style="text-align: center"><%= l Date.today, :format => "%A, %d de %B de %Y" %></h4>
     </div>
     <div class="span3">
-      <%= link_to image_tag("arrow_right_24x24.png"), {:controller => "books", :action => "change_day", :id => @resort.id, :gd => Date.today + 1.day}, :remote => true %>
+      <%= link_to image_tag("arrow1_e.gif", :size => "24x24"), {:controller => "books", :action => "change_day", :id => @resort.id, :gd => Date.today + 1.day}, :remote => true %>
     </div>
   </div>
   <div class="row" id="list">
@@ -30,7 +30,7 @@
               <td>
                 <%= interval.init.strftime("%H:%M") %> - <%= interval.finish.strftime("%H:%M") %>
               </td>
-              <td><%= link_to (image_tag "check_green_alt_24x24.png"), get_book_path(interval.id, Date.today), :remote => true %></td>
+              <td><%= link_to (image_tag "check.gif", :size => "24x24"), get_book_path(interval.id, Date.today), :remote => true %></td>
             </tr>
         <% end %>
       </table>

@@ -17,44 +17,60 @@ module BooksHelper
       cal << %(\t\t<tr>\n)
       cal << "\t\t\t<td>\n #{interval.init.strftime('%H:%M')} - #{interval.finish.strftime('%H:%M')} &nbsp;\t\t\t</td>\n"
       unless (@lunes.include?(interval.id) && (@primero > Date.today))
-        cal << "\t\t\t<td align='center'>\n" + image_tag("check_grey_alt_24x24.png") + "&nbsp;\t\t\t</td>\n"
+        cal << td_grey
       else
-        cal << "\t\t\t<td align='center'>\n" + link_to(image_tag("check_green_alt_24x24.png"), get_book_path(interval.id, @primero), :remote => true) + "&nbsp;\t\t\t</td>\n"
+        cal << td_green(interval.id, @primero)
       end
       unless (@martes.include?(interval.id)  && ((@primero + 1) > Date.today))
-        cal << "\t\t\t<td align='center'>\n" + image_tag("check_grey_alt_24x24.png") + "&nbsp;\t\t\t</td>\n"
+        cal << td_grey
       else
-        cal << "\t\t\t<td align='center'>\n" + link_to(image_tag("check_green_alt_24x24.png"), get_book_path(interval.id, @primero + 1), :remote => true) + "&nbsp;\t\t\t</td>\n"
+        cal << td_green(interval.id, @primero + 1)
       end
       unless (@miercoles.include?(interval.id)  && ((@primero + 2) > Date.today))
-        cal << "\t\t\t<td align='center'>\n" + image_tag("check_grey_alt_24x24.png") + "&nbsp;\t\t\t</td>\n"
+        cal << td_grey
       else
-        cal << "\t\t\t<td align='center'>\n" + link_to(image_tag("check_green_alt_24x24.png"), get_book_path(interval.id, @primero + 2), :remote => true) + "&nbsp;\t\t\t</td>\n"
+        cal << td_green(interval.id, @primero + 2)
       end
       unless (@jueves.include?(interval.id)  && ((@primero + 3) > Date.today))
-        cal << "\t\t\t<td align='center'>\n" + image_tag("check_grey_alt_24x24.png") + "&nbsp;\t\t\t</td>\n"
+        cal << td_grey
       else
-        cal << "\t\t\t<td align='center'>\n" + link_to(image_tag("check_green_alt_24x24.png"), get_book_path(interval.id, @primero + 3), :remote => true) + "&nbsp;\t\t\t</td>\n"
+        cal << td_green(interval.id, @primero + 3)
       end
       unless (@viernes.include?(interval.id)  && ((@primero + 4) > Date.today))
-        cal << "\t\t\t<td align='center'>\n" + image_tag("check_grey_alt_24x24.png") + "&nbsp;\t\t\t</td>\n"
+        cal << td_grey
       else
-        cal << "\t\t\t<td align='center'>\n" + link_to(image_tag("check_green_alt_24x24.png"), get_book_path(interval.id, @primero + 4), :remote => true) + "&nbsp;\t\t\t</td>\n"
+        cal << td_green(interval.id, @primero + 4)
       end
       unless (@sabado.include?(interval.id)  && ((@primero + 5) > Date.today))
-        cal << "\t\t\t<td align='center'>\n" + image_tag("check_grey_alt_24x24.png") + "&nbsp;\t\t\t</td>\n"
+        cal << td_grey
       else
-        cal << "\t\t\t<td align='center'>\n" + link_to(image_tag("check_green_alt_24x24.png"), get_book_path(interval.id, @primero + 5), :remote => true) + "&nbsp;\t\t\t</td>\n"
+        cal << td_green(interval.id, @primero + 5)
       end
       unless (@domingo.include?(interval.id)  && ((@primero + 6) > Date.today))
-        cal << "\t\t\t<td align='center'>\n" + image_tag("check_grey_alt_24x24.png") + "&nbsp;\t\t\t</td>\n"
+        cal << td_grey
       else
-        cal << "\t\t\t<td align='center'>\n" + link_to(image_tag("check_green_alt_24x24.png"), get_book_path(interval.id, @primero  + 6), :remote => true) + "&nbsp;\t\t\t</td>\n"
+        cal << td_green(interval.id, @primero  + 6)
       end
       cal << %(\t\t</tr>)
     end
     cal << "\n\t</tbody>\n</table>"
     cal.html_safe
+  end
+
+  def image_green(interval, dia)
+    link_to image_tag("check.gif", :size => "24x24"), get_book_path(interval, dia), :remote => true
+  end
+
+  def image_grey
+    image_tag "check-grey.gif", :size => "24x24"
+  end
+
+  def td_grey
+    "\t\t\t<td align='center'>\n" + image_grey + "&nbsp;\t\t\t</td>\n"
+  end
+
+  def td_green(interval, dia)
+    "\t\t\t<td align='center'>\n" + image_green(interval, dia) + "&nbsp;\t\t\t</td>\n"
   end
 end
 

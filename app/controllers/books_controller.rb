@@ -60,10 +60,10 @@ class BooksController < ApplicationController
     @book.day = params[:day].to_date
     @book.interval_id = params[:interval]
     @book.who = "u" + current_user.id.to_s
-    @book.service_extra_ids = params[:extras_tokens_ids]
+    @book.service_extra_ids = params[:extra_tokens_ids]
     respond_to do |format|
       if @book.save
-        @intervals = Book.by_resort(r, params[:dia])
+        @intervals = Interval.by_resort(r, params[:day])
         @resort = Resort.find(r)
         flash[:success] = "Cita creada correctamente"
         flash[:notice] = "Tiene una Reserva para el #{l @book.day, :format => '%a, %d%b%Y'}"
@@ -83,7 +83,7 @@ class BooksController < ApplicationController
   def change_day
     @dia = params[:gd].to_date
     @resort = params[:id]
-    @intervals = Book.by_resort(@resort, @dia)
+    @intervals = Interval.by_resort(@resort, @dia)
     @dia_mas = @dia.to_date + 1.day
     @dia_menos = @dia.to_date - 1.day
     respond_to do |format|

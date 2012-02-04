@@ -3,7 +3,7 @@
 <head>
   <title>WebReserva - La Web de las Reservas OnLine</title>
   <%= stylesheet_link_tag 'application' %>
-  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag 'webreserva' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -57,7 +57,7 @@
         <div class="well sidebar-nav" id="bystore"></div>
       </div>
       <div class="span10">
-        <div class="hero-unit", id="content-main">
+        <div class="hero-unit" id="content-main">
           <%= gmaps4rails(@json) %>
         </div>
         <footer><p>&copy; Galisports 2011</p>

@@ -6,7 +6,7 @@
  *= require bootstrap-responsive
  *= require docs
  *= require_self
- *= require_tree .
  *= require gritter
  *= require gmaps4rails
+ *= require welcome
 */

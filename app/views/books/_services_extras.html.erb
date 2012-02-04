@@ -21,7 +21,7 @@
     <% unless @services_extras.nil? -%>
       <% @services_extras.each do |service_extra| -%>
         <tr>
-          <td><%= check_box_tag "extras_tokens_ids[]", service_extra.id %></td>
+          <td><%= check_box_tag "extra_tokens_ids[]", service_extra.id %></td>
           <td><%= service_extra.name %></td>
           <td><%= service_extra.lasting %></td>
           <td><%= service_extra.cost %></td>

@@ -1,9 +1,9 @@
 class Interval < ActiveRecord::Base
   belongs_to :resort
   has_many :books
-  attr_accessor :period, :time_init, :numero
-  #validates :period, :time_init, :numero, :resort_id, :init, :finish, :presence => true
-  validates :period, :numero, :format => { :with => /^\d+??(?:\.\d{0,2})?$/ }
+  attr_reader :period, :time_init, :numero
+
+  validates_format_of :period, :numero, :with => /\d/
   scope :storeadmin, lambda { |value|
     @store = Store.find_by_admin_id(value)
     @resorts = @store.resorts.map {|x| x.id}
