@@ -3,6 +3,7 @@ class Store < ActiveRecord::Base
   has_many :service_extras
   belongs_to :category
   has_many :resorts
+  has_many :business_rules
   accepts_nested_attributes_for :resorts, :reject_if => :all_blank, :allow_destroy => true
   belongs_to :town
   belongs_to  :admin

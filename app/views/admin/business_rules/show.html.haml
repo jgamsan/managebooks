@@ -1,0 +1,16 @@
+- content_for :content do
+  %h3 Reglas de Negocios de 
+  = @business_rule.store.name
+  %br
+   
+  %table.table.table-bordered.table-striped
+    %tr
+      = render :partial => "head_table_business_rules"
+    - @business_rules.each do |business_rule|
+      %tr
+        = render :partial => "rows_table_business_rules", :locals => { :f => business_rule }
+  
+  %br
+  = link_to 'Edit', edit_business_rule_path(@business_rule)
+  \|
+  = link_to 'Back', business_rules_path

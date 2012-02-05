@@ -1,0 +1,15 @@
+- content_for :content do
+  %h3
+    Reglas de Negocios de 
+    = @store.name
+  %br
+   
+  %table.table.table-bordered.table-striped
+    %tr
+      = render :partial => "admin/business_rules/head_table_business_rules"
+    - @business_rules.each do |business_rule|
+      %tr
+        = render :partial => "admin/business_rules/rows_table_business_rules", :locals => { :f => business_rule }
+  
+  %br
+  

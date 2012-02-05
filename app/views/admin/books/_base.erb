@@ -5,15 +5,16 @@
       <p><%= f.error_notification %></p>
     </div>
   <% end %>
-  <div class="row">
-    <div class="span4">
-      <%= f.input :day, :as => :string, :label => "Fecha Reserva" %>
-      <div id="freeIntervals">
-        <%= render :partial => 'intervals' %>
-      </div>
-      <%= f.input :user_token, :label => "Cliente", :input_html => {"data-pre" => @users.to_json} %>
-    </div>
+  <%= f.label "Fecha Reserva" %>
+  <%= f.text_field :day %>
+  <div id="freeIntervals">
+    <%= render :partial => 'intervals' %>
   </div>
-    <%= f.button :submit, :class => "btn-primary" %>
+  <%= f.label "Cliente" %>
+  <%= f.text_field :user_token, :input_html => {"data-pre" => @users.to_json} %>
+  </br>
+  </br>
+  </br>
+  <%= f.button :submit, :class => "btn-primary" %>
 <% end -%>
 

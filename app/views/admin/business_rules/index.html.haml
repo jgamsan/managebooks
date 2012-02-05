@@ -1,0 +1,19 @@
+- content_for :content do
+
+  %h3 Listado Reglas de Negocios
+
+  %table.table.table-bordered.table-striped
+    %tr
+      = render :partial => "head_table_business_rules"
+      %th
+      %th
+
+    - @business_rules.each do |business_rule|
+      %tr
+        = render :partial => "rows_table_business_rules", :locals => { :f => business_rule }
+        %td= link_to 'Edit', edit_admin_business_rule_path(business_rule)
+        %td= link_to 'Destroy', admin_business_rule_path(business_rule), :confirm => 'Are you sure?', :method => :delete
+
+  %br
+
+  = link_to 'Nueva Regla de Negocio', new_admin_business_rule_path

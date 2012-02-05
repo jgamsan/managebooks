@@ -12,6 +12,7 @@ class Book < ActiveRecord::Base
   scope :tomorrow, where{day == (Date.today + 1.day)}
   scope :month, where(:day => Date.new(Date.today.year, Date.today.month, 1)..Date.today)
   scope :range, lambda { |init, finish| where(:day => init..finish) }
+  scope :usuario, where{who =~ 'u%'}
   scope :storeadmin, lambda { |value|
     joins{interval.resort.store}.where{stores.admin_id.eq value}
   }

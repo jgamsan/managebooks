@@ -1,0 +1,12 @@
+- content_for :content do
+  %h3
+    Resumen Mensual del Negocio
+    = @store.name.capitalize
+    
+  %br
+  
+  %h4
+    Total Reservas realizadas a traves de la Aplicacion:
+    = @books.count
+    
+  

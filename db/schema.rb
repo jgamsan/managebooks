@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120130171948) do
+ActiveRecord::Schema.define(:version => 20120205171912) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                                 :default => "",    :null => false
@@ -42,6 +42,15 @@ ActiveRecord::Schema.define(:version => 20120130171948) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "who"
+  end
+
+  create_table "business_rules", :force => true do |t|
+    t.integer  "store_id"
+    t.integer  "booksmin",                                 :default => 0
+    t.integer  "booksmax",                                 :default => 0
+    t.decimal  "rule",       :precision => 6, :scale => 2, :default => 0.0
+    t.datetime "created_at",                                                :null => false
+    t.datetime "updated_at",                                                :null => false
   end
 
   create_table "categories", :force => true do |t|

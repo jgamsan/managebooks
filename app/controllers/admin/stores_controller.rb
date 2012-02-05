@@ -66,6 +66,25 @@ class Admin::StoresController < Admin::BaseController
       format.json { render json: @store }
     end
   end
+  
+  def rules
+    if current_admin_admin.role == 1
+      @business_rules = BusinessRule.page params[:page]
+    else
+      @business_rules = BusinessRule.where(:store_id => params[:id]).page params[:page]
+      @store = Store.find(params[:id])
+    end
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @business_rule }
+    end
+  end
+  
+  def invoice
+    @books = Book.month.usuario.storeadmin(current_admin_admin.id)
+    @store = Store.find(params[:id])
+  end
 
   def update_town_select
     towns = Town.where(:province_id => params[:id]).order(:name) unless params[:id].blank?
