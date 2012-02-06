@@ -1,9 +1,10 @@
 <%= simple_fields_for 'book' do |f| %>
+  <%= label_tag "Servicios Extras" %>
   <% if !services_extras.blank? %>
-    <label>Servicios Extras</label>
-    <%= f.input :service_extras, :as => :check_boxes, :collection => services_extras, :label => "Servicios Extras" %>
-  <% else %>
-    <%= f.input :service_extras, :as => :check_boxes, :collection => [], :label => "Servicios Extras" %>
-  <% end %>
+    <% services_extras.each do |item| -%>
+      <%= check_box_tag "service_extras_ids[]", item.id %>
+      <%= item.name %>
+    <% end -%> 
+  <% end -%>
 <% end %>
 

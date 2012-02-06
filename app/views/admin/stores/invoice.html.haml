@@ -1,12 +1,34 @@
 - content_for :content do
   %h3
     Resumen Mensual del Negocio
-    = @store.name.capitalize
+    = @store.name.titleize
     
   %br
-  
-  %h4
-    Total Reservas realizadas a traves de la Aplicacion:
-    = @books.count
+  %table.table.table-bordered.table-striped
+    %tr
+      %td{:style => "text-align:center;"} Mes
+      %td{:style => "text-align:center;"}
+        = (l Date.today, :format => "%B").capitalize
+      %td{:style => "text-align:center;"}
+        Año
+        = Date.today.strftime("%Y")
+    %tr
+      %td Total Reservas
+      %td
+        = @books.count
+      %td Regla Negocios
+      %td Aqui va
+    - @books_by_resort.each do |book|
+      %tr
+        %td
+          = book.name.titleize
+        %td
+          = book.count
+        %td
+        %td
+          = book.count * 0.1
+    %tr
+      %td{:colspan => 3} Total
+      %td
+        = number_to_currency(5) 
     
-  

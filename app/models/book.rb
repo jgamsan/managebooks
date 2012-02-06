@@ -16,12 +16,16 @@ class Book < ActiveRecord::Base
   scope :storeadmin, lambda { |value|
     joins{interval.resort.store}.where{stores.admin_id.eq value}
   }
-  
+  scope :by_resort, lambda { |value|
+    joins{interval}.select('count(books.id), intervals.resort_id, resorts.name').month.usuario.storeadmin(value).group("intervals.resort_id, resorts.name")
+  }
   scope :next_days, where(:day => Date.today..(Date.today + 7.day))
   
   def user_token=(id)
     id.gsub!(/CREATE_(.+?)_END/) do
-      User.create!(:name => $1).id
+      nombre = $1.split('/')
+      jd = Client.create!(:name => nombre[0], :phone => nombre[1]).id
+      User.create!(:name => nombre[0], :uid => jd, :provider => "client").id
     end
     self.user_id = id
   end

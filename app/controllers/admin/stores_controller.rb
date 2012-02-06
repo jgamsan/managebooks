@@ -84,6 +84,7 @@ class Admin::StoresController < Admin::BaseController
   def invoice
     @books = Book.month.usuario.storeadmin(current_admin_admin.id)
     @store = Store.find(params[:id])
+    @books_by_resort = Book.by_resort(current_admin_admin.id)
   end
 
   def update_town_select

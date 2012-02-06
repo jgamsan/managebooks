@@ -72,5 +72,6 @@ module BooksHelper
   def td_green(interval, dia)
     "\t\t\t<td align='center'>\n" + image_green(interval, dia) + "&nbsp;\t\t\t</td>\n"
   end
+  
 end
 

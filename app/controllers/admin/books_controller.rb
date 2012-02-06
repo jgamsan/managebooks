@@ -26,7 +26,7 @@ class Admin::BooksController < Admin::BaseController
 
   def create
     @book = Book.new(params[:book])
-    
+    @book.who = "a" + @book.user_id.to_s
 
     respond_to do |format|
       if @book.save
