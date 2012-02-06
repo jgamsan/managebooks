@@ -10,6 +10,9 @@
   <div id="freeIntervals">
     <%= render :partial => 'intervals' %>
   </div>
+  <div id="extrasIntervals">
+    <%= render :partial => "services_extras" %>
+  </div>
   <%= f.label "Cliente" %>
   <%= f.text_field :user_token, :input_html => {"data-pre" => @users.to_json} %>
   </br>

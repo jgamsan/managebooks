@@ -1,3 +1,18 @@
+<script type="text/javascript">
+$(function() {
+  // when the #country field changes
+  $("select#book_interval_id").change(function() {
+    // make a POST call and replace the content
+    var interval = $('select#book_interval_id :selected').val();
+    if (interval == "") interval="0";
+    $.get('/admin/books/update_interval_select/' + interval, function(data){
+        $("#extrasIntervals").html(data);
+    })
+    return false;
+  });
+})
+</script>
+
 <%= simple_fields_for 'book' do |f| %>
   <% if !intervals.blank? %>
     <% field_set_tag nil do -%>
