@@ -50,7 +50,7 @@ class Admin::BooksController < Admin::BaseController
   end
 
   def para_hoy
-    @books = Book.by_storeadmin(current_admin_admin.role, current_admin_admin.id).hoy.page params[:page]
+    @books = Book.storeadmin(current_admin_admin.id).hoy.page params[:page]
     respond_to do |format|
       format.html {index.erb}
       format.xml  { render :xml => @books }
@@ -59,7 +59,7 @@ class Admin::BooksController < Admin::BaseController
   end
 
   def tomorrow
-    @books = Book.by_storeadmin(current_admin_admin.role, current_admin_admin.id).tomorrow.page params[:page]
+    @books = Book.storeadmin(current_admin_admin.id).tomorrow.page params[:page]
     respond_to do |format|
       format.html {index.erb}
       format.xml  { render :xml => @books }
@@ -67,7 +67,7 @@ class Admin::BooksController < Admin::BaseController
     end
   end
   def month
-    @books = Book.by_storeadmin(current_admin_admin.role, current_admin_admin.id).month.page params[:page]
+    @books = Book.storeadmin(current_admin_admin.id).month.page params[:page]
     respond_to do |format|
       format.html {index.erb}
       format.xml  { render :xml => @books }
@@ -75,7 +75,7 @@ class Admin::BooksController < Admin::BaseController
     end
   end
   def range
-    @books = Book.by_storeadmin(current_admin_admin.role, current_admin_admin.id).range(params[:init_date], params[:finish_date]).page params[:page]
+    @books = Book.storeadmin(current_admin_admin.id).range(params[:init_date], params[:finish_date]).page params[:page]
     respond_to do |format|
       format.html {index.erb}
       format.xml  { render :xml => @books }
