@@ -3,8 +3,6 @@ class Interval < ActiveRecord::Base
   has_many :books
   attr_accessor :period, :time_init, :numero
   attr_accessible :period, :time_init, :numero
-  #validates_format_of :period, :numero, :with => /\A[+\-]?\d+\Z/, :message => 'Please enter the phone number in Digits 0 - 9'
-  validates_presence_of :period, :numero
   scope :storeadmin, lambda { |value|
     @store = Store.find_by_admin_id(value)
     @resorts = @store.resorts.map {|x| x.id}

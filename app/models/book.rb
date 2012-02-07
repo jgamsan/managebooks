@@ -8,16 +8,20 @@ class Book < ActiveRecord::Base
   after_save :sum_lasting_of_service_extras
   scope :busy, lambda { |day, resort| where(:resort_id => resort, :day => day) }
   scope :total, lambda { |day, resort, user| where{(user_id.eq user) & (day.gteq Date.today) & (resort_id.eq resort)}}
+  scope :by_store, lambda { |value| 
+    joins{interval.resort.store}.where{stores.id.eq value}
+  }
   scope :hoy, where{day == Date.today}
   scope :tomorrow, where{day == (Date.today + 1.day)}
   scope :month, where(:day => Date.new(Date.today.year, Date.today.month, 1)..Date.today)
+  scope :monthly, where(:day => Date.new(Date.today.year, Date.today.month, 1)..Date.new(Date.today.year, Date.today.month, -1))
   scope :range, lambda { |init, finish| where(:day => init..finish) }
   scope :usuario, where{who =~ 'u%'}
   scope :storeadmin, lambda { |value|
     joins{interval.resort.store}.where{stores.admin_id.eq value}
   }
   scope :by_resort, lambda { |value|
-    joins{interval}.select('count(books.id), intervals.resort_id, resorts.name').month.usuario.storeadmin(value).group("intervals.resort_id, resorts.name")
+    joins{interval}.select('count(books.id), intervals.resort_id, resorts.name, resorts.cost').monthly.usuario.by_store(value).group("intervals.resort_id, resorts.name, resorts.cost")
   }
   scope :next_days, where(:day => Date.today..(Date.today + 7.day))
   
@@ -68,7 +72,6 @@ class Book < ActiveRecord::Base
       @user = User.find_by_uid(usuario)
       @user.books.where{day.gteq Date.today}
     end
-
   end
 
 end

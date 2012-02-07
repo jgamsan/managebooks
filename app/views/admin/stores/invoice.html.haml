@@ -17,7 +17,8 @@
       %td
         = @books.count
       %td Regla Negocios
-      %td Aqui va
+      %td
+        = number_to_percentage(@business_rule.rule, :precision => 2)
     - @books_by_resort.each do |book|
       %tr
         %td
@@ -26,9 +27,9 @@
           = book.count
         %td
         %td
-          = book.count * 0.1
+          = number_to_currency(book.count * @business_rule.rule)
     %tr
       %td{:colspan => 3} Total
       %td
-        = number_to_currency(5) 
+        = number_to_currency(@total) 
     

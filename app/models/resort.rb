@@ -9,6 +9,5 @@ class Resort < ActiveRecord::Base
     Resort.where{store_id.in(stores.select{id})}
   }
 
-
 end
 

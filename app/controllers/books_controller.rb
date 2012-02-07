@@ -45,7 +45,7 @@ class BooksController < ApplicationController
     @resort = Resort.find(r)
     @duracion = ((@interval.finish - @interval.init) / 60)
     @horario = @interval.init.strftime("%H:%M").to_s + " - " + @interval.finish.strftime("%H:%M")
-    @services_extras = ServiceExtra.where(:store_id => @interval.resort.store.id)
+    @services_extras = Resort.find(@interval.resort.id).service_extras
 
     respond_to do |format|
       format.js

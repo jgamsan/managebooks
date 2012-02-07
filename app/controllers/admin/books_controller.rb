@@ -38,6 +38,16 @@ class Admin::BooksController < Admin::BaseController
       end
     end
   end
+  
+  def destroy
+    @book = Book.find(params[:id])
+    @book.destroy
+
+    respond_to do |format|
+      format.html { redirect_to(admin_books_path) }
+      format.xml  { head :ok }
+    end
+  end
 
   def para_hoy
     @books = Book.by_storeadmin(current_admin_admin.role, current_admin_admin.id).hoy.page params[:page]
@@ -80,7 +90,7 @@ class Admin::BooksController < Admin::BaseController
   
   def update_interval_select
     @interval = Interval.find(params[:id])
-    services_extras = ServiceExtra.where(:store_id => @interval.resort.store.id)
+    services_extras = Resort.find(@interval.resort.id).service_extras
     render :partial => "services_extras", :locals => { :services_extras => services_extras}
   end
 

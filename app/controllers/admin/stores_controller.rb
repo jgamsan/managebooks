@@ -82,9 +82,16 @@ class Admin::StoresController < Admin::BaseController
   end
   
   def invoice
-    @books = Book.month.usuario.storeadmin(current_admin_admin.id)
+    @books = Book.monthly.usuario.by_store(params[:id])
     @store = Store.find(params[:id])
-    @books_by_resort = Book.by_resort(current_admin_admin.id)
+    @books_by_resort = Book.by_resort(params[:id])
+    @business_rule = BusinessRule.choose_rule(@books.count).by_store(params[:id]).first
+    @total = 0
+    unless @books_by_resort.nil?
+      @books_by_resort.each do |resort|
+        @total += (resort.count.to_i * resort.cost.to_f * @business_rule.rule / 100).to_f
+      end
+    end
   end
 
   def update_town_select

@@ -1,6 +1,4 @@
 class Admin::Admins::SessionsController < Devise::SessionsController
-  layout 'admin/session'
-
   def new
     @admin = Admin.new
     
