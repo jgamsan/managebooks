@@ -73,11 +73,14 @@ class Admin::AdminsController < Admin::BaseController
   #-----------------------------------------------------------------
   def create
     @admin = Admin.new(params[:admin])
-
+    generated_password = Devise.friendly_token.first(6)
+    @admin.password = generated_password
+    @admin.password_confirmation = generated_password
     if @admin.save
+      AdminsMailer.reset_password_instructions(@admin).deliver
       respond_to do |format|
         format.xml  { head :ok }
-        format.html { redirect_to(admin_admins_path, :notice => 'Nuevo Administrador creado correctamente.') }
+        format.html { redirect_to(admin_admins_path, :notice => 'Nuevo Administrador creado correctamente. Se ha enviado email de confirmacion') }
       end
     else
       respond_to do |format|
