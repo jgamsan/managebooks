@@ -77,7 +77,7 @@ class Admin::AdminsController < Admin::BaseController
     @admin.password = generated_password
     @admin.password_confirmation = generated_password
     if @admin.save
-      AdminsMailer.reset_password_instructions(@admin).deliver
+      Mailer.reset_password_instructions(@admin).deliver
       respond_to do |format|
         format.xml  { head :ok }
         format.html { redirect_to(admin_admins_path, :notice => 'Nuevo Administrador creado correctamente. Se ha enviado email de confirmacion') }

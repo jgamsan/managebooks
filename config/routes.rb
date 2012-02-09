@@ -83,7 +83,7 @@ Managebooks::Application.routes.draw do
 
   # Sample resource route within a namespace:
   namespace :admin do
-    devise_for :admins, :controllers => { :sessions => "admin/admins/sessions", :passwords => "admin/admins/passwords" }
+    devise_for :admins, :controllers => { :sessions => "admin/admins/sessions", :passwords => "admin/admins/passwords", :unlocks => "admin/admins/unlocks" }
     resources :admins
     resources :categories, :service_extras, :business_rules
     resources :stores do
