@@ -1,7 +1,7 @@
-<p>Hola <%= @resource.email %>!</p>
+<p>Hola <%= @admin.email %>!</p>
 
 <p>Tu cuenta ha sido bloqueada debido a un excesivo numero de intentos fracasados de inicios de sesion.</p>
 
 <p>Click el link inferior para desbloquear tu cuenta:</p>
 
-<p><%= link_to 'Unlock my account', unlock_url(@resource, :unlock_token => @resource.unlock_token) %></p>
+<p><%= link_to 'Desbloquear mi cuenta', unlock_url(@admin, :unlock_token => @admin.unlock_token) %></p>

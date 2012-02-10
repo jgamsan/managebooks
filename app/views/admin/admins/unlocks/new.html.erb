@@ -3,7 +3,7 @@
 <%= simple_form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => { :method => :post, :class => "form-vertical" }) do |f| %>
   
   <%= f.input :email, :required => true %>
-  <%= f.button :submit, "Resend unlock instructions" %>
+  <%= f.button :submit, "Reenviar instrucciones de desbloqueo", :class => "btn-primary" %>
 <% end %>
 
 <%= render :partial => "devise/shared/links" %>

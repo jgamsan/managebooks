@@ -1,0 +1,11 @@
+<p>Hola <%= @admin.nombre_completo %>!</p>   
+
+<p>Bienvenido a la Aplicacion de Administracion de Webreserva.</p>
+<p>Tu cuenta ya ha sido creada y podras acceder a ella en el link que tienes mas abajo.</p>
+<p>Es importante que introduzcas un password seguro para tu aplicacion.</p>
+
+<p><%= link_to 'Introduce el password', edit_password_url(@admin, :reset_password_token => @admin.reset_password_token) %></p> 
+
+<p>Esperamos que la aplicacion sea de tu agrado.</p> 
+
+<p>Gracias.</p> 
