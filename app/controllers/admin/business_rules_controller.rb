@@ -48,7 +48,7 @@ class Admin::BusinessRulesController < Admin::BaseController
 
     respond_to do |format|
       if @business_rule.save
-        format.html { redirect_to admin_business_rules_path, notice: 'Business rule was successfully created.' }
+        format.html { redirect_to admin_business_rules_path, notice: 'Regla de Negocios creada correctamente.' }
         format.json { render json: @business_rule, status: :created, location: @business_rule }
       else
         format.html { render action: "new" }
@@ -64,7 +64,7 @@ class Admin::BusinessRulesController < Admin::BaseController
 
     respond_to do |format|
       if @business_rule.update_attributes(params[:business_rule])
-        format.html { redirect_to @business_rule, notice: 'Business rule was successfully updated.' }
+        format.html { redirect_to admin_business_rules_path, notice: 'Regla de negocios actualizada correctamente.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

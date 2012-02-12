@@ -1,7 +1,7 @@
 <% content_for :content do %>
-  <h2>Servicios Disponibles en <%= @resort.name.capitalize %></h2>
+  <h2>Servicios Disponibles en <%= @resort.name.titleize %></h2>
 
-    <table class="zebra-striped">
+    <table class="table table-bordered table-striped">
       <tr>
         <th>Nombre</th>
         <th>Disponible</th>
@@ -13,11 +13,10 @@
       <% for offer in @offers %>
         <tr>
           <td><%= offer.service_extra.name %></td>
-          <td><%= offer.enable %></td>
-          <td><%= offer.hduration %></td>
-          <td><%= offer.hcost %></td>
-          <td><%= link_to "Edit", edit_admin_resort_offer_path(@resort, offer) %></td>
-          <td><%#= link_to "Destroy", admin_category_path(category), :confirm => 'Are you sure?', :method => :delete %></td>
+          <td><%= t_boolean(offer.enable) %></td>
+          <td><%= t_boolean(offer.hduration) %></td>
+          <td><%= t_boolean(offer.hcost) %></td>
+          <td><%= link_to "Modificar", edit_admin_resort_offer_path(@resort, offer) %></td>
         </tr>
       <% end %>
     </table>

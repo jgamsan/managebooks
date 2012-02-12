@@ -1,3 +1,4 @@
+
 <ul class="nav nav-list">
   <li class="nav-header">Administracion WebReserva</li>
   <% unless current_admin_admin.role == 2 -%>
@@ -23,9 +24,11 @@
   <li>
     <%= link_to 'Servicios Extras', admin_service_extras_path %>
   </li>
-  
   <li>
     <%= link_to 'Reservas', admin_books_path %>
+  </li>
+  <li>
+    <%= link_to 'Galeria de Fotos', admin_photo_galleries_path %>
   </li>
 </ul>
 

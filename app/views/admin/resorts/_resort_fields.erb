@@ -1,5 +1,5 @@
 <%= f.input :name, :label => "Nombre" %>
-<%= f.association :store, :collection => Store.storeadmin(current_admin_admin.id) %>
+<%= f.association :store, :collection => Store.storeadmin(current_admin_admin.id), :label => "Pertenece a" %>
 <%= f.association :service_extras, :label => "Servicios Extras", :as => :check_boxes, :collection => ServiceExtra.storeadmin(current_admin_admin.id) %>
 <%= f.input :cost, :label => "Coste" %>
 

@@ -1,11 +1,9 @@
 = simple_form_for([:admin, @business_rule], :html => { :class => "form-horizontal" }) do |f|
   = f.error_notification
 
-  .inputs
-    = f.association :store, :label => "Negocio"
-    = f.input :booksmin, :label => "Nº Reservas Minimo"
-    = f.input :booksmax, :label => "Nº Reservas Maximo"
-    = f.input :rule, :label => "Porcentaje"
+  = f.association :store, :label => "Negocio"
+  = f.input :booksmin, :label => "Nº Reservas Minimo"
+  = f.input :booksmax, :label => "Nº Reservas Maximo"
+  = f.input :rule, :label => "Porcentaje"
 
-  .actions
-    = f.button :submit
+  = f.button :submit, :class => "btn-primary"

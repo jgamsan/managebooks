@@ -1,0 +1,4 @@
+= simple_form_for([:admin, @photo_gallery], :html => { :class => "form-horizontal" }) do |f|
+  = f.association :store, :label => "Pertenece a", :collection => Store.storeadmin(current_admin_admin.id)
+  = f.input :photo, :as => :file
+  = f.button :submit, :class => "btn-primary"

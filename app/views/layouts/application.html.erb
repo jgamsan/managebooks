@@ -52,12 +52,12 @@
 
   <div class="container-fluid" style="padding-top:90px">
     <div class="row-fluid">
-      <div class="span2">
+      <div class="span3">
         <div class="well sidebar-nav"><%= render :partial => 'welcome/categories' %></div>
         <div class="well sidebar-nav" id="bycategory"></div>
         <div class="well sidebar-nav" id="bystore"></div>
       </div>
-      <div class="span10">
+      <div class="span9">
         <div class="hero-unit" id="content-main">
           <%= gmaps4rails(@json) %>
         </div>

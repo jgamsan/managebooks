@@ -36,7 +36,7 @@ class Admin::IntervalsController < Admin::BaseController
 
     respond_to do |format|
       if @interval.update_attributes(params[:interval])
-        format.html { redirect_to(@interval, :notice => 'Categoria actualizado.') }
+        format.html { redirect_to(admin_intervals_path, :notice => 'Intervalo actualizado.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -50,7 +50,7 @@ class Admin::IntervalsController < Admin::BaseController
     @interval.destroy
 
     respond_to do |format|
-      format.html { redirect_to(admin_categories_path) }
+      format.html { redirect_to(admin_intervals_path) }
       format.xml  { head :ok }
     end
   end

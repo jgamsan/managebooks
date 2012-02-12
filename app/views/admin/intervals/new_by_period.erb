@@ -10,10 +10,10 @@
         <p><%= f.error_notification %></p>
       </div>
     <% end %>
-    <%= f.association :resort, :input_html => { :class => 'medium' }, :collection => Resort.storeadmin(current_admin_admin.id) %>
-    <%= f.input :period, :input_html => { :class => 'span2' } %>
-    <%= f.input :time_init, :input_html => {:class => 'span2', :id => 'timepicker'} %>
-    <%= f.input :numero, :input_html => {:class => 'span2'} %>
+    <%= f.association :resort, :input_html => { :class => 'medium' }, :collection => Resort.storeadmin(current_admin_admin.id), :label => "Pertenece a" %>
+    <%= f.input :period, :input_html => { :class => 'span2' }, :label => "Periodo", :hint => "Duracion de la Reserva en minutos" %>
+    <%= f.input :time_init, :input_html => {:class => 'span2', :id => 'timepicker'}, :label => "Hora de apertura" %>
+    <%= f.input :numero, :input_html => {:class => 'span2'}, :label => "Numero", :hint => "Numero total de reservas en el dia" %>
     <%= f.submit "Crear Intervalo", :class => "btn-primary" %>
   <% end %>
 

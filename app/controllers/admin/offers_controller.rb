@@ -1,7 +1,7 @@
 class Admin::OffersController < Admin::BaseController
   before_filter :get_resort
   def index
-    @offers = Offer.all
+    @offers = @resort.offers
   end
 
   def get_resort

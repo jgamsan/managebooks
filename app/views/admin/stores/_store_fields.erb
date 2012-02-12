@@ -1,15 +1,13 @@
-<%= f.input :name %>
-<%= f.association :category %>
+<%= f.input :name, :label => "Nombre" %>
+<%= f.association :category, :label => "Categoria" %>
 <%= f.hidden_field :admin_id, :value => current_admin_admin.id %>
 <%= f.input :email %>
-<%= f.input :cellphone %>
-<%= f.input :address %>
-<%= f.input :zip_code %>
+<%= f.input :cellphone, :label => "Telefono" %>
+<%= f.input :address, :label => "Direccion" %>
+<%= f.input :zip_code, :label => "Codigo Postal" %>
 <%= f.input :province, :collection => @provinces, :label => "Provincia" %>
 <div id="addressTowns">
   <%= render :partial => 'towns' %>
 </div>
-<%= f.input :latitude %>
-<%= f.input :longitude %>
-<%= f.input :gmaps %>
+<%= f.input :logo, :as => :file %>
     

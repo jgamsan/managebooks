@@ -5,9 +5,9 @@
       <p><%= f.error_notification %></p>
     </div>
   <% end %>
-  <%= f.association :resort, :collection => Resort.storeadmin(current_admin_admin.id) %>
-  <%= f.input :init, :as => :string, :input_html => {:class => 'span2', :id => 'timepicker'} %>
-  <%= f.input :finish, :as => :string, :input_html => {:class => 'span2', :id => 'timepicker1'} %>
+  <%= f.association :resort, :collection => Resort.storeadmin(current_admin_admin.id), :label => "Pertenece a" %>
+  <%= f.input :init, :as => :string, :input_html => {:class => 'span2', :id => 'timepicker'}, :label => "Hora Inicio" %>
+  <%= f.input :finish, :as => :string, :input_html => {:class => 'span2', :id => 'timepicker1'}, :label => "Hora Fin" %>
   <%= f.button :submit, :class => "btn-primary" %> 
 <% end %>
 

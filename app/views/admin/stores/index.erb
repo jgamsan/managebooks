@@ -9,15 +9,13 @@
         <th></th>
         <th></th>
         <th></th>
-        <th></th>
       </tr>
       <% for store in @stores %>
         <tr>
           <td><%= store.name %></td>
           <td><%= store.category.name %></td>
-          <td><%= link_to "Show", admin_store_path(store) %></td>
-          <td><%= link_to "Edit", edit_admin_store_path(store) %></td>
-          <td><%= link_to "Destroy", admin_store_path(store), :confirm => 'Are you sure?', :method => :delete %></td>
+          <td><%= link_to "Modificar", edit_admin_store_path(store) %></td>
+          <td><%= link_to "Borrar", admin_store_path(store), :confirm => 'Estas Seguro?', :method => :delete %></td>
           <td><%= link_to 'Reglas de Negocio', rules_admin_store_path(store) %></td>
           <td><%= link_to 'Factura', invoice_admin_store_path(store)  %></td>
         </tr>

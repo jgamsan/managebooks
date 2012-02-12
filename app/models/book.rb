@@ -24,7 +24,9 @@ class Book < ActiveRecord::Base
     joins{interval}.select('count(books.id), intervals.resort_id, resorts.name, resorts.cost').monthly.usuario.by_store(value).group("intervals.resort_id, resorts.name, resorts.cost")
   }
   scope :next_days, where(:day => Date.today..(Date.today + 7.day))
-  
+  scope :between_login, lambda { |value|
+    joins{interval.resort}.select('resorts.name, count(resorts.*) as total').where{created_at.gteq value}.group('resorts.name')
+  }
   def user_token=(id)
     id.gsub!(/CREATE_(.+?)_END/) do
       nombre = $1.split('/')
@@ -32,6 +34,16 @@ class Book < ActiveRecord::Base
       User.create!(:name => nombre[0], :uid => jd, :provider => "client").id
     end
     self.user_id = id
+  end
+  
+  def por_telefono
+    reserva = Book.find(id)
+    salida = reserva.user.name.titleize
+    if reserva.user.provider == "client"
+      cliente = Client.find(reserva.user.uid)
+      salida << " ("+ cliente.phone + ")"
+    end
+    salida
   end
   
   def sum_lasting_of_service_extras

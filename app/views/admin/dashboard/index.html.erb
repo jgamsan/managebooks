@@ -1,15 +1,23 @@
 <% content_for :content do -%>
-  <h2>Bienvenido</h2><%= current_admin_admin.nombre_completo %>
+  <h2>Bienvenido <%= current_admin_admin.nombre_completo %></h2>
+  </br>
+  </br>
   <h3>Resumen desde la ultima vez que se conecto</h3>
-  <dl>
-    <dt>Su ultima conexion fue el</dt>
-      <dd><%= l current_admin_admin.last_sign_in_at, :format => '%A, %d de %B de %Y a las %H:%M' %></dd>
-    <dt>Reservas realizadas</dt>
-      <dd></dd>
-      <dd></dd>
-      <dd></dd>
-  </dl>
-  
+  <table class="table table-bordered">
+    <tr>
+      <td>Su ultima conexion fue el</td>
+      <td><%= l current_admin_admin.last_sign_in_at, :format => '%A, %d de %B de %Y a las %H:%M' %></td>
+    </tr>
+    <tr>
+      <td colspan="2" style="text-align: center">Listado de Reservas realizadas entre conexiones</td>
+    </tr>
+    <%= @books.each do |book| %>
+      <tr>
+        <td><%= book.name %></td>
+        <td><%= book.total %></td>
+      </tr>
+    <% end %>
+  </table>
 <% end -%>
 
 

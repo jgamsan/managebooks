@@ -2,7 +2,7 @@ class Interval < ActiveRecord::Base
   belongs_to :resort
   has_many :books
   attr_accessor :period, :time_init, :numero
-  attr_accessible :period, :time_init, :numero
+  #attr_accessible :period, :time_init, :numero
   scope :storeadmin, lambda { |value|
     @store = Store.find_by_admin_id(value)
     @resorts = @store.resorts.map {|x| x.id}

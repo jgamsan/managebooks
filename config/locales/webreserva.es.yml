@@ -1,0 +1,12 @@
+es:
+  activerecord:
+    models:
+      resort: 'Recurso'
+      store: 'Negocio'
+      book: 'Reserva'
+      interval: 'Intervalo'
+      category: 'Categoria'
+      service_extra: 'Servicio Extra'
+      offer: "Oferta Servicios"
+      business_rule: 'Regla Negocios'
+      photo_gallery: 'Foto de Galeria'

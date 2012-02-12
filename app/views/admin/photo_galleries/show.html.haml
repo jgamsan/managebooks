@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Store:
+  = @photo_gallery.store_id
+%p
+  %b Photo:
+  = @photo_gallery.photo
+
+= link_to 'Edit', edit_photo_gallery_path(@photo_gallery)
+\|
+= link_to 'Back', photo_galleries_path

@@ -13,9 +13,8 @@
         <tr>
           <td><%= interval.resort.name %></td>
           <td><%= interval.intervalo %></td>
-          <td><%= link_to "Show", admin_interval_path(interval) %></td>
-          <td><%= link_to "Edit", edit_admin_interval_path(interval) %></td>
-          <td><%= link_to "Destroy", admin_interval_path(interval), :confirm => 'Are you sure?', :method => :delete %></td>
+          <td><%= link_to "Modificar", edit_admin_interval_path(interval) %></td>
+          <td><%= link_to "Borrar", admin_interval_path(interval), :confirm => 'Estas seguro?', :method => :delete %></td>
         </tr>
       <% end %>
     </table>

@@ -13,9 +13,8 @@
         <tr>
           <td><%= resort.name %></td>
           <td><%= resort.store.name %></td>
-          <td><%= link_to "Show", admin_resort_path(resort) %></td>
-          <td><%= link_to "Edit", edit_admin_resort_path(resort) %></td>
-          <td><%= link_to "Destroy", admin_resort_path(resort), :confirm => 'Are you sure?', :method => :delete %></td>
+          <td><%= link_to "Modificar", edit_admin_resort_path(resort) %></td>
+          <td><%= link_to "Borrar", admin_resort_path(resort), :confirm => 'Estas seguro?', :method => :delete %></td>
           <td><%= link_to 'Oferta Servicios', admin_resort_offers_path(resort) %></td>
         </tr>
       <% end %>

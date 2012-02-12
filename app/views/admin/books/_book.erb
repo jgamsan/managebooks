@@ -1,5 +1,5 @@
 <tr>
-  <td><%= book.user.name.titleize %></td>
+  <td><%= book.por_telefono %></td>
   <td><%= book.day.strftime('%d/%m/%Y') %></td>
   <td><%= book.interval.resort.name %></td>
   <td><%= book.interval.intervalo %></td>
@@ -8,7 +8,7 @@
     <% else -%>
     Internet
   <% end -%></td>
-  <td><%= link_to "Edit", edit_admin_book_path(book) %></td>
-  <td><%= link_to "Destroy", admin_book_path(book), :confirm => 'Are you sure?', :method => :delete %></td>
+  <td><%= link_to "Modificar", edit_admin_book_path(book) %></td>
+  <td><%= link_to "Borrar", admin_book_path(book), :confirm => 'Estas seguro?', :method => :delete %></td>
 </tr>
 
