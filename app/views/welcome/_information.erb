@@ -1,8 +1,17 @@
+<script type="text/javascript">
+$('#banner').cycle({ 
+    fx:    'fade', 
+    speed:  2500 
+ });
+</script>
+
 <div class="row">
-  <div class="span7">
-    <h3>Aqui va el logo del negocio</h3>
+  <div class="span5 thumbnail" id="banner">
+    <% @photos.each do |image| -%>
+      <%= image_tag image.photo_url(:thumb) %>
+    <% end -%>
   </div>
-  <div class="span7">
+  <div class="span5">
     <address>
       <strong><%= @store.name.capitalize %></strong>
       <%= @store.address.capitalize unless @store.address.nil? %><br/>
@@ -13,12 +22,12 @@
   </div>
 </div>
 <div class="row">
-  <div class="span8">
+  <div class="span5">
     <% @resorts.each do |resort| %>
       <h3><%= resort.name %> - <%= resort.intervals.count %></h3>
     <% end %>
   </div>
-  <div class="span8">
+  <div class="span5">
     <h3>Aqui va el conjunto de ofertas del negocio</h3>
   </div>
 </div>

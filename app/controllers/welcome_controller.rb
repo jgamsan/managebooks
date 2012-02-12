@@ -21,6 +21,7 @@ class WelcomeController < ApplicationController
   def bystore
     @resorts = Resort.store(params[:id])
     @store = Store.find(params[:id])
+    @photos = PhotoGallery.where(:store_id => @store.id)
     respond_to do |format|
       format.js
     end

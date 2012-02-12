@@ -7,4 +7,3 @@ $ ->
     result = $(this).attr("href")
     $.getJSON result + ".json", (data)->
       Gmaps.map.replaceMarkers(data)
-
