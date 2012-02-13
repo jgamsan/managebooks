@@ -1,0 +1,11 @@
+= simple_form_for(@admin_bid) do |f|
+  = f.error_notification
+
+  .inputs
+    = f.input :store_id
+    = f.input :name
+    = f.input :init
+    = f.input :finish
+
+  .actions
+    = f.button :submit

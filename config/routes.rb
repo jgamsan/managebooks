@@ -1,5 +1,7 @@
 Managebooks::Application.routes.draw do
 
+  namespace :admin do resources :bids end
+
   get "dashboard/index"
 
 

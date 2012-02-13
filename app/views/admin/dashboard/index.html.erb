@@ -9,9 +9,10 @@
       <td><%= l current_admin_admin.last_sign_in_at, :format => '%A, %d de %B de %Y a las %H:%M' %></td>
     </tr>
     <tr>
-      <td colspan="2" style="text-align: center">Listado de Reservas realizadas entre conexiones</td>
+      <td colspan="2" style="text-align: center">Listado de Reservas realizadas desde la ultima conexion</td>
     </tr>
-    <%= @books.each do |book| %>
+
+    <% @books.each do |book| %>
       <tr>
         <td><%= book.name %></td>
         <td><%= book.total %></td>

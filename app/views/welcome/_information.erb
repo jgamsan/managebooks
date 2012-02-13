@@ -1,33 +1,40 @@
 <script type="text/javascript">
-$('#banner').cycle({ 
-    fx:    'fade', 
-    speed:  2500 
+$('#banner').cycle({
+    fx:    'fade',
+    speed:  2500
  });
 </script>
 
 <div class="row">
-  <div class="span5 thumbnail" id="banner">
+  <div class="span5 pics" id="banner">
     <% @photos.each do |image| -%>
       <%= image_tag image.photo_url(:thumb) %>
     <% end -%>
   </div>
   <div class="span5">
-    <address>
-      <strong><%= @store.name.capitalize %></strong>
-      <%= @store.address.capitalize unless @store.address.nil? %><br/>
-      <%= @store.zip_code %>, <%= @store.town.name.capitalize unless @store.town.nil? %><br/>
-      <%= @store.phone %> - <%= @store.cellphone %><br/>
-      <%= @store.email %>
-    </address>
+    <%= render :partial => "addresses" %>
   </div>
 </div>
 <div class="row">
   <div class="span5">
-    <% @resorts.each do |resort| %>
-      <h3><%= resort.name %> - <%= resort.intervals.count %></h3>
+    <h4>Recursos Disponibles</h4>
+    </br>
+    <table class="table table-bordered table-striped">
+      <tr>
+        <th>Nombre</th>
+        <th>Disponibles ahora</th>
+      </tr>
+      <% @resorts.each do |resort| %>
+        <tr>
+          <td><%= resort.name %></td>
+          <td style="text-align:center"><%= resort.intervals.count %></h3></td>
+        </tr>
     <% end %>
+    </table>
+
   </div>
   <div class="span5">
     <h3>Aqui va el conjunto de ofertas del negocio</h3>
   </div>
 </div>
+

@@ -8,7 +8,7 @@ class Book < ActiveRecord::Base
   after_save :sum_lasting_of_service_extras
   scope :busy, lambda { |day, resort| where(:resort_id => resort, :day => day) }
   scope :total, lambda { |day, resort, user| where{(user_id.eq user) & (day.gteq Date.today) & (resort_id.eq resort)}}
-  scope :by_store, lambda { |value| 
+  scope :by_store, lambda { |value|
     joins{interval.resort.store}.where{stores.id.eq value}
   }
   scope :hoy, where{day == Date.today}
@@ -35,7 +35,7 @@ class Book < ActiveRecord::Base
     end
     self.user_id = id
   end
-  
+
   def por_telefono
     reserva = Book.find(id)
     salida = reserva.user.name.titleize
@@ -45,7 +45,7 @@ class Book < ActiveRecord::Base
     end
     salida
   end
-  
+
   def sum_lasting_of_service_extras
     tiempo = 0
     unless self.service_extra_ids.nil?
@@ -79,6 +79,7 @@ class Book < ActiveRecord::Base
       books = Book.busy(day, value)
       Interval.where{(id.not_in(books.select{interval_id})) & (resort_id.eq value)}
     end
+
 
     def by_user(usuario)
       @user = User.find_by_uid(usuario)

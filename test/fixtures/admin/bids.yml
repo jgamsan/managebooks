@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  store_id: 1
+  name: MyString
+  init: 2012-02-13
+  finish: 2012-02-13
+
+two:
+  store_id: 1
+  name: MyString
+  init: 2012-02-13
+  finish: 2012-02-13
