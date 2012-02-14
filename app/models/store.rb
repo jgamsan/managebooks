@@ -5,6 +5,7 @@ class Store < ActiveRecord::Base
   has_many :resorts
   has_many :business_rules
   has_many :photo_galleries
+  has_many :bids
   mount_uploader :logo, LogoUploader
   accepts_nested_attributes_for :resorts, :reject_if => :all_blank, :allow_destroy => true
   belongs_to :town

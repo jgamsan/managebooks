@@ -1,2 +1,4 @@
-class Admin::Bid < ActiveRecord::Base
+class Bid < ActiveRecord::Base
+  belongs_to :store
 end
+
