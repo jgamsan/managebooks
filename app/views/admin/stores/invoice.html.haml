@@ -26,8 +26,9 @@
         %td
           = book.count
         %td
+          = number_to_currency(book.cost)
         %td
-          = number_to_currency(book.count * @business_rule.rule)
+          = number_to_currency(book.count.to_i * @business_rule.rule.to_f * book.cost.to_f / 100)
     %tr
       %td{:colspan => 3} Total
       %td

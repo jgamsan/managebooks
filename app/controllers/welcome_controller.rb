@@ -22,7 +22,12 @@ class WelcomeController < ApplicationController
     @resorts = Resort.store(params[:id])
     @store = Store.find(params[:id])
     @photos = PhotoGallery.where(:store_id => @store.id)
-
+    @wr =[]
+    @resorts.each do |element|
+      a = Interval.in_resort(element.id).count
+      b = Interval.by_resort(element.id, Date.today).count
+      @wr << [element.name.titleize, a, b]
+    end
     respond_to do |format|
       format.js
     end

@@ -2,7 +2,6 @@ class Interval < ActiveRecord::Base
   belongs_to :resort
   has_many :books
   attr_accessor :period, :time_init, :numero
-  #attr_accessible :period, :time_init, :numero
   scope :storeadmin, lambda { |value|
     @store = Store.find_by_admin_id(value)
     @resorts = @store.resorts.map {|x| x.id}
@@ -11,6 +10,9 @@ class Interval < ActiveRecord::Base
   scope :by_resort, lambda { |value, dia|
     books = Book.where{day.eq dia}
     where{(id.not_in(books.select{interval_id})) & (resort_id.eq value)}
+  }
+  scope :in_resort, lambda {|value|
+    where{resort_id.eq value}
   }
 
   def to_label

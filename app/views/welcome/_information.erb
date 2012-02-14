@@ -22,12 +22,14 @@ $('#banner').cycle({
     <table class="table table-bordered table-striped">
       <tr>
         <th>Nombre</th>
-        <th>Disponibles ahora</th>
+        <th>Total Plazas</th>
+        <th>Reservas libres hoy</th>
       </tr>
-      <% @resorts.each do |resort| %>
+      <% @wr.each do |resort| %>
         <tr>
-          <td><%= resort.name %></td>
-          <td style="text-align:center"><%= resort.intervals.count %></h3></td>
+          <td><%= resort[0] %></td>
+          <td style="text-align:center"><%= resort[1] %></td>
+          <td><%= resort[2] %></td>
         </tr>
     <% end %>
     </table>

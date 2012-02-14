@@ -6,7 +6,7 @@ class Book < ActiveRecord::Base
   attr_reader :extra_tokens, :user_token
   cattr_accessor :init_date, :finish_date
   after_save :sum_lasting_of_service_extras
-  scope :busy, lambda { |day, resort| where(:resort_id => resort, :day => day) }
+  #scope :busy, lambda { |day, resort| where(:resort_id => resort, :day => day) }
   scope :total, lambda { |day, resort, user| where{(user_id.eq user) & (day.gteq Date.today) & (resort_id.eq resort)}}
   scope :by_store, lambda { |value|
     joins{interval.resort.store}.where{stores.id.eq value}
@@ -22,6 +22,9 @@ class Book < ActiveRecord::Base
   }
   scope :by_resort, lambda { |value|
     joins{interval}.select('count(books.id), intervals.resort_id, resorts.name, resorts.cost').monthly.usuario.by_store(value).group("intervals.resort_id, resorts.name, resorts.cost")
+  }
+  scope :in_resort, lambda {|value|
+    joins{interval}.where{intervals.resort_id.eq value}
   }
   scope :next_days, where(:day => Date.today..(Date.today + 7.day))
   scope :between_login, lambda { |value|
