@@ -4,7 +4,7 @@ set :rvm_ruby_string, 'ruby-1.9.3-p0'
 set :rvm_type, :user
 require "bundler/capistrano"
 set :application, "reservas"
-set :domain, "tienda_galiclick.galiclick.com"
+set :domain, "mail.galiclick.com"
 set :user, "galiclick"
 set :port, 58378
 set :repository,  "git@github.com:jgamsan/managebooks.git"
