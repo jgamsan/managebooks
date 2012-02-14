@@ -21,8 +21,8 @@ module Managebooks
       Devise::SessionsController.layout "admin/session"
       Devise::RegistrationsController.layout "admin/session"
       Devise::ConfirmationsController.layout "admin/session"
-      Devise::UnlocksController.layout "admin/session"            
-      Devise::PasswordsController.layout "admin/session"        
+      Devise::UnlocksController.layout "admin/session"
+      Devise::PasswordsController.layout "admin/session"
     end
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
@@ -38,7 +38,7 @@ module Managebooks
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :es
-    
+    config.assets.initialize_on_precompile = false
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 
@@ -47,8 +47,9 @@ module Managebooks
 
     # Enable the asset pipeline
     config.assets.enabled = true
-    config.assets.precompile += ['register.css']
+    #config.assets.precompile += ['register.css']
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
   end
 end
+
