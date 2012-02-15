@@ -47,7 +47,7 @@ gem 'i18n'
 gem 'kaminari'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
-gem "gritter", "1.0.0"
+gem "gritter", "1.0.1"
 group :development do
   gem "wirble"
   gem "hirb"

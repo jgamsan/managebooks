@@ -61,7 +61,16 @@
       </div>
       <div class="span9">
         <div class="hero-unit" id="content-main">
-          <%= gmaps4rails(@json) %>
+          <%#= gmaps4rails(@json) %>
+          <%= gmaps(:map_options => { :raw => '{ panControl: true,
+                                       zoomControl: false,
+                                       mapTypeControl: true,
+                                       scaleControl: true,
+                                       streetViewControl: false,
+                                       overviewMapControl: false}' 
+                          },
+          :markers => { :data => @json  } 
+)%> 
         </div>
         <footer><p>&copy; Galisports 2011</p>
           <%= yield :scripts %>

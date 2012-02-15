@@ -74,7 +74,7 @@ GEM
       rack (~> 1.1)
     gmaps4rails (1.4.5)
       json
-    gritter (1.0.0)
+    gritter (1.0.1)
     haml (3.1.4)
     haml-rails (0.3.4)
       actionpack (~> 3.0)
@@ -225,7 +225,7 @@ DEPENDENCIES
   devise
   execjs
   gmaps4rails
-  gritter (= 1.0.0)
+  gritter (= 1.0.1)
   haml
   haml-rails
   hirb
