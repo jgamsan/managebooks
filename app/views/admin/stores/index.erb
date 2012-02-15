@@ -5,6 +5,7 @@
       <tr>
         <th>Name</th>
         <th>Categoria</th>
+        <th>Administrador</th>
         <th></th>
         <th></th>
         <th></th>
@@ -14,6 +15,7 @@
         <tr>
           <td><%= store.name %></td>
           <td><%= store.category.name %></td>
+          <td><%= store.admin.nombre_completo.titleize %></td>
           <td><%= link_to "Modificar", edit_admin_store_path(store) %></td>
           <td><%= link_to "Borrar", admin_store_path(store), :confirm => 'Estas Seguro?', :method => :delete %></td>
           <td><%= link_to 'Reglas de Negocio', rules_admin_store_path(store) %></td>
