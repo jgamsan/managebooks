@@ -67,10 +67,10 @@
                                        mapTypeControl: true,
                                        scaleControl: true,
                                        streetViewControl: false,
-                                       overviewMapControl: false}' 
+                                       overviewMapControl: false}'
                           },
-          :markers => { :data => @json  } 
-)%> 
+          :markers => { :data => @json, "options" => {"custom_infowindow_class" => "yellow" }}
+)%>
         </div>
         <footer><p>&copy; Galisports 2011</p>
           <%= yield :scripts %>

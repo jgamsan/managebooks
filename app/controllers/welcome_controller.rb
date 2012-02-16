@@ -41,9 +41,9 @@ class WelcomeController < ApplicationController
     @stores.each do |store|
       @tienda = Store.find(store)
       if @stores_free.include?(store)
-        @stores_by_icon << {description: Store.infowindow(store), title: @tienda.name.capitalize, lng: @tienda.longitude, lat: @tienda.latitude, picture: @tienda.category.icon.url, width: "16", height: "32"}
+        @stores_by_icon << {description: Store.infowindow(store), title: @tienda.name.titleize, lng: @tienda.longitude, lat: @tienda.latitude, picture: @tienda.category.icon.url, width: "16", height: "32"}
       else
-        @stores_by_icon << {description: Store.infowindow(store),title: @tienda.name.capitalize, lng: @tienda.longitude, lat: @tienda.latitude, picture: @tienda.category.icon.url, width: "16", height: "32"}
+        @stores_by_icon << {description: Store.infowindow(store),title: @tienda.name.titleize, lng: @tienda.longitude, lat: @tienda.latitude, picture: @tienda.category.icon.url, width: "16", height: "32"}
       end
     end
     @stores_by_icon.to_json
