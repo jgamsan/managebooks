@@ -9,7 +9,6 @@
         <th>Status</th>
         <th></th>
         <th></th>
-        <th></th>
       </tr>
       <% for admin in @admins %>
         <tr>
@@ -17,9 +16,8 @@
           <td><%= admin.email %></td>
           <td><%= Admin::ROLES[admin.role - 1][0] %></td>
           <td><%= admin.status %></td>
-          <td><%= link_to "Show", admin_admin_path(admin) %></td>
-          <td><%= link_to "Edit", edit_admin_admin_path(admin) %></td>
-          <td><%= link_to "Destroy", admin_admin_path(admin), :confirm => 'Are you sure?', :method => :delete %></td>
+          <td><%= link_to "Modificar", edit_admin_admin_path(admin) %></td>
+          <td><%= link_to "Borrar", admin_admin_path(admin), :confirm => 'Estas Seguro?', :method => :delete %></td>
         </tr>
       <% end %>
     </table>

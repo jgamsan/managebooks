@@ -6,14 +6,12 @@
         <th>Name</th>
         <th></th>
         <th></th>
-        <th></th>
       </tr>
       <% for category in @categories %>
         <tr>
           <td><%= category.name %></td>
-          <td><%= link_to "Show", admin_category_path(category) %></td>
-          <td><%= link_to "Edit", edit_admin_category_path(category) %></td>
-          <td><%= link_to "Destroy", admin_category_path(category), :confirm => 'Are you sure?', :method => :delete %></td>
+          <td><%= link_to "Modificar", edit_admin_category_path(category) %></td>
+          <td><%= link_to "Borrar", admin_category_path(category), :confirm => 'Estas Seguro?', :method => :delete %></td>
         </tr>
       <% end %>
     </table>
