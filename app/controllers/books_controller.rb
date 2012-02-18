@@ -100,7 +100,7 @@ class BooksController < ApplicationController
     Mailer.notify_delete_book(current_user.uid, @book).deliver
     respond_to do |format|
       flash[:notice] = "Su reserva ha sido anulada. Se ha enviado un email a su cuenta con la confirmacion"
-      format.js
+      format.js { render :js => 'list_books'}
     end
   end
 
