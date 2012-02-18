@@ -36,7 +36,7 @@ gem 'i18n'
 # Use unicorn as the web server
 # gem 'unicorn'
 gem 'devise'
-gem 'simple_form'
+gem 'simple_form', git: 'git://github.com/plataformatec/simple_form.git'
 # Deploy with Capistrano
 gem 'capistrano'
 gem 'squeel'
