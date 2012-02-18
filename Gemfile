@@ -30,15 +30,13 @@ gem 'omniauth-github'
 gem 'omniauth-openid'
 gem 'omniauth-identity'
 gem 'carrierwave'
-gem 'cocoon'
-gem 'metamagic'
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby'
 gem 'i18n'
 # Use unicorn as the web server
 # gem 'unicorn'
 gem 'devise'
-gem 'simple_form', git: 'git://github.com/plataformatec/simple_form.git'
+gem 'simple_form'
 # Deploy with Capistrano
 gem 'capistrano'
 gem 'squeel'
