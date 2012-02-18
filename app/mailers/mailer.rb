@@ -21,5 +21,23 @@ class Mailer < ActionMailer::Base
       format.html
     end
   end
-  
+
+  def notify_book(user, book)
+    @cliente = Identity.find_by_id(user)
+    @reserva = book
+    mail(:to => "#{@cliente.name} <#{@cliente.email}>", :subject => "Notificacion de Reserva Disponible") do
+    |format|
+      format.html
+    end
+  end
+
+  def notify_delete_book(user, book)
+    @cliente = Identity.find_by_id(user)
+    @reserva = book
+    mail(:to => "#{@cliente.name} <#{@cliente.email}>", :subject => "Notificacion Anulacion de Reserva") do
+    |format|
+      format.html
+    end
+  end
+
 end

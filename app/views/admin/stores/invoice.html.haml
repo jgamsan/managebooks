@@ -22,13 +22,13 @@
     - @books_by_resort.each do |book|
       %tr
         %td
-          = book.name.titleize
+          = book[0].titleize
         %td
-          = book.count
+          = book[1]
         %td
-          = number_to_currency(book.cost)
+          = number_to_currency(book[2])
         %td
-          = number_to_currency(book.count.to_i * @business_rule.rule.to_f * book.cost.to_f / 100)
+          = number_to_currency(book[1].to_i * @business_rule.rule.to_f * book[2].to_f / 100)
     %tr
       %td{:colspan => 3} Total
       %td

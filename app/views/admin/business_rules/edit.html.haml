@@ -1,7 +1,6 @@
-%h1 Editing business_rule
+- content_for :content do
+  %h3 Modificando Regla de Negocios
 
-= render 'form'
+  = render 'form'
 
-= link_to 'Show', @business_rule
-\|
-= link_to 'Back', business_rules_path
+  = link_to 'Volver', admin_business_rules_path

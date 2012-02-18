@@ -1,0 +1,16 @@
+<p>Hola <%= @cliente.name %>!</p>
+
+<p>Acaba de efectuar una Reserva en la Aplicacion Webreserva.</p>
+
+<p>A continuacion le informamos de los Datos de la misma</p>
+<ul>
+  <li>Negocio: <%= @reserva.interval.resort.store.name.titleize %></li>
+  <li>Recurso Reservado: <%= @reserva.interval.resort.name.titleize %></li>
+  <li>Dia: <%= l @reserva.day, :format => "%a, %d de %B de %Y" %></li>
+  <li>Hora: <%= @reserva.interval.intervalo %></li>
+</ul>
+
+<p>Gracias por efectuar la reserva con Webreserva</p>
+<p>Esperamos que haya sido de su agrado</p>
+<p>Esperamos verle de nuevo por nuestra pagina.</p>
+<p> Un saludo</p>

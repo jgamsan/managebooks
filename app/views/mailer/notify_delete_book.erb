@@ -1,0 +1,14 @@
+<p>Hola <%= @cliente.name %>!</p>
+
+<p>Acaba de efectuar una Anulacion de una Reserva en la Aplicacion Webreserva.</p>
+
+<p>A continuacion le informamos de los Datos de la anulacion</p>
+<ul>
+  <li>Negocio: <%= @reserva.interval.resort.store.name.titleize %></li>
+  <li>Recurso Reservado: <%= @reserva.interval.resort.name.titleize %></li>
+  <li>Dia: <%= l @reserva.day, :format => "%a, %d de %B de %Y" %></li>
+  <li>Hora: <%= @reserva.interval.intervalo %></li>
+</ul>
+
+<p>Esperamos verle de nuevo por nuestra pagina.</p>
+<p> Un saludo</p>

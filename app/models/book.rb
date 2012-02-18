@@ -21,7 +21,8 @@ class Book < ActiveRecord::Base
     joins{interval.resort.store}.where{stores.admin_id.eq value}
   }
   scope :by_resort, lambda { |value|
-    joins{interval}.select('count(books.id), intervals.resort_id, resorts.name, resorts.cost').monthly.usuario.by_store(value).group("intervals.resort_id, resorts.name, resorts.cost")
+    joins{interval}.select('count(books.id), intervals.resort_id').monthly.usuario.where{intervals.resort_id.eq value}
+    .group("intervals.resort_id")
   }
   scope :in_resort, lambda {|value|
     joins{interval}.where{intervals.resort_id.eq value}
@@ -85,7 +86,7 @@ class Book < ActiveRecord::Base
 
 
     def by_user(usuario)
-      @user = User.find_by_uid(usuario)
+      @user = User.find_by_id(usuario)
       @user.books.where{day.gteq Date.today}
     end
   end

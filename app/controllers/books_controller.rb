@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   def list_books
-    @books = Book.by_user(current_user.uid).page(params[:page]).per(4)
+    @books = Book.by_user(current_user.id).page(params[:page]).per(4)
     respond_to do |format|
       format.js do
         if (!params[:page].nil?)
@@ -65,8 +65,10 @@ class BooksController < ApplicationController
       if @book.save
         @intervals = Interval.by_resort(r, params[:day])
         @resort = Resort.find(r)
+        Mailer.notify_book(current_user.uid, @book).deliver
         flash[:success] = "Cita creada correctamente"
-        flash[:notice] = "Tiene una Reserva para el #{l @book.day, :format => '%a, %d%b%Y'}"
+        flash[:notice] = "Tiene una Reserva para el #{l @book.day, :format => '%a,
+%d%b%Y'}. En breve recibira un email de confirmacion"
         format.js
       end
     end
@@ -95,8 +97,9 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @book.destroy
     @books = Book.by_user(current_user.uid)
+    Mailer.notify_delete_book(current_user.uid, @book).deliver
     respond_to do |format|
-      flash[:notice] = "Borrada la Cita. Se ha enviado un email a su cuenta con la notificacion"
+      flash[:notice] = "Su reserva ha sido anulada. Se ha enviado un email a su cuenta con la confirmacion"
       format.js
     end
   end

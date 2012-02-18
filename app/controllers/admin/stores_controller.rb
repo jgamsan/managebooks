@@ -68,12 +68,8 @@ class Admin::StoresController < Admin::BaseController
   end
   
   def rules
-    if current_admin_admin.role == 1
-      @business_rules = BusinessRule.page params[:page]
-    else
-      @business_rules = BusinessRule.where(:store_id => params[:id]).page params[:page]
-      @store = Store.find(params[:id])
-    end
+    @business_rules = BusinessRule.where(:store_id => params[:id]).page params[:page]
+    @store = Store.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -84,12 +80,22 @@ class Admin::StoresController < Admin::BaseController
   def invoice
     @books = Book.monthly.usuario.by_store(params[:id])
     @store = Store.find(params[:id])
-    @books_by_resort = Book.by_resort(params[:id])
+    @resorts = @store.resorts
+    @books_by_resort = []
+    @resorts.each do|resort|
+      parcial = Book.by_resort(resort.id)
+      unless parcial.empty?
+        @books_by_resort << [resort.name, parcial[0].count.to_i, resort.cost.to_f]
+      else
+        @books_by_resort << [resort.name, 0, 0]
+      end
+
+    end
     @business_rule = BusinessRule.choose_rule(@books.count).by_store(params[:id]).first
     @total = 0
-    unless @books_by_resort.nil?
+    unless @books_by_resort.empty?
       @books_by_resort.each do |resort|
-        @total += (resort.count.to_i * resort.cost.to_f * @business_rule.rule / 100).to_f
+        @total += (resort[1] * resort[2] * @business_rule.rule / 100).to_f
       end
     end
   end
