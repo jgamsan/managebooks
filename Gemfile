@@ -29,6 +29,8 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-github'
 gem 'omniauth-openid'
 gem 'omniauth-identity'
+gem 'omniauth-linkedin'
+gem 'omniauth-windowslive'
 gem 'carrierwave'
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby'
