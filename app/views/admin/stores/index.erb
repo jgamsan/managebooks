@@ -10,6 +10,7 @@
         <th></th>
         <th></th>
         <th></th>
+        <th></th>
       </tr>
       <% for store in @stores %>
         <tr>
@@ -18,6 +19,7 @@
           <td><%= store.admin.nombre_completo.titleize %></td>
           <td><%= link_to "Modificar", edit_admin_store_path(store) %></td>
           <td><%= link_to "Borrar", admin_store_path(store), :confirm => 'Estas Seguro?', :method => :delete %></td>
+          <td><%= link_to "Ofertas", admin_store_bids_path(store) %></td>
           <td><%= link_to 'Reglas de Negocio', rules_admin_store_path(store) %></td>
           <td><%= link_to 'Factura', invoice_admin_store_path(store)  %></td>
         </tr>

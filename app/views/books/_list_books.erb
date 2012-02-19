@@ -1,7 +1,7 @@
 <div class="row" id="list">
-  <h3 style="text-align: center">Listado de Reservas Pendientes</h3>
-  <div class="span12">
-    <% unless @books.nil? %>
+  <% unless @books.empty? %>
+    <h3 style="text-align: center">Listado de Reservas Pendientes</h3>
+    <div class="span12">
       <table class="table">
         <tr>
           <th>Donde</th>
@@ -18,9 +18,9 @@
       <div id="paginator">
         <%= paginate @books, :remote => true %>
       </div>
-    <% else %>
+    </div>
+  <% else %>
       <h2 style="text-align: center">No Tiene Reservas</h2>
-    <% end %>
-  </div>
+  <% end %>
 </div>
 

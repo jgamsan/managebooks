@@ -1,7 +1,5 @@
 Managebooks::Application.routes.draw do
 
-  namespace :admin do resources :bids end
-
   get "dashboard/index"
 
 
@@ -23,9 +21,6 @@ Managebooks::Application.routes.draw do
   get "welcome/index"
 
   resources :resorts
-
-
-
 
   get "welcome/bycategory"
   get "welcome/bystore"
@@ -91,6 +86,7 @@ Managebooks::Application.routes.draw do
         get 'rules'
         get 'invoice'
       end
+      resources :bids
     end
     resources :books do
       collection do

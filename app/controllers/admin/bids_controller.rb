@@ -1,8 +1,9 @@
 class Admin::BidsController < Admin::BaseController
   # GET /admin/bids
   # GET /admin/bids.json
+  before_filter :get_store
   def index
-    @admin_bids = Bid.all
+    @bids = @store.bids
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +14,7 @@ class Admin::BidsController < Admin::BaseController
   # GET /admin/bids/1
   # GET /admin/bids/1.json
   def show
-    @admin_bid = Bid.find(params[:id])
+    @bid = Bid.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +25,7 @@ class Admin::BidsController < Admin::BaseController
   # GET /admin/bids/new
   # GET /admin/bids/new.json
   def new
-    @admin_bid = Bid.new
+    @bid = Bid.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,16 +35,16 @@ class Admin::BidsController < Admin::BaseController
 
   # GET /admin/bids/1/edit
   def edit
-    @admin_bid = Bid.find(params[:id])
+    @bid = Bid.find(params[:id])
   end
 
   # POST /admin/bids
   # POST /admin/bids.json
   def create
-    @admin_bid = Bid.new(params[:admin_bid])
+    @bid = Bid.new(params[:bid])
 
     respond_to do |format|
-      if @admin_bid.save
+      if @bid.save
         format.html { redirect_to @admin_bid, notice: 'Bid was successfully created.' }
         format.json { render json: @admin_bid, status: :created, location: @admin_bid }
       else
@@ -56,10 +57,10 @@ class Admin::BidsController < Admin::BaseController
   # PUT /admin/bids/1
   # PUT /admin/bids/1.json
   def update
-    @admin_bid = Bid.find(params[:id])
+    @bid = Bid.find(params[:id])
 
     respond_to do |format|
-      if @admin_bid.update_attributes(params[:admin_bid])
+      if @bid.update_attributes(params[:bid])
         format.html { redirect_to @admin_bid, notice: 'Bid was successfully updated.' }
         format.json { head :no_content }
       else
@@ -79,6 +80,10 @@ class Admin::BidsController < Admin::BaseController
       format.html { redirect_to admin_bids_url }
       format.json { head :no_content }
     end
+  end
+
+  def get_store
+    @store = Store.find(params[:store_id])
   end
 end
 

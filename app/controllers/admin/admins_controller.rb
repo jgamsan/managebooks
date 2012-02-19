@@ -55,12 +55,13 @@ class Admin::AdminsController < Admin::BaseController
   # DELETE /users/1.json                                  HTML AND AJAX
   #-------------------------------------------------------------------
   def destroy
-    @user.destroy!
+    @admin = Admin.find(params[:id])
+    @admin.destroy
 
     respond_to do |format|
       format.json { respond_to_destroy(:ajax) }
       format.xml  { head :ok }
-      format.html { respond_to_destroy(:html) }
+      format.html { redirect_to(admin_admins_path, :notice => 'Se ha borrado un Administrador de Negocio.') }
     end
 
   rescue ActiveRecord::RecordNotFound
@@ -93,8 +94,6 @@ class Admin::AdminsController < Admin::BaseController
 
     if params[:admin][:password].blank?
       [:password,:password_confirmation].collect{|p| params[:admin].delete(p) }
-    #else
-      #@admin.errors[:base] << "El password que has introducido es incorrecto" unless @admin.valid_password?(params[:admin][:password])
     end
     @admin = Admin.find(params[:id])
     respond_to do |format|

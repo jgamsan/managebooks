@@ -1,11 +1,7 @@
-= simple_form_for(@admin_bid) do |f|
-  = f.error_notification
-
-  .inputs
-    = f.input :store_id
-    = f.input :name
-    = f.input :init
-    = f.input :finish
-
-  .actions
-    = f.button :submit
+= simple_form_for([:admin, @store, @bid], :html => { :class => "form-horizontal" }) do |f|
+  = f.input :store_id, :as => :hidden, :value => @store.id
+  = f.input :name, :label => "Nombre"
+  = f.input :init, :as => :string, :label => "Fecha Inicio Validez", :input_html => { :class => 'span2' }
+  = f.input :finish, :as => :string, :label => "Fecha Fin Validez", :input_html => { :class => 'span2' }
+  = f.input :oferta, :label => "Oferta"
+  = f.button :submit, :class => "btn-primary"

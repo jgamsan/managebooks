@@ -1,5 +1,6 @@
 <%= form_tag books_assign_book_path, :remote => true do -%>
-  <h5>Reserva: <%= l @dia.to_date, :format => "%A, %d de %b de %Y" %> de <%= @horario %></h5>
+  <h5>Fecha: <%= l @dia.to_date, :format => "%A, %d de %b de %Y" %></h5>
+  <h5>Hora: de <%= @horario %></h5>
   <p>
     <%= hidden_field_tag :interval, @interval.id %>
     <%= hidden_field_tag :day, @dia %>
@@ -15,22 +16,22 @@
     <tr>
       <td></td>
       <td><%= @resort.name %></td>
-      <td><%= @duracion %></td>
-      <td><%= @resort.cost %></td>
+      <td><%= @duracion.to_i %> min.</td>
+      <td><%= number_to_currency(@resort.cost) %></td>
     </tr>
     <% unless @services_extras.nil? -%>
       <% @services_extras.each do |service_extra| -%>
         <tr>
           <td><%= check_box_tag "extra_tokens_ids[]", service_extra.id %></td>
           <td><%= service_extra.name %></td>
-          <td><%= service_extra.lasting %></td>
-          <td><%= service_extra.cost %></td>
+          <td><%= service_extra.lasting %> min.</td>
+          <td><%= number_to_currency(service_extra.cost) %></td>
         </tr>
       <% end -%>
     <% end -%>
-    <tr>
-      <td colspan=3>Total</td>
-      <td id= "total">cifra</td>
+    <tr style="background: #c2cecf">
+      <td colspan=3 style="text-align: center">Total</td>
+      <td id="total"><%= number_to_currency(@total) %></td>
     </tr>
   </table>
   <%= submit_tag 'Solicitar', :class => 'btn-primary' %>

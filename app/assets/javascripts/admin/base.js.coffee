@@ -13,6 +13,8 @@ $ ->
   $('#finish_date').datepicker()
   $('#day').datepicker()
   $('#book_day').datepicker()
+  $('#bid_init').datepicker()
+  $('#bid_finish').datepicker()
 
 $ ->
   $("#book_user_token").tokenInput "/admin/users.json"

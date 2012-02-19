@@ -1,25 +1,25 @@
-%h1 Listing admin_bids
+- content_for :content do
+  %h3
+    Listado de Ofertas de
+    = @store.name.titleize
 
-%table
-  %tr
-    %th Store
-    %th Name
-    %th Init
-    %th Finish
-    %th
-    %th
-    %th
-
-  - @admin_bids.each do |admin_bid|
+  %table.table.table-bordered.table-striped
     %tr
-      %td= admin_bid.store_id
-      %td= admin_bid.name
-      %td= admin_bid.init
-      %td= admin_bid.finish
-      %td= link_to 'Show', admin_bid
-      %td= link_to 'Edit', edit_admin_bid_path(admin_bid)
-      %td= link_to 'Destroy', admin_bid, :confirm => 'Are you sure?', :method => :delete
+      %th Nombre
+      %th Fecha Inicio Validez
+      %th Fecha Fin Validez
+      %th
+      %th
+      %th
 
-%br
+    - @bids.each do |bid|
+      %tr
+        %td= bid.name
+        %td= bid.init
+        %td= bid.finish
+        %td= link_to 'Modificar', edit_admin_store_bid_path(@store, bid)
+        %td= link_to 'Borrar', admin_store_bid_path(bid), :confirm => 'Are you sure?', :method => :delete
 
-= link_to 'New Bid', new_admin_bid_path
+  %br
+
+  = link_to 'Nueva Oferta', new_admin_store_bid_path(@store)

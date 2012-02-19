@@ -1,5 +1,6 @@
-%h1 New admin_bid
+- content_for :content do
+  %h3 Nueva Oferta
 
-= render 'form'
+  = render 'form'
 
-= link_to 'Back', admin_bids_path
+  = link_to 'Volver', admin_store_bids_path

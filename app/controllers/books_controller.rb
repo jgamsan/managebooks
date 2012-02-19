@@ -46,7 +46,7 @@ class BooksController < ApplicationController
     @duracion = ((@interval.finish - @interval.init) / 60)
     @horario = @interval.init.strftime("%H:%M").to_s + " - " + @interval.finish.strftime("%H:%M")
     @services_extras = Resort.find(@interval.resort.id).service_extras
-
+    @total = @resort.cost
     respond_to do |format|
       format.js
     end
