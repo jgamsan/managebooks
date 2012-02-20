@@ -40,7 +40,7 @@ gem 'i18n'
 gem 'devise'
 gem 'simple_form', git: 'git://github.com/plataformatec/simple_form.git'
 # Deploy with Capistrano
-gem 'capistrano'
+gem 'capistrano', '~> 2.9.0'
 gem 'squeel'
 gem 'rmagick'
 gem 'i18n'

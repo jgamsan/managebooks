@@ -42,7 +42,7 @@ GEM
     awesome_print (1.0.2)
     bcrypt-ruby (3.0.1)
     builder (3.0.0)
-    capistrano (2.10.0)
+    capistrano (2.9.0)
       highline
       net-scp (>= 1.0.0)
       net-sftp (>= 2.0.0)
@@ -221,7 +221,7 @@ PLATFORMS
 DEPENDENCIES
   awesome_print
   bcrypt-ruby
-  capistrano
+  capistrano (~> 2.9.0)
   carrierwave
   coffee-rails
   devise
