@@ -14,7 +14,9 @@ class Interval < ActiveRecord::Base
   scope :in_resort, lambda {|value|
     where{resort_id.eq value}
   }
-
+  scope :in_time, lambda { |value|
+    where("extract(hour from init) > extract(hour from current_time)") unless value.to_date > Date.today
+  }
   def to_label
     "#{init.strftime('%H:%M')}"
   end
@@ -25,7 +27,8 @@ class Interval < ActiveRecord::Base
   def self.for_select(value, dia)
     books = Book.where{day.eq dia}
     Resort.where(:store_id => value).map do |resort|
-      [resort.name, resort.intervals.where{id.not_in(books.select{interval_id})}.map {|c| [c.intervalo, c.id]}]
+      [resort.name, resort.intervals.in_time(dia).where{id.not_in(books.select{interval_id})}.map {|c| [c.intervalo,
+                                                                                                      c.id]}]
     end
   end
 

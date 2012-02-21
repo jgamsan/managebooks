@@ -1,10 +1,10 @@
 <address>
-  <strong>Nombre: </strong><%= @store.name.titleize %><br/>
-  <strong>Direccion:</strong> <%= @store.address.titleize unless @store.address.nil? %><br/>
-  <strong>CP: </strong> <%= @store.zip_code %><br/>
-  <strong>Localidad:</strong> <%= @store.town.name.capitalize unless @store.town.nil? %><br/>
-  <strong>Telefono Fijo:</strong> <%= @store.phone %></br>
-  <strong>Telefono Movil: </strong> <%= @store.cellphone %><br/>
-  <strong>Email:</strong> <%= @store.email %>
+  <strong>Nombre: </strong><%= store.name.titleize %><br/>
+  <strong>Direccion:</strong> <%= store.address.titleize unless store.address.nil? %><br/>
+  <strong>CP: </strong> <%= store.zip_code %><br/>
+  <strong>Localidad:</strong> <%= store.town.name.capitalize unless store.town.nil? %><br/>
+  <strong>Telefono Fijo:</strong> <%= store.phone %> <br/>
+  <strong>Telefono Movil: </strong> <%= store.cellphone %><br/>
+  <strong>Email:</strong> <%= store.email %>
 </address>
 

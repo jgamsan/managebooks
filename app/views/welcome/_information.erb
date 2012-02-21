@@ -6,19 +6,19 @@ $('#banner').cycle({
 </script>
 
 <div class="row">
-  <div class="span5 pics" id="banner">
+  <div class="span7" id="banner">
     <% @photos.each do |image| -%>
-      <%= image_tag image.photo_url(:thumb) %>
+      <%= image_tag image.photo_url(:thumb), :class => "pics" %>
     <% end -%>
   </div>
-  <div class="span5">
-    <%= render :partial => "addresses" %>
+  <div class="span3" style="float: right">
+    <%= render :partial => "addresses", :locals => {:store => @store} %>
   </div>
 </div>
 <div class="row">
   <div class="span5">
     <h4>Recursos Disponibles</h4>
-    </br>
+    <br/>
     <table class="table table-bordered table-striped">
       <tr>
         <th>Nombre</th>

@@ -3,10 +3,10 @@ class BooksController < ApplicationController
     @books = Book.by_user(current_user.id).page(params[:page]).per(4)
     respond_to do |format|
       format.js do
-        if (!params[:page].nil?)
-          {:render => 'pagin'}
-        else
+        if params[:page].nil?
           {:render => 'list_books'}
+        else
+          {:render => 'pagin'}
         end
       end
     end
@@ -14,7 +14,7 @@ class BooksController < ApplicationController
 
   def view_daily
     @resort = Resort.find(params[:id])
-    @intervals = Interval.by_resort(params[:id], Date.today)
+    @intervals = Interval.by_resort(params[:id], Date.today).in_time(Date.today)
     respond_to do |format|
       format.js
     end
@@ -85,7 +85,7 @@ class BooksController < ApplicationController
   def change_day
     @dia = params[:gd].to_date
     @resort = params[:id]
-    @intervals = Interval.by_resort(@resort, @dia)
+    @intervals = Interval.by_resort(@resort, @dia).in_time(@dia)
     @dia_mas = @dia.to_date + 1.day
     @dia_menos = @dia.to_date - 1.day
     respond_to do |format|
@@ -120,7 +120,11 @@ class BooksController < ApplicationController
   end
 
   def calculate_free_books(resort, fecha)
-    Interval.by_resort(resort, fecha).map {|x| x.id}.flatten
+    if fecha == Date.today
+      Interval.by_resort(resort, fecha).in_time(fecha).map {|x| x.id}.flatten
+    else
+      Interval.by_resort(resort, fecha).map {|x| x.id}.flatten
+    end
   end
 end
 

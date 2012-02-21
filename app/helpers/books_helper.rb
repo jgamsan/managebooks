@@ -16,40 +16,40 @@ module BooksHelper
     intervals.each do |interval|
       cal << %(\t\t<tr>\n)
       cal << "\t\t\t<td>\n #{interval.init.strftime('%H:%M')} - #{interval.finish.strftime('%H:%M')} &nbsp;\t\t\t</td>\n"
-      unless (@lunes.include?(interval.id) && (@primero > Date.today))
-        cal << td_grey
-      else
+      if @lunes.include?(interval.id) && (@primero >= Date.today)
         cal << td_green(interval.id, @primero)
-      end
-      unless (@martes.include?(interval.id)  && ((@primero + 1) > Date.today))
-        cal << td_grey
       else
+        cal << td_grey
+      end
+      if @martes.include?(interval.id) && ((@primero + 1) >= Date.today)
         cal << td_green(interval.id, @primero + 1)
-      end
-      unless (@miercoles.include?(interval.id)  && ((@primero + 2) > Date.today))
-        cal << td_grey
       else
+        cal << td_grey
+      end
+      if @miercoles.include?(interval.id) && ((@primero + 2) >= Date.today)
         cal << td_green(interval.id, @primero + 2)
-      end
-      unless (@jueves.include?(interval.id)  && ((@primero + 3) > Date.today))
-        cal << td_grey
       else
+        cal << td_grey
+      end
+      if @jueves.include?(interval.id) && ((@primero + 3) >= Date.today)
         cal << td_green(interval.id, @primero + 3)
-      end
-      unless (@viernes.include?(interval.id)  && ((@primero + 4) > Date.today))
-        cal << td_grey
       else
+        cal << td_grey
+      end
+      if @viernes.include?(interval.id) && ((@primero + 4) >= Date.today)
         cal << td_green(interval.id, @primero + 4)
-      end
-      unless (@sabado.include?(interval.id)  && ((@primero + 5) > Date.today))
-        cal << td_grey
       else
+        cal << td_grey
+      end
+      if @sabado.include?(interval.id) && ((@primero + 5) >= Date.today)
         cal << td_green(interval.id, @primero + 5)
-      end
-      unless (@domingo.include?(interval.id)  && ((@primero + 6) > Date.today))
-        cal << td_grey
       else
+        cal << td_grey
+      end
+      if @domingo.include?(interval.id) && ((@primero + 6) >= Date.today)
         cal << td_green(interval.id, @primero  + 6)
+      else
+        cal << td_grey
       end
       cal << %(\t\t</tr>)
     end

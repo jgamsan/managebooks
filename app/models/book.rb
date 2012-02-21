@@ -11,6 +11,7 @@ class Book < ActiveRecord::Base
   scope :by_store, lambda { |value|
     joins{interval.resort.store}.where{stores.id.eq value}
   }
+
   scope :hoy, where{day == Date.today}
   scope :tomorrow, where{day == (Date.today + 1.day)}
   scope :month, where(:day => Date.new(Date.today.year, Date.today.month, 1)..Date.today)
@@ -83,7 +84,6 @@ class Book < ActiveRecord::Base
       books = Book.busy(day, value)
       Interval.where{(id.not_in(books.select{interval_id})) & (resort_id.eq value)}
     end
-
 
     def by_user(usuario)
       @user = User.find_by_id(usuario)

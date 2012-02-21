@@ -78,16 +78,18 @@ class Admin::StoresController < Admin::BaseController
   end
   
   def invoice
-    @books = Book.monthly.usuario.by_store(params[:id])
     @store = Store.find(params[:id])
     @resorts = @store.resorts
+    @books = Book.monthly.usuario.by_store(params[:id])
+
+
     @books_by_resort = []
     @resorts.each do|resort|
       parcial = Book.by_resort(resort.id)
-      unless parcial.empty?
-        @books_by_resort << [resort.name, parcial[0].count.to_i, resort.cost.to_f]
-      else
+      if parcial.empty?
         @books_by_resort << [resort.name, 0, 0]
+      else
+        @books_by_resort << [resort.name, parcial[0].count.to_i, resort.cost.to_f]
       end
 
     end

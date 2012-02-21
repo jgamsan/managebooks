@@ -1,5 +1,4 @@
 <div class="row" id="vista">
-  <h3 style="text-align: center; background: #96aaab"><%= @resort.store.name.titleize %></h3>
   <div class="span3">
     <%= link_to image_tag("arrow1_w.gif", :size => "24x24"), change_day_path(@resort, @dia_menos ), :remote => true unless @dia_menos < Date.today %>
   </div>
