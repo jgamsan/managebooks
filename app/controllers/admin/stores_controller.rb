@@ -1,10 +1,7 @@
 class Admin::StoresController < Admin::BaseController
   def index
-    if current_admin_admin.role == 1
-      @stores = Store.page params[:page]
-    else
-      @stores = Store.storeadmin(current_admin_admin.id).page params[:page]
-    end
+    @stores = current_admin_admin.role == 1 ? Store.page params[:page] : Store.storeadmin(current_admin_admin.id)
+    .page params[:page]
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @store }
@@ -84,12 +81,7 @@ class Admin::StoresController < Admin::BaseController
     @books_by_resort = []
     @resorts.each do|resort|
       parcial = Book.by_resort(resort.id)
-      if parcial.empty?
-        @books_by_resort << [resort.name, 0, 0]
-      else
-        @books_by_resort << [resort.name, parcial[0].count.to_i, resort.cost.to_f]
-      end
-
+      @books_by_resort <<parcial.empty? ? [resort.name, 0, 0] : [resort.name, parcial[0].count.to_i, resort.cost.to_f]
     end
     @business_rule = BusinessRule.choose_rule(@books.count).by_store(params[:id]).first
     @total = 0

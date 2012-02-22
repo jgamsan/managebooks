@@ -1,0 +1,26 @@
+- content_for :content do
+  %h3 Resumen de la Reserva solicitada
+
+  %h4
+    Nombre:
+    = @book.user.name.titleize
+  %h4
+    Recurso solicitado:
+    = @book.interval.resort.name
+  %h4
+    Fecha:
+    = l @book.day, :format => "%A, %d de %b de %Y"
+  %h4
+    Hora:
+    = @book.interval.intervalo
+
+  %h4
+    - if @book.service_extras.empty?
+      No tiene Servicios Extras solicitados
+    - else
+      Servicios Extras solicitados
+      - @book.service_extras.each do |service|
+        service.name
+
+
+  = link_to "Volver Listado", admin_books_path

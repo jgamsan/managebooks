@@ -16,40 +16,14 @@ module BooksHelper
     intervals.each do |interval|
       cal << %(\t\t<tr>\n)
       cal << "\t\t\t<td>\n #{interval.init.strftime('%H:%M')} - #{interval.finish.strftime('%H:%M')} &nbsp;\t\t\t</td>\n"
-      if @lunes.include?(interval.id) && (@primero >= Date.today)
-        cal << td_green(interval.id, @primero)
-      else
-        cal << td_grey
-      end
-      if @martes.include?(interval.id) && ((@primero + 1) >= Date.today)
-        cal << td_green(interval.id, @primero + 1)
-      else
-        cal << td_grey
-      end
-      if @miercoles.include?(interval.id) && ((@primero + 2) >= Date.today)
-        cal << td_green(interval.id, @primero + 2)
-      else
-        cal << td_grey
-      end
-      if @jueves.include?(interval.id) && ((@primero + 3) >= Date.today)
-        cal << td_green(interval.id, @primero + 3)
-      else
-        cal << td_grey
-      end
-      if @viernes.include?(interval.id) && ((@primero + 4) >= Date.today)
-        cal << td_green(interval.id, @primero + 4)
-      else
-        cal << td_grey
-      end
-      if @sabado.include?(interval.id) && ((@primero + 5) >= Date.today)
-        cal << td_green(interval.id, @primero + 5)
-      else
-        cal << td_grey
-      end
-      if @domingo.include?(interval.id) && ((@primero + 6) >= Date.today)
-        cal << td_green(interval.id, @primero  + 6)
-      else
-        cal << td_grey
+      i = 0
+      @semana.each do |dia|
+        if dia.include?(interval.id) && ((@primero + i) >= Date.today)
+          cal << td_green(interval.id, @primero + i)
+        else
+          cal << td_grey
+        end
+        i += 1
       end
       cal << %(\t\t</tr>)
     end

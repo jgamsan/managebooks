@@ -23,6 +23,13 @@ class Admin::BooksController < Admin::BaseController
     end
   end
 
+  def show
+    @book = Book.find(params[:id])
+    respond_to do |format|
+      format.html
+    end
+  end
+
   def create
     @book = Book.new(params[:book])
     @book.who = "a" + @book.user_id.to_s
@@ -110,12 +117,6 @@ class Admin::BooksController < Admin::BaseController
 
   def get_store
     @store = Store.find_by_admin_id(current_admin_admin.id)
-  end
-  private
-
-  def parse_dates(fecha)
-    fechas = fecha.split('-')
-    Date.new(fechas[2].to_i, fechas[1].to_i, fechas[0].to_i)
   end
 end
 

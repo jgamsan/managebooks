@@ -12,6 +12,7 @@
     <td><%= book.interval.intervalo %></td>
     <td>Internet</td>
   <% end %>
+  <td><%= link_to 'Ver Reserva', admin_book_path(book) %></td>
   <td><%= link_to "Modificar", edit_admin_book_path(book) %></td>
   <td><%= link_to "Borrar", admin_book_path(book), :confirm => 'Estas seguro?',
                   :method => :delete if book.user.provider == "client" %></td>

@@ -3,11 +3,7 @@ class BooksController < ApplicationController
     @books = Book.by_user(current_user.id).page(params[:page]).per(4)
     respond_to do |format|
       format.js do
-        if params[:page].nil?
-          {:render => 'list_books'}
-        else
-          {:render => 'pagin'}
-        end
+        {:render => params[:page].nil? ? 'list_books' : 'pagin'}
       end
     end
   end
@@ -24,15 +20,11 @@ class BooksController < ApplicationController
     @resort = Resort.find(params[:id])
     @dia = params[:gd].to_date
     @primero = calculate_first_day(@dia)
-
-    @lunes = calculate_free_books(@resort.id, @primero)
-    @martes = calculate_free_books(@resort.id, @primero + 1.day)
-    @miercoles = calculate_free_books(@resort.id, @primero + 2.day)
-    @jueves = calculate_free_books(@resort.id, @primero + 3.day)
-    @viernes = calculate_free_books(@resort.id, @primero + 4.day)
-    @sabado = calculate_free_books(@resort.id, @primero + 5.day)
-    @domingo = calculate_free_books(@resort.id, @primero + 6.day)
-    @intervals = Interval.where(:resort_id => params[:id])
+    @semana = []
+    (0..6).each do |i|
+      @semana << calculate_free_books(@resort.id, @primero + i.day)
+    end
+    @intervals = @resort.intervals
     respond_to do |format|
       format.js
     end
@@ -67,8 +59,7 @@ class BooksController < ApplicationController
         @resort = Resort.find(r)
         Mailer.notify_book(current_user.uid, @book).deliver
         flash[:success] = "Cita creada correctamente"
-        flash[:notice] = "Tiene una Reserva para el #{l @book.day, :format => '%a,
-%d%b%Y'}. En breve recibira un email de confirmacion"
+        flash[:notice] = "Tiene una Reserva para el #{l @book.day, :format => '%a%d%b%Y'}. En breve recibira un email de confirmacion"
         format.js
       end
     end
