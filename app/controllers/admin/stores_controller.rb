@@ -81,8 +81,6 @@ class Admin::StoresController < Admin::BaseController
     @store = Store.find(params[:id])
     @resorts = @store.resorts
     @books = Book.monthly.usuario.by_store(params[:id])
-
-
     @books_by_resort = []
     @resorts.each do|resort|
       parcial = Book.by_resort(resort.id)
@@ -103,8 +101,8 @@ class Admin::StoresController < Admin::BaseController
   end
 
   def update_town_select
-    towns = Town.where(:province_id => params[:id]).order(:name) unless params[:id].blank?
-    render :partial => "towns", :locals => { :towns => towns}
+    @towns = Town.where(:province_id => params[:id]).order(:name) unless params[:id].blank?
+    render :partial => "towns", :locals => { :towns => @towns}
   end
 end
 

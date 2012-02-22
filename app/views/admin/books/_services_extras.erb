@@ -1,6 +1,6 @@
 <%= simple_fields_for 'book' do |f| %>
   <%= label_tag "Servicios Extras" %>
-  <% if !services_extras.blank? %>
+  <% unless services_extras.blank? %>
     <% services_extras.each do |item| -%>
       <%= check_box_tag "service_extras_ids[]", item.id %>
       <%= item.name %>

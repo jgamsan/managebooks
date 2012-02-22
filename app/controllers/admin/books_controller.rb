@@ -10,7 +10,6 @@ class Admin::BooksController < Admin::BaseController
 
    respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @books }
       format.js
     end
   end
@@ -20,7 +19,7 @@ class Admin::BooksController < Admin::BaseController
     @intervals = Interval.for_select(@store, Date.today)
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @books }
+      format.xml  { render :xml => @book }
     end
   end
 
@@ -30,11 +29,9 @@ class Admin::BooksController < Admin::BaseController
 
     respond_to do |format|
       if @book.save
-        format.html { redirect_to(admin_books_path, :notice => 'Nueva Reserva creada correctamente.') }
-        format.xml  { render :xml => @category, :status => :created, :location => @category }
+        format.html { redirect_to(admin_books_path , :notice => 'Nueva Reserva creada correctamente.') }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @category.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -72,7 +69,6 @@ class Admin::BooksController < Admin::BaseController
 
     respond_to do |format|
       format.html {index.erb}
-      format.xml  { render :xml => @books }
       format.js
     end
   end
@@ -85,7 +81,6 @@ class Admin::BooksController < Admin::BaseController
 
     respond_to do |format|
       format.html {index.erb}
-      format.xml  { render :xml => @books }
       format.js
     end
   end
@@ -98,14 +93,13 @@ class Admin::BooksController < Admin::BaseController
 
     respond_to do |format|
       format.html {index.erb}
-      format.xml  { render :xml => @books }
       format.js
     end
   end
 
   def update_day_selected
-    intervals = Interval.for_select(@store, params[:id]) unless params[:id].blank?
-    render :partial => "intervals", :locals => { :intervals => intervals}
+    @intervals = Interval.for_select(@store, params[:id]) unless params[:id].blank?
+    render :partial => "intervals", :locals => { :intervals => @intervals}
   end
   
   def update_interval_select

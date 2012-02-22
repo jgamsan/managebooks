@@ -7,21 +7,21 @@ $(function() {
     if (interval == "") interval="0";
     $.get('/admin/books/update_interval_select/' + interval, function(data){
         $("#extrasIntervals").html(data);
-    })
+    });
     return false;
   });
 })
 </script>
 
 <%= simple_fields_for 'book' do |f| %>
-  <% if !intervals.blank? %>
+  <% if intervals.blank? %>
+    <%= f.label "Recurso/Horario" %>
+    <%= f.select :interval_id, :collection => [] %>
+  <% else %>
     <% field_set_tag nil do -%>
       <label>Recurso/Horario</label>
       <%= f.select :interval_id, grouped_options_for_select(intervals) %>
     <% end -%>
-  <% else %>
-    <%= f.label "Recurso/Horario" %>
-    <%= f.select :interval_id, :collection => [] %>
   <% end %>
 <% end %>
 

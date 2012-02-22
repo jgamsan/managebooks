@@ -72,9 +72,9 @@ class Admin::IntervalsController < Admin::BaseController
     inicio = Time.new(Date.today.year, Date.today.month, Date.today.day, params[:interval][:time_init][0..1].to_i, params[:interval][:time_init][3..4].to_i)
     period = params[:interval][:period].to_i.minute
     n = params[:interval][:numero].to_i
-    n.times do |n|
-      ini = inicio + (n * period)
-      final = inicio + (n+1)*period
+    n.times do |g|
+      ini = inicio + (g * period)
+      final = inicio + (g+1)*period
       @interval = Interval.new
       @interval.resort_id = params[:interval][:resort_id]
       @interval.init = ini

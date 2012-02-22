@@ -3,7 +3,7 @@ class Book < ActiveRecord::Base
   belongs_to :interval
   has_many :extras, :dependent => :destroy
   has_many :service_extras, :through => :extras
-  attr_reader :extra_tokens, :user_token
+  attr_reader :user_token
   cattr_accessor :init_date, :finish_date
   after_save :sum_lasting_of_service_extras
   #scope :busy, lambda { |day, resort| where(:resort_id => resort, :day => day) }
@@ -54,7 +54,7 @@ class Book < ActiveRecord::Base
   def sum_lasting_of_service_extras
     tiempo = 0
     unless self.service_extra_ids.nil?
-      for element in self.service_extra_ids do
+      self.service_extra_ids.each do |element|
         extra = ServiceExtra.find(element.to_i)
         tiempo += extra.lasting
       end
@@ -64,13 +64,13 @@ class Book < ActiveRecord::Base
     @intervals = Interval.where{resort_id.eq interval.resort_id}
     unless tiempo == 0
       ocupados = []
-      for i in (self.interval_id + 1)..(@intervals.size - 1)
+      ((self.interval_id + 1)..(@intervals.size - 1)).each { |i|
         if @intervals[i].finish < tiempo
           final << i
         else
           break
         end
-      end
+      }
       unless ocupados.empty?
         ocupados.each do |element|
           Book.create(:user_id => self.user_id, :day => self.day, :interval_id => element, :who => ("u" + self.user_id.to_s))

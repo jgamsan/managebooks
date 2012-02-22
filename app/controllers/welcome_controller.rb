@@ -19,12 +19,12 @@ class WelcomeController < ApplicationController
   end
 
   def bystore
-    @resorts = Resort.store(params[:id])
     @store = Store.find(params[:id])
-    @photos = PhotoGallery.where(:store_id => @store.id)
+    @resorts = @store.resorts
+    @photos = @store.photo_galleries
     @wr =[]
     @resorts.each do |element|
-      a = Interval.in_resort(element.id).count
+      a = element.intervals.count
       b = Interval.by_resort(element.id, Date.today).count
       @wr << [element.name.titleize, a, b]
     end

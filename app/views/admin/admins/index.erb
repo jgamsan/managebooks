@@ -10,7 +10,7 @@
         <th></th>
         <th></th>
       </tr>
-      <% for admin in @admins %>
+      <% @admins.each do |admin| %>
         <tr>
           <td><%= admin.nombre_completo %></td>
           <td><%= admin.email %></td>

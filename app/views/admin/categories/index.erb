@@ -7,7 +7,7 @@
         <th></th>
         <th></th>
       </tr>
-      <% for category in @categories %>
+      <% @categories.each do |category| %>
         <tr>
           <td><%= category.name %></td>
           <td><%= link_to "Modificar", edit_admin_category_path(category) %></td>

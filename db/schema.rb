@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(:version => 20120219190711) do
     t.datetime "locked_at"
   end
 
-  add_index "admins", ["email"], :name => "index_admins_on_email", :unique => true
-  add_index "admins", ["reset_password_token"], :name => "index_admins_on_reset_password_token", :unique => true
+  add_index "admins", %W(email), :name => "index_admins_on_email", :unique => true
+  add_index "admins", %W(reset_password_token), :name => "index_admins_on_reset_password_token", :unique => true
 
   create_table "bids", :force => true do |t|
     t.integer  "store_id"

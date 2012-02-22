@@ -10,7 +10,7 @@
         <th></th>
         <th></th>
       </tr>
-      <% for offer in @offers %>
+      <% @offers.each do |offer| %>
         <tr>
           <td><%= offer.service_extra.name %></td>
           <td><%= t_boolean(offer.enable) %></td>

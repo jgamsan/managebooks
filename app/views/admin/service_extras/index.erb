@@ -11,7 +11,7 @@
         <th></th>
         <th></th>
       </tr>
-      <% for service in @service_extras %>
+      <% @service_extras.each do |service| %>
         <tr>
           <td><%= service.name %></td>
           <td><%= service.lasting %></td>

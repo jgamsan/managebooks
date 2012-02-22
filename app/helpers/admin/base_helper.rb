@@ -1,6 +1,6 @@
 module Admin::BaseHelper
   def t_boolean(valor)
-    if valor == true
+    if valor
       image_tag 'check_16.gif'
     else
       image_tag 'denied.gif'
