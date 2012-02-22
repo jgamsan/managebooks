@@ -1,7 +1,6 @@
 class Admin::StoresController < Admin::BaseController
   def index
-    @stores = current_admin_admin.role == 1 ? Store.page params[:page] : Store.storeadmin(current_admin_admin.id)
-    .page params[:page]
+    @stores = current_admin_admin.role == 1 ? Store.page params[:page] : Store.storeadmin(current_admin_admin.id).page params[:page]
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @store }
