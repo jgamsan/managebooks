@@ -28,4 +28,4 @@ $ ->
 
 
 $ ->
-  $('#MiBanner').carousel()
+  $('.carousel').carousel()

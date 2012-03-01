@@ -39,6 +39,6 @@ namespace :customs do
     run "ln -nfs #{shared_path}/system/uploads #{release_path}/public"
   end
 end
-after "deploy:symlink","customs:symlink"
+after "deploy:create_symlink","customs:symlink"
 after "deploy", "deploy:cleanup"
 
