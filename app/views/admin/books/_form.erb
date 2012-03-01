@@ -1,6 +1,6 @@
 <%= form_tag range_admin_books_path, :method => 'get', :remote => true do %>
   <%= text_field_tag :init_date, nil, :class => "input-small", :placeholder => "fecha inicial" %>
   <%= text_field_tag :finish_date, nil, :class => "input-small", :placeholder => "fecha final" %>
-  <%= submit_tag "Buscar", :class => "btn" %>
+  <%= submit_tag "Buscar", :class => "btn-primary" %>
 <% end %>
 

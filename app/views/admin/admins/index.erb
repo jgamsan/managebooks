@@ -1,7 +1,7 @@
 <% content_for :content do %>
   <h2>Administradores</h2>
 
-    <table class="table table-bordered table-striped">
+    <table class="table table-striped">
       <tr>
         <th>Nombre</th>
         <th>Email</th>
@@ -16,15 +16,15 @@
           <td><%= admin.email %></td>
           <td><%= Admin::ROLES[admin.role - 1][0] %></td>
           <td><%= admin.status %></td>
-          <td><%= link_to "Modificar", edit_admin_admin_path(admin) %></td>
-          <td><%= link_to "Borrar", admin_admin_path(admin), :confirm => 'Estas Seguro?', :method => :delete %></td>
+          <td><%= link_to "Modificar", edit_admin_admin_path(admin), :class => 'btn btn-mini' %></td>
+          <td><%= link_to "Borrar", admin_admin_path(admin), :confirm => 'Estas Seguro?', :method => :delete, :class => 'btn btn-mini btn-danger' %></td>
         </tr>
       <% end %>
     </table>
     <%#= will_paginate @products %>
     <br />
     <br />
-    <p><%= link_to "Nuevo Administador", new_admin_admin_path %></p>
+    <p><%= link_to "Nuevo Administador", new_admin_admin_path, :class => "btn btn-success" %></p>
 
 <% end %>
 

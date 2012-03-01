@@ -1,7 +1,7 @@
 - content_for :content do
   %h3 Listado Fotos del Negocio
 
-  %table.table.table-bordered.table-striped
+  %table.table.table-striped
     %tr
       %th Negocio
       %th Foto
@@ -12,9 +12,9 @@
       %tr
         %td= photo_gallery.store.name.titleize
         %td= image_tag photo_gallery.photo_url(:list) if photo_gallery.photo?
-        %td= link_to 'Modificar', edit_admin_photo_gallery_path(photo_gallery)
-        %td= link_to 'Borrar', admin_photo_gallery_path(photo_gallery), :confirm => 'Estas Seguro?', :method => :delete
+        %td= link_to 'Modificar', edit_admin_photo_gallery_path(photo_gallery), :class => 'btn btn-mini'
+        %td= link_to 'Borrar', admin_photo_gallery_path(photo_gallery), :confirm => 'Estas Seguro?', :method => :delete, :class => 'btn btn-mini btn-danger'
 
   %br
 
-  = link_to 'Nueva Foto', new_admin_photo_gallery_path
+  = link_to 'Nueva Foto', new_admin_photo_gallery_path, :class => "btn btn-success"

@@ -1,7 +1,7 @@
 <% content_for :content do %>
   <h2>Intervalos</h2>
 
-    <table class="table table-bordered table-striped">
+    <table class="table table-striped">
       <tr>
         <th>Recurso</th>
         <th>Periodo</th>
@@ -13,8 +13,8 @@
         <tr>
           <td><%= interval.resort.name %></td>
           <td><%= interval.intervalo %></td>
-          <td><%= link_to "Modificar", edit_admin_interval_path(interval) %></td>
-          <td><%= link_to "Borrar", admin_interval_path(interval), :confirm => 'Estas seguro?', :method => :delete %></td>
+          <td><%= link_to "Modificar", edit_admin_interval_path(interval), :class => 'btn btn-mini' %></td>
+          <td><%= link_to "Borrar", admin_interval_path(interval), :confirm => 'Estas seguro?', :method => :delete, :class => 'btn btn-mini btn-danger' %></td>
         </tr>
       <% end %>
     </table>
@@ -23,7 +23,7 @@
     </div>
     <br />
     <br />
-    <p><%= link_to "Nuevo Intervalo", new_admin_interval_path %> | <%= link_to 'Nuevo Intervalo por periodo', new_by_period_admin_intervals_path %></p>
+    <p><%= link_to "Nuevo Intervalo", new_admin_interval_path, :class => "btn btn-success" %>  <%= link_to 'Nuevo Intervalo por periodo', new_by_period_admin_intervals_path, :class => "btn btn-success" %></p>
 
 <% end %>
 

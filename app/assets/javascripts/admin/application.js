@@ -5,7 +5,7 @@
 //= require admin/jquery.ui.timepicker
 //= require admin/jquery.ui.datepicker-es
 //= require gritter
-//= require twitter/bootstrap
+//= require bootstrap
 //= require admin/jquery.tokeninput
 //= require admin/base
 //= require admin/dashboard

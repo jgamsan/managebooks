@@ -26,3 +26,6 @@ $ ->
     ,pane: "floatPane"
     ,enableEventPropagation: false
 
+
+$ ->
+  $('#MiBanner').carousel()
