@@ -1,8 +1,8 @@
 <% content_for :content do %>
   <h2>Listado de Reservas</h2>
-  <p><%= link_to 'Reservas Hoy', para_hoy_admin_books_path, :remote => true %> | <%= link_to 'Reservas Mañana', tomorrow_admin_books_path, :remote => true %> | <%= link_to 'Este Mes', month_admin_books_path, :remote => true %> <%= render 'form' %></p>
+  <p><%= link_to 'Reservas Hoy', para_hoy_admin_books_path, :remote => true, :class => "btn btn-info" %>  <%= link_to 'Reservas Mañana', tomorrow_admin_books_path, :remote => true, :class => "btn btn-info" %>  <%= link_to 'Este Mes', month_admin_books_path, :remote => true, :class => "btn btn-info" %> <%= render 'form' %></p>
 
-    <table class="table table-bordered table-striped">
+    <table class="table table-striped">
       <tr>
         <th>Nombre</th>
         <th>Dia</th>
@@ -22,7 +22,7 @@
     </div>
     <br />
     <br />
-    <p><%= link_to "Nueva Reserva", new_admin_book_path %></p>
+    <p><%= link_to "Nueva Reserva", new_admin_book_path, :class => "btn btn-success" %></p>
 
 <% end %>
 

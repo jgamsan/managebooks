@@ -25,4 +25,3 @@ $ ->
     ,isHidden: false
     ,pane: "floatPane"
     ,enableEventPropagation: false
-

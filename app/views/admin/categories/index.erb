@@ -1,7 +1,7 @@
 <% content_for :content do %>
   <h2>Categorias</h2>
 
-    <table class="table table-bordered table-striped">
+    <table class="table table-striped">
       <tr>
         <th>Name</th>
         <th></th>
@@ -10,8 +10,8 @@
       <% @categories.each do |category| %>
         <tr>
           <td><%= category.name %></td>
-          <td><%= link_to "Modificar", edit_admin_category_path(category) %></td>
-          <td><%= link_to "Borrar", admin_category_path(category), :confirm => 'Estas Seguro?', :method => :delete %></td>
+          <td><%= link_to "Modificar", edit_admin_category_path(category), :class => 'btn btn-mini' %></td>
+          <td><%= link_to "Borrar", admin_category_path(category), :confirm => 'Estas Seguro?', :method => :delete, :class => 'btn btn-mini btn-danger' %></td>
         </tr>
       <% end %>
     </table>

@@ -1,15 +1,20 @@
 <script type="text/javascript">
-$('#banner').cycle({
-    fx:    'fade',
-    speed:  2500
- });
+  $(function() {
+    $('.MiBanner').carousel('cycle');
+   })
 </script>
 
 <div class="row">
-  <div class="span7" id="banner">
-    <% @photos.each do |image| -%>
-      <%= image_tag image.photo_url(:thumb), :class => "pics" %>
-    <% end -%>
+  <div class="span7">
+    <div id="MiBanner" class="carousel">
+      <div class="carousel-inner">
+        <% @photos.each do |image| -%>
+          <div class="item">
+            <%= image_tag image.photo_url(:thumb) %>
+          </div>
+        <% end -%>
+      </div>
+    </div>
   </div>
   <div class="span3" style="float: right">
     <%= render :partial => "addresses", :locals => {:store => @store} %>

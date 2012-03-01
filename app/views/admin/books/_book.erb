@@ -1,10 +1,10 @@
 <tr>
   <% if book.user.provider == "client" %>
-    <td style="background:rgba(189,26,35,0.46) "><%= book.por_telefono %></td>
-    <td style="background:rgba(189,26,35,0.46) "><%= book.day.strftime('%d/%m/%Y') %></td>
-    <td style="background:rgba(189,26,35,0.46) "><%= book.interval.resort.name %></td>
-    <td style="background:rgba(189,26,35,0.46) "><%= book.interval.intervalo %></td>
-    <td style="background:rgba(189,26,35,0.46) ">Telefono</td>
+    <td style="background:rgba(209,164,97,0.44) "><%= book.por_telefono %></td>
+    <td style="background:rgba(209,164,97,0.44) "><%= book.day.strftime('%d/%m/%Y') %></td>
+    <td style="background:rgba(209,164,97,0.44) "><%= book.interval.resort.name %></td>
+    <td style="background:rgba(209,164,97,0.44) "><%= book.interval.intervalo %></td>
+    <td style="background:rgba(209,164,97,0.44) ">Telefono</td>
   <% else %>
     <td><%= book.por_telefono %></td>
     <td><%= book.day.strftime('%d/%m/%Y') %></td>
@@ -12,9 +12,9 @@
     <td><%= book.interval.intervalo %></td>
     <td>Internet</td>
   <% end %>
-  <td><%= link_to 'Ver Reserva', admin_book_path(book) %></td>
-  <td><%= link_to "Modificar", edit_admin_book_path(book) %></td>
+  <td><%= link_to 'Ver Reserva', admin_book_path(book), :class => 'btn btn-mini' %></td>
+  <td><%= link_to "Modificar", edit_admin_book_path(book), :class => 'btn btn-mini' %></td>
   <td><%= link_to "Borrar", admin_book_path(book), :confirm => 'Estas seguro?',
-                  :method => :delete if book.user.provider == "client" %></td>
+                  :method => :delete, :class => 'btn btn-mini btn-danger' if book.user.provider == "client" %></td>
 </tr>
 

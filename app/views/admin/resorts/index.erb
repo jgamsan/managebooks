@@ -1,7 +1,7 @@
 <% content_for :content do %>
   <h2>Recursos</h2>
 
-    <table class="table table-bordered table-striped">
+    <table class="table table-striped">
       <tr>
         <th>Name</th>
         <th>Negocio</th>
@@ -13,15 +13,15 @@
         <tr>
           <td><%= resort.name %></td>
           <td><%= resort.store.name %></td>
-          <td><%= link_to "Modificar", edit_admin_resort_path(resort) %></td>
-          <td><%= link_to "Borrar", admin_resort_path(resort), :confirm => 'Estas seguro?', :method => :delete %></td>
-          <td><%= link_to 'Oferta Servicios', admin_resort_offers_path(resort) %></td>
+          <td><%= link_to "Modificar", edit_admin_resort_path(resort), :class => 'btn btn-mini' %></td>
+          <td><%= link_to "Borrar", admin_resort_path(resort), :confirm => 'Estas seguro?', :method => :delete, :class => 'btn btn-mini btn-danger' %></td>
+          <td><%= link_to 'Oferta Servicios', admin_resort_offers_path(resort), :class => 'btn btn-info btn-mini' %></td>
         </tr>
       <% end %>
     </table>
     <br />
     <br />
-    <p><%= link_to "Nuevo Recurso", new_admin_resort_path %></p>
+    <p><%= link_to "Nuevo Recurso", new_admin_resort_path, :class => "btn btn-success" %></p>
 
 <% end %>
 

@@ -1,7 +1,7 @@
 <% content_for :content do %>
   <h2>Negocios</h2>
 
-    <table class="table table-bordered table-striped">
+    <table class="table table-striped">
       <tr>
         <th>Name</th>
         <th>Categoria</th>
@@ -17,17 +17,17 @@
           <td><%= store.name %></td>
           <td><%= store.category.name %></td>
           <td><%= store.admin.nombre_completo.titleize %></td>
-          <td><%= link_to "Modificar", edit_admin_store_path(store) %></td>
-          <td><%= link_to "Borrar", admin_store_path(store), :confirm => 'Estas Seguro?', :method => :delete %></td>
-          <td><%= link_to "Ofertas", admin_store_bids_path(store) %></td>
-          <td><%= link_to 'Reglas de Negocio', rules_admin_store_path(store) %></td>
-          <td><%= link_to 'Factura', invoice_admin_store_path(store)  %></td>
+          <td><%= link_to "Modificar", edit_admin_store_path(store), :class => 'btn btn-mini' %></td>
+          <td><%= link_to "Borrar", admin_store_path(store), :confirm => 'Estas Seguro?', :method => :delete, :class => 'btn btn-mini btn-danger' %></td>
+          <td><%= link_to "Ofertas", admin_store_bids_path(store), :class => 'btn btn-mini' %></td>
+          <td><%= link_to 'Reglas de Negocio', rules_admin_store_path(store), :class => 'btn btn-info btn-mini' %></td>
+          <td><%= link_to 'Factura', invoice_admin_store_path(store), :class => 'btn btn-info btn-mini'  %></td>
         </tr>
       <% end %>
     </table>
     <br />
     <br />
-    <p><%= link_to "Nuevo Negocio", new_admin_store_path %></p>
+    <p><%= link_to "Nuevo Negocio", new_admin_store_path, :class => "btn btn-success" %></p>
 
 <% end %>
 

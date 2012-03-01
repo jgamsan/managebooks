@@ -15,7 +15,7 @@ group :assets do
   gem 'coffee-rails'
   gem 'uglifier'
   gem 'haml'
-  gem 'less-rails-bootstrap', '~> 2.0'
+  gem 'anjlab-bootstrap-rails', '>= 2.0', :require => 'bootstrap-rails'
   gem 'execjs'
   gem 'therubyracer'
 end
@@ -38,11 +38,11 @@ gem 'i18n'
 # Use unicorn as the web server
 # gem 'unicorn'
 gem 'devise'
-gem 'simple_form', git: 'git://github.com/plataformatec/simple_form.git'
+gem 'simple_form'
 # Deploy with Capistrano
-gem 'capistrano', '~> 2.9.0'
+gem 'capistrano'
 gem 'squeel'
-gem 'rmagick'
+gem 'mini_magick'
 gem 'i18n'
 gem 'kaminari'
 # To use debugger

@@ -1,7 +1,7 @@
 <% content_for :content do %>
     <h2>Servicios Extras</h2>
 
-    <table class="table table-bordered table-striped">
+    <table class="table table-striped">
       <tr>
         <th>Nombre</th>
         <th>Duracion</th>
@@ -9,23 +9,21 @@
         <th>Negocio</th>
         <th></th>
         <th></th>
-        <th></th>
       </tr>
       <% @service_extras.each do |service| %>
         <tr>
-          <td><%= service.name %></td>
+          <td><%= link_to service.name, admin_service_extra_path(service) %></td>
           <td><%= service.lasting %></td>
           <td><%= service.cost %></td>
           <td><%= service.store.name %></td>
-          <td><%= link_to "Show", admin_service_extra_path(service) %></td>
-          <td><%= link_to "Edit", edit_admin_service_extra_path(service) %></td>
-          <td><%= link_to "Destroy", admin_service_extra_path(service), :confirm => 'Are you sure?', :method => :delete %></td>
+          <td><%= link_to "Modificar", edit_admin_service_extra_path(service), :class => 'btn btn-mini' %></td>
+          <td><%= link_to "Borrar", admin_service_extra_path(service), :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger' %></td>
         </tr>
       <% end %>
     </table>
     <br />
     <br />
-    <p><%= link_to "Nuevo Servicio Extra", new_admin_service_extra_path %></p>
+    <p><%= link_to "Nuevo Servicio Extra", new_admin_service_extra_path, :class => "btn btn-success" %></p>
 
 <% end %>
 
