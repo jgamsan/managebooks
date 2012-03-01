@@ -1,5 +1,5 @@
 <tr>
-  <% if book.user.provider == "client" %>
+  <% if book.who.include? 'a' %>
     <td style="background:rgba(189,26,35,0.46) "><%= book.por_telefono %></td>
     <td style="background:rgba(189,26,35,0.46) "><%= book.day.strftime('%d/%m/%Y') %></td>
     <td style="background:rgba(189,26,35,0.46) "><%= book.interval.resort.name %></td>
