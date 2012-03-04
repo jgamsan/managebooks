@@ -20,14 +20,16 @@
       <td><%= number_to_currency(@resort.cost) %></td>
     </tr>
     <% unless @services_extras.nil? -%>
-      <% @services_extras.each do |service_extra| -%>
-        <tr>
-          <td><%= check_box_tag "extra_tokens_ids[]", service_extra.id %></td>
-          <td><%= service_extra.name %></td>
-          <td><%= service_extra.lasting %> min.</td>
-          <td><%= number_to_currency(service_extra.cost) %></td>
-        </tr>
-      <% end -%>
+      <div id="services_extras">
+        <% @services_extras.each do |service_extra| -%>
+          <tr>
+            <td><%= check_box_tag "extra_tokens_ids[]", service_extra.id %></td>
+            <td><%= service_extra.name %></td>
+            <td><%= service_extra.lasting %> min.</td>
+            <td><%= number_to_currency(service_extra.cost) %></td>
+          </tr>
+        <% end -%>
+      </div>
     <% end -%>
     <tr style="background: #c2cecf">
       <td colspan=3 style="text-align: center">Total</td>

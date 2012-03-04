@@ -82,10 +82,11 @@ class Admin::StoresController < Admin::BaseController
     @store = Store.find(params[:id])
     @resorts = @store.resorts
     @books = Book.monthly.usuario.by_store(params[:id])
+    @inicio = Date.today
     @books_by_resort = []
-    @resorts.each do|resort|
+    @resorts.each do |resort|
       parcial = Book.by_resort(resort.id)
-      @books_by_resort <<parcial.empty? ? [resort.name, 0, 0] : [resort.name, parcial[0].count.to_i, resort.cost.to_f]
+      @books_by_resort << (parcial.empty? ? [resort.name, 0, 0] : [resort.name, parcial.count.to_i, resort.cost.to_f])
     end
     @business_rule = BusinessRule.choose_rule(@books.count).by_store(params[:id]).first
     @total = 0
@@ -96,6 +97,30 @@ class Admin::StoresController < Admin::BaseController
     end
   end
 
+  def invoice_date
+    @store = Store.find(params[:id])
+    @resorts = @store.resorts
+    @inicio = Date.new(params[:stores]["invoice_fecha(1i)"].to_i, params[:stores]["invoice_fecha(2i)"].to_i,1)
+    @fin = @inicio.at_end_of_month
+    @books = Book.by_store(params[:id]).range(@inicio, @fin)
+    @books_by_resort = []
+    @resorts.each do |resort|
+      parcial = Book.in_resort(resort.id).range(@inicio, @fin)
+      @books_by_resort << (parcial.empty? ? [resort.name, 0, 0] : [resort.name, parcial.count.to_i, resort.cost.to_f])
+    end
+    @business_rule = BusinessRule.choose_rule(@books.count).by_store(params[:id]).first
+    @total = 0
+    unless @books_by_resort.empty?
+      @books_by_resort.each do |resort|
+        @total += (resort[1] * resort[2] * @business_rule.rule / 100).to_f
+      end
+    end
+    respond_to do |format|
+      format.html # show.html.erb
+      format.js 
+    end
+  end
+  
   def update_town_select
     @towns = Town.where(:province_id => params[:id]).order(:name) unless params[:id].blank?
     render :partial => "towns", :locals => { :towns => @towns}

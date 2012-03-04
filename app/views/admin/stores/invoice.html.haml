@@ -2,35 +2,10 @@
   %h3
     Resumen Mensual del Negocio
     = @store.name.titleize
-    
+  = form_tag invoice_date_admin_store_path, :method => 'get', :remote => true do
+    = date_select("stores", "invoice_fecha", {:include_blank => false, :discard_day => true, :start_year => 2011} ,{:class => "span2"})
+    = submit_tag "Enviar", :class => "btn-primary"
   %br
-  %table.table.table-bordered.table-striped
-    %tr
-      %td{:style => "text-align:center;"} Mes
-      %td{:style => "text-align:center;"}
-        = (l Date.today, :format => "%B").capitalize
-      %td{:style => "text-align:center;"}
-        Año
-        = Date.today.strftime("%Y")
-    %tr
-      %td Total Reservas
-      %td
-        = @books.count
-      %td Regla Negocios
-      %td
-        = number_to_percentage(@business_rule.rule, :precision => 2)
-    - @books_by_resort.each do |book|
-      %tr
-        %td
-          = book[0].titleize
-        %td
-          = book[1]
-        %td
-          = number_to_currency(book[2])
-        %td
-          = number_to_currency(book[1].to_i * @business_rule.rule.to_f * book[2].to_f / 100)
-    %tr
-      %td{:colspan => 3} Total
-      %td
-        = number_to_currency(@total) 
+  #datos_invoice
+    = render :partial => "invoice_table"
   = link_to "Volver al Listado", admin_stores_path

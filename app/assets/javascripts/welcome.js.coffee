@@ -30,3 +30,4 @@ $ ->
 $('#MiBanner').carousel('cycle')
   
 $('#MiTab').tab('show')
+    

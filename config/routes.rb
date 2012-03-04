@@ -85,6 +85,7 @@ Managebooks::Application.routes.draw do
       member do
         get 'rules'
         get 'invoice'
+        get 'invoice_date'
       end
       resources :bids
     end
