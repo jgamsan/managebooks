@@ -10,7 +10,7 @@ class Store < ActiveRecord::Base
   validates_presence_of :name, :category_id, :address, :zip_code, :town_id, :cellphone, :email
   belongs_to :town
   belongs_to  :admin
-  cattr_accessor :province
+  cattr_accessor :province, :invoice_fecha
   scope :last_stores, order('created_at asc').limit(5)
   scope :category, lambda { |value| where(:category_id => value) }
   scope :admin, lambda { |value| where(:admin_user_id => value) }

@@ -27,5 +27,7 @@ $ ->
     ,enableEventPropagation: false
 
 
-$ ->
-  $('.carousel').carousel()
+$('#MiBanner').carousel('cycle')
+  
+$('#MiTab').tab('show')
+    
