@@ -2,7 +2,7 @@ class Admin::BusinessRulesController < Admin::BaseController
   # GET /business_rules
   # GET /business_rules.json
   def index
-    @business_rules = BusinessRule.all
+    @business_rules = BusinessRule.page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb
