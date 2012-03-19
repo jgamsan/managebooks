@@ -1,7 +1,6 @@
 - content_for :content do
 
   %h3 Listado Reglas de Negocios
-
   %table.table.table-striped
     %tr
       = render :partial => "head_table_business_rules"
@@ -13,7 +12,8 @@
         = render :partial => "rows_table_business_rules", :locals => { :f => business_rule }
         %td= link_to 'Modificar', edit_admin_business_rule_path(business_rule), :class => 'btn btn-mini'
         %td= link_to 'Borrar', admin_business_rule_path(business_rule), :confirm => 'Estas seguro?', :method => :delete, :class => 'btn btn-mini btn-danger'
-
+  #pagination
+    = paginate @business_rules
   %br
 
   = link_to 'Nueva Regla de Negocio', new_admin_business_rule_path, :class => "btn btn-success"

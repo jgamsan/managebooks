@@ -87,14 +87,17 @@
       <div class="span9">
         <div class="hero-unit" id="content-main">
           <%= gmaps(:map_options => { :raw => '{ panControl: true,
-                                       zoomControl: false,
+                                       zoomControl: true,
                                        mapTypeControl: true,
                                        scaleControl: true,
-                                       streetViewControl: false,
+                                       streetViewControl: true,
                                        overviewMapControl: false}'
                           },
-          :markers => { :data => @json, "options" => {"custom_infowindow_class" => "yellow" }}
+          :markers => { :data => @json, "options" => {"custom_infowindow_class" => "yellow", "do_clustering" => true}}
 )%>
+          <br>
+          <%= render :partial => 'preview' %>
+          <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-large">Info para Negocios</a>
         </div>
         <footer><p>&copy; WebReserva 2012</p>
           <%= yield :scripts %>
