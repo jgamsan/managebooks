@@ -73,6 +73,7 @@
           </a>
         </li>
         <li style="float:right;"><%= render :partial =>  'welcome/form' %></li>
+        <li><a data-toggle="modal" href="#myModal" class="btn btn-primary btn-small btn-info">Info para Empresas</a></li>
       </ul>
     <% end -%>
   </div>
@@ -97,7 +98,7 @@
 )%>
           <br>
           <%= render :partial => 'preview' %>
-          <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-small btn-info">Info para Empresas</a>
+
         </div>
         <footer><p>&copy; WebReserva 2012</p>
           <%= yield :scripts %>
