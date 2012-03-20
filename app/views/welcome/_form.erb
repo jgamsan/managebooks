@@ -1,4 +1,4 @@
-<%= form_tag "/auth/identity/callback", :class => 'form form-inline form-menu' do %>
+<%= form_tag "/auth/identity/callback", :class => 'navbar-form pull-right' do %>
   <%= email_field_tag :auth_key, nil, :class => "input-small", :placeholder => "email" %>
   <%= password_field_tag :password, nil, :class => "input-small", :placeholder => "password" %>
   <%= submit_tag "Login", :class => "btn small primary" %>
