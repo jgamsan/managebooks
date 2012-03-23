@@ -28,6 +28,8 @@ $ ->
 
 
 $('#MiBanner').carousel('cycle')
-  
+
+$('#InfoBanner').carousel('cycle')
+
 $('#MiTab').tab('show')
-    
+

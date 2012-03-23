@@ -38,11 +38,10 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">WebReserva</a>
+          <%= link_to 'Webreserva', root_path, :class => "brand" %>
           <div class="nav-collapse">
             <%= render :partial => "welcome/social_login" %>
           </div>
-        <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-small btn-info">Info para Empresas</a>
         <%= render :partial =>  'welcome/form' %>
         <% end -%>
       </div>
@@ -57,8 +56,22 @@
         </div>
       </div>
       <div class="span9">
-        <div class="hero-unit">
-          <%= image_tag('banner-2.png', :height => "70", :width => "790") %>
+        <div class="hero-unit" style="padding:0 0 0 0">
+          <div id= "InfoBanner" class="carousel slide">
+            <div class="carousel-inner">
+              <div class="active item">
+                <%= image_tag('img06.png', :width => "910") %>
+              </div>
+              <div class="item">
+                <%= image_tag('img07.png', :width => "910") %>
+              </div>
+              <div class="item">
+                <%= image_tag('img08.png', :width => "910") %>
+              </div>
+            </div>
+            <a class="carousel-control left" href="#InfoBanner" data-slide="prev">&lsaquo;</a>
+            <a class="carousel-control right" href="#InfoBanner" data-slide="next">&rsaquo;</a>
+          </div>
         </div>
       </div>
     </div>
@@ -81,7 +94,7 @@
 )%>
           <br>
           <%= render :partial => 'preview' %>
-
+          <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-small btn-info">Info para Empresas</a>
         </div>
         <footer><p>&copy; WebReserva 2012</p>
           <%= yield :scripts %>
