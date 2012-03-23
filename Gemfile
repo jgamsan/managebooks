@@ -47,6 +47,7 @@ gem 'squeel'
 gem 'mini_magick'
 gem 'i18n'
 gem 'kaminari'
+gem 'unicorn'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 gem "gritter", "1.0.1"
@@ -54,6 +55,7 @@ group :development do
   gem "wirble"
   gem "hirb"
   gem "awesome_print"
+  gem 'capistrano-unicorn'
 end
 group :test do
   # Pretty printed test output
