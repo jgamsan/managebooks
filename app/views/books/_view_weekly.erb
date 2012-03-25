@@ -1,6 +1,6 @@
 <div class="page-header">
-  <h3 style="text-align: center; background: #96aaab"><%= @resort.store.name.titleize %></h3>
-  <h3 style="text-align: center"><%= @resort.name %>(Vista Semanal)</h3>
+  <h3 style="text-align: center;"><%= @resort.store.name.titleize %></h3>
+  <h4 style="text-align: center"><%= @resort.name %>(Vista Semanal)</h4>
 </div>
 <div class="row" id="information">
   <div class="span3">
@@ -21,9 +21,9 @@
   </div>
 </div>
 <div class="row" id="list">
-  <div class="span6">
+  <div class="span5">
     <%= calendar_weekly(intervals) %>
   </div>
-  <div class="span5" id="services"></div>
+  <div class="span4" id="services"></div>
 </div>
 

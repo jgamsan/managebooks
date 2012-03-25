@@ -1,4 +1,4 @@
-<h3>Informacion Adicional</h3>
+<h3>Informacion Adicional <%= @store.name.titleize %></h3>
 <ul id="MiTab"class="nav nav-tabs">
   <li><a href="#fotos" data-toggle="tab">Fotos</a></li>
   <li><a href="#localizacion" data-toggle="tab">Direccion</a></li>
@@ -35,7 +35,7 @@
       <tr>
         <th>Nombre</th>
         <th>Total Plazas</th>
-        <th>Reservas libres hoy</th>
+        <th>Reservas libres hoy (<%= Date.today.strftime("%d/%m/%Y") %>) </th>
       </tr>
       <% @wr.each do |resort| %>
         <tr>
