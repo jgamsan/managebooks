@@ -6,19 +6,17 @@ require "bundler/capistrano"
 set :application, "reservas"
 set :domain, "mail.galiclick.com"
 set :user, "galiclick"
-set :port, 58378
+#set :port, 58378
 set :repository,  "git@github.com:jgamsan/managebooks.git"
-default_run_options[:pty] = true
-
 set :scm, :git
 
 default_run_options[:pty] = true
 set :use_sudo, false
 set :deploy_via, :remote_cache
-set :deploy_to, "/aplicacion_web/public_html/#{application}"
-role :web, domain
-role :app, domain
-role :db,  domain, :primary => true
+set :deploy_to, "/home/galiclick/public_html/#{application}"
+role :web, "#{domain}:58378", "#{domain}:53877" 
+role :app, "#{domain}:58378", "#{domain}:53877"
+role :db,  "#{domain}:58378", "#{domain}:53877"
 
 set :rails_env, "production"
 
