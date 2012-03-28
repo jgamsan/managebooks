@@ -14,15 +14,12 @@ ssh_options[:forward_agent] = true
 set :use_sudo, false
 set :deploy_via, :remote_cache
 set :deploy_to, "/home/galiclick/public_html/#{application}"
-role :web, "#{domain}:53877" 
+role :web, "#{domain}:53877"
 role :app, "#{domain}:53877"
 role :db,  "#{domain}:53877", :primary=>true
 
 set :rails_env, "production"
 
-#after 'deploy:update_code' do
-#  run "cd #{release_path}; RAILS_ENV=production bundle exec rake assets:precompile"
-#end
 namespace :customs do
   task :symlink, :roles => :app do
     run "ln -nfs #{shared_path}/system/uploads #{release_path}/public"

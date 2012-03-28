@@ -1,4 +1,4 @@
-wd = "/aplicacion_web/public_html/reservas/current"
+wd = "~/public_html/reservas/current"
 working_directory wd
 pid "#{wd}/tmp/pids/unicorn.pid"
 stderr_path "#{wd}/log/unicorn.log"
@@ -15,3 +15,4 @@ after_fork do |server, worker|
   defined?(ActiveRecord::Base) and
     ActiveRecord::Base.establish_connection
 end
+
