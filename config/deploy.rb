@@ -16,7 +16,7 @@ set :deploy_via, :remote_cache
 set :deploy_to, "/home/galiclick/public_html/#{application}"
 set :rails_env, "production"
 
-task :demo to
+task :demo do
   role :web, "#{domain}:53877"
   role :app, "#{domain}:53877"
   role :db,  "#{domain}:53877", :primary=>true
