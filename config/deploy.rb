@@ -14,11 +14,19 @@ ssh_options[:forward_agent] = true
 set :use_sudo, false
 set :deploy_via, :remote_cache
 set :deploy_to, "/home/galiclick/public_html/#{application}"
-role :web, "#{domain}:53877"
-role :app, "#{domain}:53877"
-role :db,  "#{domain}:53877", :primary=>true
-
 set :rails_env, "production"
+
+task :demo to
+  role :web, "#{domain}:53877"
+  role :app, "#{domain}:53877"
+  role :db,  "#{domain}:53877", :primary=>true
+end
+
+task :main do
+  role :web, "#{domain}:58378"
+  role :app, "#{domain}:58378"
+  role :db,  "#{domain}:58378", :primary=>true
+end
 
 namespace :customs do
   task :symlink, :roles => :app do

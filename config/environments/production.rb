@@ -44,7 +44,7 @@ Managebooks::Application.configure do
 
   # Precompile additional assets (webreserva.js, application.css, and all non-JS/CSS are already added)
   config.assets.precompile += %w( register.css )
-  config.action_mailer.default_url_options = {:host => 'www.webreserva.me'}
+  config.action_mailer.default_url_options = {:host => 'demo.webreserva.me'}
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
