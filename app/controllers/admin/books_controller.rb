@@ -33,6 +33,7 @@ class Admin::BooksController < Admin::BaseController
   def create
     @book = Book.new(params[:book])
     @book.who = "a" + @book.user_id.to_s
+    @book.service_extra_ids = params[:service_extras_ids]
 
     respond_to do |format|
       if @book.save
@@ -42,7 +43,7 @@ class Admin::BooksController < Admin::BaseController
       end
     end
   end
-  
+
   def destroy
     @book = Book.find(params[:id])
     @book.destroy
@@ -108,7 +109,7 @@ class Admin::BooksController < Admin::BaseController
     @intervals = Interval.for_select(@store, params[:id]) unless params[:id].blank?
     render :partial => "intervals", :locals => { :intervals => @intervals}
   end
-  
+
   def update_interval_select
     @interval = Interval.find(params[:id])
     services_extras = Resort.find(@interval.resort.id).service_extras

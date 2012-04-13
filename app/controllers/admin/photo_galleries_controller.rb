@@ -2,7 +2,11 @@ class Admin::PhotoGalleriesController < Admin::BaseController
   # GET /photo_galleries
   # GET /photo_galleries.json
   def index
-    @photo_galleries = PhotoGallery.storeadmin(current_admin_admin.id).page params[:page]
+    if current_admin_admin.role == 1
+      @photo_galleries = PhotoGallery.page params[:page]
+    else
+      @photo_galleries = PhotoGallery.storeadmin(current_admin_admin.id).page params[:page]
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -81,3 +85,4 @@ class Admin::PhotoGalleriesController < Admin::BaseController
     end
   end
 end
+

@@ -21,3 +21,9 @@ $ ->
     $.get '/admin/books/update_day_selected/' + fecha, (data)->
       $("#freeIntervals").html(data)
 
+$ ->
+  $("#book_interval_id").change ->
+    interval = $('select#book_interval_id').val()
+    $.get '/admin/books/update_interval_select/' + interval, (data)->
+      $("#extrasIntervals").html(data)
+

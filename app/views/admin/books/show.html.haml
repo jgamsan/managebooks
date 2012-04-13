@@ -19,8 +19,11 @@
       %span.label.label-info No tiene Servicios Extras solicitados
     - else
       Servicios Extras solicitados
+      %ul
       - @book.service_extras.each do |service|
-        service.name
+        %li
+          = service.name
 
 
   = link_to "Volver Listado", admin_books_path
+
