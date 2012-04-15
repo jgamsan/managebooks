@@ -1,7 +1,9 @@
 // Place all the styles related to the admin/base controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+$navbarBackgroundHighlight: #adc39c;
+$navbarBackground: #c8faa2;
+@import "bootstrap";
 .hero-unit p {
   font-size: 12px;
 }

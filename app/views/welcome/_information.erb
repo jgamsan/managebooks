@@ -35,13 +35,13 @@
       <tr>
         <th>Nombre</th>
         <th>Total Plazas</th>
-        <th>Reservas libres hoy (<%= Date.today.strftime("%d/%m/%Y") %>) </th>
+        <th>Reservas libres hoy <span class="badge badge-info"><%= Date.today.strftime("%d/%m/%Y") %></span></th>
       </tr>
       <% @wr.each do |resort| %>
         <tr>
           <td><%= resort[0] %></td>
-          <td style="text-align:center"><%= resort[1] %></td>
-          <td><%= resort[2] %></td>
+          <td style="text-align:center"><span class="badge"><%= resort[1] %></span></td>
+          <td style="text-align:center"><span class="badge"><%= resort[2] %></span></td>
         </tr>
     <% end %>
     </table>

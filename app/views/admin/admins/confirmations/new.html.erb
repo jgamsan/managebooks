@@ -1,6 +1,6 @@
 <h2>Reenviando Instrucciones de Confirmacion</h2>
 
-<%= simple_form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }, :class => "form-horizontal")) do |f| %>
+<%= simple_form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post, :class => "form-vertical"} )) do |f| %>
   
   <% field_set_tag 'Confirmacion' do -%>
     <%= f.input :email, :required => true %>

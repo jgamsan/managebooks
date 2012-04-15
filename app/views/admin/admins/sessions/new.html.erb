@@ -1,5 +1,6 @@
-<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :class => "form-horizontal") do |f| %>
-  <%= field_set_tag 'Registro' do -%>
+<h3>LOGIN</h3>
+<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => "form-vertical"}) do |f| %>
+  <%= field_set_tag nil do -%>
     <%= f.input :email %>
     <%= f.input :password %>
     <%= f.submit "Enviar", :class => "btn-primary" %>

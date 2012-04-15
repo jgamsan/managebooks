@@ -4,21 +4,25 @@
   <%= render 'admin/shared/head' %>
 </head>
 <body>
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <%= link_to image_tag('logo_final.png', :size => "290x90"), "#" %>
+      </div>
+    </div>
+  </div>
   <div class="container">
-    <div class="page-header">
-      <h1 style="padding-bottom:150px;text-align:center">Administracion WebReserva</h1>
-      <div class="row">
-        <div class="span6 offset3">
-          <% if flash %>
-            <% flash.each do |name, msg| %>
-              <div class="alert alert-error fade in">
-                <a class="close" data-dismiss="alert" href="#">&times;</a>
-                <p><%= msg %></p>
-              </div>
-            <% end -%>
-          <% end %>
-          <%= yield :layout %>
-        </div>
+    <div class="row" style="padding-top:250px;">
+      <% if flash %>
+          <% flash.each do |name, msg| %>
+            <div class="alert alert-error fade in">
+              <a class="close" data-dismiss="alert" href="#">&times;</a>
+              <p><%= msg %></p>
+            </div>
+          <% end -%>
+        <% end %>
+      <div class="span6 offset3 well">
+        <%= yield :layout %>
       </div>
     </div>
   </div>

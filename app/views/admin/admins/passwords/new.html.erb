@@ -1,9 +1,9 @@
-<h2>Olvidaste el Password?</h2>
+<h3>Olvidaste el Password?</h3>
 
 <%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post, :class => "form-vertical"}) do |f| %>
  
   <%= f.input :email, :required => true %>
-  <%= f.button :submit, "Enviame Instrucciones para cambiar el password", :class => "btn-primary" %>
+  <%= f.button :submit, "Enviame Instrucciones para cambiar el password", :class => "btn btn-primary" %>
 
 <% end %>
 <%= render :partial => "devise/shared/links" %>
