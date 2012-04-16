@@ -26,10 +26,13 @@ $ ->
     ,pane: "floatPane"
     ,enableEventPropagation: false
 
+$ ->
+  $('#MiBanner').carousel('cycle')
 
-$('#MiBanner').carousel('cycle')
+  $('#InfoBanner').carousel('cycle')
 
-$('#InfoBanner').carousel('cycle')
+  $('#MiTab').tab('show')
 
-$('#MiTab').tab('show')
+$ ->
+  $('.dropdown-toggle').dropdown()
 

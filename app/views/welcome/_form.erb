@@ -1,5 +1,7 @@
-<%= form_tag "/auth/identity/callback", :class => 'navbar-form pull-right' do %>
-  <%= email_field_tag :auth_key, nil, :class => "input-small", :placeholder => "email" %>
-  <%= password_field_tag :password, nil, :class => "input-small", :placeholder => "password" %>
-  <%= submit_tag "Login", :class => "btn small primary" %>
+<%= form_tag "/auth/identity/callback", :class => 'form-inline' do %>
+  <label>Email:</label>
+  <%= email_field_tag :auth_key, nil, :class => "input-small", :placeholder => "email", :class => "span3" %>
+  <label>Password</label>
+  <%= password_field_tag :password, nil, :class => "input-small", :placeholder => "password", :class => "span3" %>
+  <%= submit_tag "Login", :class => "btn btn-primary" %>
 <% end %>
