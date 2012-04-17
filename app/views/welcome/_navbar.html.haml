@@ -1,0 +1,33 @@
+#mainmenu.navbar.navbar-fixed-top
+  .navbar-inner
+    .container-fluid
+      - if current_user
+        .nav-collapse
+          = render :partial => "welcome/menu_loggued"
+      - else
+        %a.btn.btn-navbar{:data => {:toggle =>"collapse", :target => ".nav-collapse"}}
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        = link_to 'Webreserva', root_path, :class => "brand"
+        .nav-collapse
+          %ul.nav
+            %li.dropdown.active
+              %a.dropdown-toggle{:data => {:toggle => "dropdown"}, :href => "#menu1"}
+                Social Login
+                %b.caret
+              %ul.dropdown-menu#social
+                = render :partial => "social_login"
+            %li
+              = link_to "Registrarse", new_identity_path
+        %ul.nav.pull-right
+          %li.dropdown#menu3
+            %a.dropdown-toggle{:data => {:toggle => "dropdown"}, :href => "#menu3"}
+              LOGIN
+              %b.caret
+            %ul.dropdown-menu#login
+              %li
+                %div
+                  %bLogin
+                    to manage your account
+                = render :partial =>  'welcome/form'

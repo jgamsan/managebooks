@@ -1,6 +1,6 @@
 <%= form_tag "/auth/identity/callback", :class => 'form-inline', :id => "lm", :target => "_top" do %>
   <label>Email:</label>
-  <%= email_field_tag :auth_key, nil, :class => "input-small", :placeholder => "email", :class => "span3" %>
+  <%= email_field_tag :auth_key, nil, :class => "input-small", :placeholder => "email", :class => "span2" %>
   <label>Password</label>
   <%= password_field_tag :password, nil, :class => "input-small", :placeholder => "password", :class => "span2" %>
   <%= submit_tag "Login", :class => "btn btn-primary" %>

@@ -28,11 +28,18 @@ $ ->
 
 $ ->
   $('#MiBanner').carousel('cycle')
-
+$ ->
   $('#InfoBanner').carousel('cycle')
-
+$ ->
   $('#MiTab').tab('show')
 
 $ ->
-  $('.dropdown-toggle').dropdown()
+  $('#menu1').dropdown()
+$ ->
+  $('#login').dropdown()
+    
+$ ->
+  $('.dropdown-menu').find('form').click (e)->
+    e.stopPropagation()
+
 

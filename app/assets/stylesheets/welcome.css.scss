@@ -25,7 +25,7 @@ li.resorts {
 #mapCanvas img {
   max-width: none;
 }
-body { padding-top: 90px; }
+body { padding-top: 100px; }
 
 ul#login {
   width: 340px;
@@ -45,4 +45,16 @@ form#lm {
     width: 75px;
   }
 }
-
+#sub {
+  height: 50px;
+  width: 100%;
+  position: fixed;
+  background: #d9dad5;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 1030;
+}
+#mainmenu {
+  top:50px;
+}
