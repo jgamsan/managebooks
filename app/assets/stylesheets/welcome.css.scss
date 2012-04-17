@@ -26,3 +26,23 @@ li.resorts {
   max-width: none;
 }
 body { padding-top: 90px; }
+
+ul#login {
+  width: 340px;
+  max-width: 340px;
+  li div {
+    padding: 0 20px;
+    margin: 12px 0;
+  }
+}
+form#lm {
+  padding:12px 20px;
+  background: #f5f5f5;
+  margin: 12px 0;
+  border-top: 1px solid #b4b6ac;
+  border-bottom: 1px solid #b4b6ac;
+  label {
+    width: 75px;
+  }
+}
+
