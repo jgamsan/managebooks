@@ -29,7 +29,11 @@
 
   <div class="container-fluid">
     <div class="row-fluid">
-      <%= render :partial => 'situation' %>  
+      <div class="span3">
+        <div class="well">
+          <%= render :partial => 'situation' %>
+        </div>
+      </div>
       <%= render :partial => "info_banner" %>
       <%= render :partial => "sub" %>
     </div>
@@ -50,6 +54,7 @@
                           },
           :markers => { :data => @json, "options" => {"custom_infowindow_class" => "yellow", "do_clustering" => true}})%>
         </div>
+        <%= render :partial => 'preview' %>
         <footer>
           <p>&copy; WebLink Technologies.ltd 2012</p>
           <%= yield :scripts %>

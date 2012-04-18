@@ -1,0 +1,7 @@
+%h5 Categorias
+%ul
+  - @categorias.each do |categoria|
+    %li.category
+      = image_tag categoria.icon.url
+      = link_to categoria.name, {:controller => "welcome", :action => "bycategory", :id => categoria.id }, :remote => true, :class => "replace_markers"
+

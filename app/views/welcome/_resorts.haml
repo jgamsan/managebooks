@@ -1,0 +1,9 @@
+%h5 Reservas Disponibles
+%ul
+  - @resorts.each do |resort|
+    %li.resorts
+      - if current_user
+        = link_to resort.name, {:controller => "books", :action => "view_daily", :id => resort.id}, :remote => true
+      - else
+        = resort.name
+
