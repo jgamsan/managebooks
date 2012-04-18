@@ -1,9 +1,0 @@
-<h5>Categorias</h5>
-<ul>
-  <% @categorias.each do |categoria| %>
-    <li class="category">
-      <%= image_tag categoria.icon.url %>
-      <%= link_to categoria.name, {:controller => "welcome", :action => "bycategory", :id => categoria.id }, :remote => true, :class => "replace_markers" %>
-    </li>
-  <% end %>
-</ul>
