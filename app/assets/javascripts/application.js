@@ -5,4 +5,5 @@
 //= require gmaps4rails/all_apis.js
 //= require bootstrap
 //= require welcome
+//= require books
 
