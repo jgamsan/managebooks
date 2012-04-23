@@ -37,9 +37,17 @@ $ ->
   $('#menu1').dropdown()
 $ ->
   $('#login').dropdown()
-    
+
 $ ->
   $('.dropdown-menu').find('form').click (e)->
     e.stopPropagation()
 
-
+$ ->
+  $('input#extra_tokens_ids_').click ->
+    model = $('#services tr:eq(1) td:eq(3)').text()
+    initial = parseInt(model.replace(" €", ""))
+    total = 0
+    $("#services tr").filter(':has(:checkbox:checked)').each ->
+      colValues = $(this).find('td:eq(3)').text()
+      total += parseInt(colValues.replace(" €", ""))
+    $('#total').html((total + initial) + " €")

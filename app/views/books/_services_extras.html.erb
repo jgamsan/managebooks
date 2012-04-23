@@ -33,7 +33,7 @@
     <% end -%>
     <tr style="background: #c2cecf">
       <td colspan=3 style="text-align: center">Total</td>
-      <td id="total"><%= number_to_currency(@total) %></td>
+      <td><div id="total"><%= number_to_currency(@total) %></div></td>
     </tr>
   </table>
   <%= submit_tag 'Solicitar', :class => 'btn-primary' %>
