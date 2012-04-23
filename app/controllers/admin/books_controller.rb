@@ -3,9 +3,9 @@ class Admin::BooksController < Admin::BaseController
   before_filter :get_store, :only => [:new, :create, :update_day_selected]
   def index
    if current_admin_admin.role == 1
-     @books = Book.page params[:page]
+     @books = Book.order("day desc").page params[:page]
    else
-     @books = Book.storeadmin(current_admin_admin.id).page params[:page]
+     @books = Book.storeadmin(current_admin_admin.id).order("day desc").page params[:page]
    end
 
    respond_to do |format|

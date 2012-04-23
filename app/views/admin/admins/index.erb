@@ -6,7 +6,7 @@
         <th>Nombre</th>
         <th>Email</th>
         <th>Role</th>
-        <th>Status</th>
+        <th>Negocio</th>
         <th></th>
         <th></th>
       </tr>
@@ -15,7 +15,7 @@
           <td><%= admin.nombre_completo %></td>
           <td><%= admin.email %></td>
           <td><%= Admin::ROLES[admin.role - 1][0] %></td>
-          <td><%= admin.status %></td>
+          <td><%= admin.store.name unless admin.role == 1 %></td>
           <td><%= link_to "Modificar", edit_admin_admin_path(admin), :class => 'btn btn-mini' %></td>
           <td><%= link_to "Borrar", admin_admin_path(admin), :confirm => 'Estas Seguro?', :method => :delete, :class => 'btn btn-mini btn-danger' %></td>
         </tr>

@@ -1,7 +1,7 @@
 <p>Hola <%= @cliente.name %>!</p>
 
 <p>El <%= l Time.now, :format => "%a, %d de %B de %Y,a las %H horas %M minutos" %> ha efectuado una
-  Reserva en la Aplicacion Webreserva.</p>
+  Reserva en la Aplicacion Webreserva</p>
 
 <p>A continuacion le informamos de los Datos de la misma</p>
 
@@ -11,6 +11,15 @@
   <li>Recurso Reservado: <%= @reserva.interval.resort.name.titleize %></li>
   <li>Dia: <%= l @reserva.day, :format => "%a, %d de %B de %Y" %></li>
   <li>Hora: <%= @reserva.interval.intervalo %></li>
+  <li>Precio Reserva: <%= number_to_currency(@reserva.interval.resort.cost) %></li>
+  <% unless @reserva.service_extras.empty? -%>
+    <li>Servicios Extras:</li>
+    <ul>
+      <% @reserva.service_extras.each do |item| -%>
+        <li><%= item.name %>: <%= number_to_currency(item.cost) %>  </li>
+      <% end -%>
+    </ul>
+  <% end -%>
 </ul>
 
 <p>Gracias por efectuar la reserva con Webreserva</p>
