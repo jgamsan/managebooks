@@ -15,7 +15,7 @@ set :use_sudo, false
 set :deploy_via, :remote_cache
 set :deploy_to, "/home/galiclick/public_html/#{application}"
 set :rails_env, "production"
-
+set :keep_releases, 2
 task :demo do
   role :web, "#{domain}:53877"
   role :app, "#{domain}:53877"
