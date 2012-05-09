@@ -56,6 +56,8 @@ group :development do
   gem "hirb"
   gem "awesome_print"
   gem 'capistrano-unicorn'
+  gem 'rvm-capistrano'
+  gem 'letter_opener'
 end
 group :test do
   # Pretty printed test output
