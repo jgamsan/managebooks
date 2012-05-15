@@ -15,7 +15,7 @@ group :assets do
   gem 'coffee-rails'
   gem 'uglifier'
   gem 'haml'
-  gem 'bootstrap-sass', '~> 2.0.2'
+  gem 'bootstrap-sass'
   gem 'execjs'
   gem 'therubyracer'
 end
