@@ -1,10 +1,14 @@
-%ul.nav
-  %li
-    = link_to image_tag("info_16x32.png", :alt => "Reservas", :title => "Reservas Vigentes"), books_list_books_path, :remote => true
-  %li
-    = link_to image_tag("unlock_fill_24x32.png", :alt => "Logout", :title => "Salir"), logout_path
-
-%p.navbar-text.pull-right
-  = link_to image_tag("user_24x32.png", :alt => "Usuario"), '#'
-  = current_user.name
+.btn-group.pull-right
+  %a.btn.dropdown.toggle{:data => {:toggle => "dropdown"}, :href => "#"}
+    %i.icon-user
+    = current_user.name
+    %span.caret
+  %ul.dropdown-menu
+    %li
+      = link_to "Salir", logout_path
+.btn-group.pull-right
+  = link_to books_list_books_path, :remote => true, :class => "btn" do
+    %i.icon-shopping-cart
+    Reservas Pendientes
+  
 
