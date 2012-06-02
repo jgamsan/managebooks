@@ -1,5 +1,5 @@
 require "rvm/capistrano"
-set :rvm_ruby_string, 'ruby-1.9.3-p125'
+set :rvm_ruby_string, 'ruby-1.9.3-p194'
 require "bundler/capistrano"
 set :application, "reservas"
 set :domain, "mail.galiclick.com"
@@ -15,9 +15,9 @@ set :deploy_to, "/home/galiclick/public_html/#{application}"
 set :rails_env, "production"
 set :keep_releases, 2
 task :demo do
-  role :web, "#{domain}:53877"
-  role :app, "#{domain}:53877"
-  role :db,  "#{domain}:53877", :primary=>true
+  role :web, "#{domain}:54101"
+  role :app, "#{domain}:54101"
+  role :db,  "#{domain}:54101", :primary=>true
 end
 
 task :main do

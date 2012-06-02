@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.3'
+gem 'rails', '3.2.5'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -11,7 +11,7 @@ gem 'pg'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails', '~> 3.1'
+  gem 'sass-rails'
   gem 'coffee-rails'
   gem 'uglifier'
   gem 'haml'
@@ -40,6 +40,7 @@ gem 'rails-i18n'
 # Use unicorn as the web server
 # gem 'unicorn'
 gem 'devise'
+gem 'devise-encryptable'
 gem 'simple_form'
 # Deploy with Capistrano
 gem 'capistrano'
