@@ -40,6 +40,7 @@ gem 'rails-i18n'
 # Use unicorn as the web server
 # gem 'unicorn'
 gem 'devise'
+gem 'devise-encryptable'
 gem 'simple_form'
 # Deploy with Capistrano
 gem 'capistrano'
@@ -56,6 +57,8 @@ group :development do
   gem "hirb"
   gem "awesome_print"
   gem 'capistrano-unicorn'
+  gem 'rvm-capistrano'
+  gem 'letter_opener'
 end
 group :test do
   # Pretty printed test output
