@@ -1,6 +1,4 @@
-require "rvm/capistrano"
-set :rvm_ruby_string, 'ruby-1.9.3-p194'
-require "bundler/capistrano"
+set :rvm_ruby_string, ENV['GEM_HOME'].gsub(/.*\//,"")
 set :application, "reservas"
 set :domain, "mail.galiclick.com"
 set :user, "galiclick"
@@ -34,4 +32,5 @@ end
 after "deploy:create_symlink","customs:symlink"
 after "deploy", "deploy:cleanup"
 require 'capistrano-unicorn'
-
+require "rvm/capistrano"
+require "bundler/capistrano"
