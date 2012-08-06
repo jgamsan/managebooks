@@ -19,9 +19,9 @@ task :demo do
 end
 
 task :main do
-  role :web, "#{domain}:58378"
-  role :app, "#{domain}:58378"
-  role :db,  "#{domain}:58378", :primary=>true
+  role :web, "#{domain}:54102"
+  role :app, "#{domain}:54102"
+  role :db,  "#{domain}:54102", :primary=>true
 end
 
 namespace :customs do
