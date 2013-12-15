@@ -8,8 +8,8 @@
 <body>
   <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
-      <div class="container-fluid">
-        <div class="nav-collapse">
+      <div class="container">
+        <div class="navbar-collapse">
           <ul class="nav">
             <li><%= link_to 'Salir', destroy_admin_admin_session_path %></li>
           </ul>
@@ -21,15 +21,15 @@
       </div>
     </div>
   </div>
-  <div class="container-fluid" style="padding-top:90px">
-    <div class="row-fluid">
-      <div class="span3">
+  <div class="container" style="padding-top:90px">
+    <div class="row">
+      <div class="col-md-3">
         <div class="well sidebar-nav">
           <%= render :partial => "admin/dashboard/sidebard" %>
         </div>
       </div>
-      <div class="span9">
-        <div class="hero-unit">
+      <div class="col-md-9">
+        <div class="jumbotron">
           <% if notice %>
             <div class="alert alert-success fade in">
             <a class="close" href="#" data-dismiss="alert">×</a>

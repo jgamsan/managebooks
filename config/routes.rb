@@ -15,6 +15,11 @@ Managebooks::Application.routes.draw do
 
   resources :books
   resources :clients
+  resources :stores do
+    collection do
+      get 'list_available'
+    end
+  end
 
   resources :identities
 
@@ -97,7 +102,7 @@ Managebooks::Application.routes.draw do
         get 'range'
       end
     end
-    
+
     resources :resorts do
       resources :offers
     end

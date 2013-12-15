@@ -1,10 +1,6 @@
 //= require_self
 //= require jquery
 //= require jquery_ujs
-//= require jquery-ui
-//= require admin/jquery.ui.timepicker
-//= require admin/jquery.ui.datepicker-es
-//= require gritter
 //= require bootstrap
 //= require admin/jquery.tokeninput
 //= require admin/base

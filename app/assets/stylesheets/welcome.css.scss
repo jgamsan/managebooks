@@ -2,59 +2,97 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-li.category {
-  list-style: none;
-}
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
 
-li.stores {
-  list-style: none;
-}
-
-li.resorts {
-  list-style: none;
-  background: url(image_path("tag.png")) left center no-repeat;
-  padding-left: 20px;
-  height: 30px;
-  padding-top: 5px;
-}
-
-.yellow { border: 1px solid black; margin-top: 8px; background: yellow; padding: 5px; }
-
-.altura { z-index: 0;}
-
-.gmaps4rails_map img {
+/* Carousel base class */
+#map img {
   max-width: none;
 }
-body { padding-top: 100px; }
+#map label {
+  width: auto; display:inline;
+}
 
-ul#login {
-  width: 340px;
-  max-width: 340px;
-  li div {
-    padding: 0 20px;
-    margin: 12px 0;
+
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+
+/* Pad the edges of the mobile views a bit */
+.marketing {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.marketing h2 {
+  font-weight: normal;
+}
+.marketing .col-lg-4 p {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+
+/* Featurettes
+------------------------- */
+
+.featurette-divider {
+  margin: 80px 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 768px) {
+
+  /* Remove the edge padding needed for mobile */
+  .marketing {
+    padding-left: 0;
+    padding-right: 0;
   }
-}
-form#lm {
-  padding:12px 20px;
-  background: #f5f5f5;
-  margin: 12px 0;
-  border-top: 1px solid #b4b6ac;
-  border-bottom: 1px solid #b4b6ac;
-  label {
-    width: 75px;
+
+  /* Navbar positioning foo */
+  .navbar-wrapper {
+    margin-top: 20px;
   }
+  .navbar-wrapper .container {
+    padding-left:  15px;
+    padding-right: 15px;
+  }
+  .navbar-wrapper .navbar {
+    padding-left:  0;
+    padding-right: 0;
+  }
+
+  /* The navbar becomes detached from the top, so we round the corners */
+  .navbar-wrapper .navbar {
+    border-radius: 4px;
+  }
+
+  /* Bump up size of carousel content */
+
+  .featurette-heading {
+    font-size: 50px;
+  }
+
 }
-#sub {
-  height: 50px;
-  width: 100%;
-  position: fixed;
-  background: #d9dad5;
-  left: 0;
-  right: 0;
-  top: 0;
-  z-index: 1030;
-}
-#mainmenu {
-  top:50px;
+
+@media (min-width: 992px) {
+  .featurette-heading {
+    margin-top: 120px;
+  }
 }

@@ -1,5 +1,5 @@
 class Store < ActiveRecord::Base
-  acts_as_gmappable
+  after_validation :geocode
   has_many :service_extras
   belongs_to :category
   has_many :resorts
@@ -18,24 +18,39 @@ class Store < ActiveRecord::Base
     where{admin_id.eq value}
   }
 
-  def self.infowindow(tienda)
-    @store = Store.find(tienda)
-    @resorts = @store.resorts
+  def as_json(options = {})
+    {
+      latitude: self.latitude,
+      longitude: self.longitude,
+      name: self.name,
+      address: self.full_address,
+      icon: self.category.icon.url,
+      information: self.information
+    }
+  end
+
+  def information
+    store = Store.find(self.id)
+    resorts = store.resorts
     info = ""
-    info << @store.address + "<br/>" unless @store.address.nil?
-    info << @store.town.name + "<br/>" unless @store.town_id.nil?
+    info << store.address + "<br/>" unless store.address.nil?
+    info << store.town.name + "<br/>" unless store.town_id.nil?
     info << "Reservas Disponibles:<br/>"
-    @resorts.each do |resort|
+    resorts.each do |resort|
       info << resort.name + ":" + resort.intervals.count.to_s + " Reservas disponibles<br/>"
     end
     return info
   end
 
   def gmaps4rails_sidebar
-  "<span>#{name}</span>"
-end
+    "<span>#{name}</span>"
+  end
 
   def gmaps4rails_address
+    "#{self.address}, #{self.zip_code}"
+  end
+
+  def full_address
     "#{self.address}, #{self.zip_code}"
   end
 

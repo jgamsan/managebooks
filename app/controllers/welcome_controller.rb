@@ -2,10 +2,10 @@ class WelcomeController < ApplicationController
   layout 'application'
 
   def index
-    @categorias = Category.all
-    @stores = Store.last_stores
-    @provincias = Province.all
-    @json = all_stores
+    # @categorias = Category.all
+    # @stores = Store.last_stores
+    # @provincias = Province.all
+    # @json = all_stores
   end
 
   def bycategory
