@@ -1,6 +1,10 @@
 source 'http://rubygems.org'
 
+<<<<<<< HEAD
 gem 'rails', '3.2.16'
+=======
+gem 'rails', '3.2.8'
+>>>>>>> d22ed86ed62f59f84486908512fb57f2adfb7f85
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -28,6 +32,7 @@ gem 'omniauth-identity'
 gem 'omniauth-linkedin'
 gem 'omniauth-windowslive'
 gem 'carrierwave'
+gem 'turbo-sprockets-rails3'
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby'
 gem 'i18n'
@@ -58,4 +63,3 @@ group :test do
   # Pretty printed test output
   gem 'turn', '0.8.2', :require => false
 end
-
